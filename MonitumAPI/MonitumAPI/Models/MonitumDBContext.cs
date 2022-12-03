@@ -25,7 +25,7 @@ namespace MonitumAPI.Models
         public virtual DbSet<LogsMetrica> LogsMetricas { get; set; }
         public virtual DbSet<Metrica> Metricas { get; set; }
         public virtual DbSet<Sala> Salas { get; set; }
-
+     
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
