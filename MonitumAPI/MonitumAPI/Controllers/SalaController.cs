@@ -49,20 +49,20 @@ namespace MonitumAPI.Controllers
         [HttpGet]
         public IActionResult GetSalasByEstabelecimento(int idEstabelecimento)
         {
+            using (var context = new MonitumDBContext())
+            {
+                try
+                {
 
-                try { 
-                    using (var context = new MonitumDBContext())
-                    {
+                    Estabelecimento est = context.Estabelecimentos.Where(e =>
+                    e.IdEstabelecimento == idEstabelecimento).FirstOrDefault();
+                    if (est == null) BadRequest();
 
-                        Estabelecimento est = context.Estabelecimentos.Where(e => 
-                        e.IdEstabelecimento == idEstabelecimento).FirstOrDefault();
-                        if (est == null) BadRequest();
+                    Sala sal = context.Salas.Where(s =>
+                    s.IdEstabelecimento == est.IdEstabelecimento).FirstOrDefault();
 
-                        Sala sal = context.Salas.Where(s => 
-                        s.IdEstabelecimento == est.IdEstabelecimento).FirstOrDefault();
+                    return new JsonResult(sal);
 
-                        return new JsonResult(sal);
-                    }
 
                 }
                 catch (Exception e)
@@ -70,7 +70,43 @@ namespace MonitumAPI.Controllers
                     Console.WriteLine(e);
                     return null;
                 }
+            }
+                
            
+        }
+
+        [HttpGet]
+
+        public IActionResult GetMetricaById(int idMetrica) 
+        {
+
+            using(var context = new MonitumDBContext())
+            {
+                try
+                {
+                    List<Sala> salas = context.Salas.ToList();
+                    List<LogsMetrica> logsMetricas = context.LogsMetricas.ToList();
+
+                    var x = salas.Join(logsMetricas, s => s.IdSala, lm => lm.IdSala, (s, lm) => new
+                    {
+                        s.IdEstabelecimento,
+                        s.IdEstado,
+                        lm.IdLog,
+                        lm.IdMetrica,
+                        lm.ValorMetrica,
+                        lm.DataHora
+
+                    }).ToList();
+
+                    return new JsonResult(x.Where(x=> x.IdMetrica == idMetrica).ToList());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return null;
+                }
+            }
+                
         }
 
         #endregion
