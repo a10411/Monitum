@@ -30,7 +30,7 @@ namespace MonitumAPI.Controllers
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    var gestor = new Gestor();
+                    Gestor gestor = new Gestor();
 
                     gestor.IdGestor = Convert.ToInt32(rdr["id_gestor"]);
                     gestor.Email = rdr["email"].ToString();
@@ -40,7 +40,10 @@ namespace MonitumAPI.Controllers
 
 
                 }
+                rdr.Close();
+                con.Close();
             }
+            
             return new JsonResult(gestorList);
 
             
