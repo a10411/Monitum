@@ -233,6 +233,16 @@
             "rid": "win"
           }
         }
+      },
+      "MonitumBOL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MonitumBOL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MonitumBOL.dll": {}
+        }
       }
     }
   },
@@ -674,10 +684,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MonitumBOL/1.0.0": {
+      "type": "project",
+      "path": "../MonitumBOL/MonitumBOL.csproj",
+      "msbuildProject": "../MonitumBOL/MonitumBOL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MonitumBOL >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "System.Data.SqlClient >= 4.8.5"
     ]
@@ -713,7 +729,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumBOL\\MonitumBOL.csproj": {
+              "projectPath": "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumBOL\\MonitumBOL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

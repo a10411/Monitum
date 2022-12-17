@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MonitumAPI.Models;
 using System.Data;
 using System.Data.SqlClient;
+using MonitumBOL.Models;
 
 namespace MonitumAPI.Controllers
 {
