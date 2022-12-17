@@ -27,7 +27,7 @@ namespace MonitumAPI.Controllers
         /// <summary>
         /// Request GET relativo aos Gestores
         /// </summary>
-        /// <returns>Retorna todos os registos de Gestores disponíveis na Base de Dados</returns>
+        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Gestores</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllGestores()
         {
