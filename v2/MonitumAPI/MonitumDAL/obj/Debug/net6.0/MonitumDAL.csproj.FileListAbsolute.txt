@@ -1,0 +1,15 @@
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.deps.json
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumBOL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumBOL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.AssemblyReference.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.AssemblyInfoInputs.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.AssemblyInfo.cs
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.CoreCompileInputs.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.CopyComplete
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\refint\MonitumDAL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\ref\MonitumDAL.dll

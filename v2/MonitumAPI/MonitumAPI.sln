@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitumAPI", "MonitumAPI\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumBOL", "MonitumBOL\MonitumBOL.csproj", "{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumDAL", "MonitumDAL\MonitumDAL.csproj", "{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumBLL", "MonitumBLL\MonitumBLL.csproj", "{0C9E02A5-686D-44C8-94F6-85F17AC8991B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

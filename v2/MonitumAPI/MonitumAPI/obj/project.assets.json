@@ -243,6 +243,20 @@
         "runtime": {
           "bin/placeholder/MonitumBOL.dll": {}
         }
+      },
+      "MonitumDAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MonitumBOL": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/MonitumDAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MonitumDAL.dll": {}
+        }
       }
     }
   },
@@ -689,11 +703,17 @@
       "type": "project",
       "path": "../MonitumBOL/MonitumBOL.csproj",
       "msbuildProject": "../MonitumBOL/MonitumBOL.csproj"
+    },
+    "MonitumDAL/1.0.0": {
+      "type": "project",
+      "path": "../MonitumDAL/MonitumDAL.csproj",
+      "msbuildProject": "../MonitumDAL/MonitumDAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "MonitumBOL >= 1.0.0",
+      "MonitumDAL >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "System.Data.SqlClient >= 4.8.5"
     ]
@@ -732,6 +752,9 @@
           "projectReferences": {
             "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumBOL\\MonitumBOL.csproj": {
               "projectPath": "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumBOL\\MonitumBOL.csproj"
+            },
+            "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumDAL\\MonitumDAL.csproj": {
+              "projectPath": "D:\\Coding\\GitHub Projects\\Monitum\\v2\\MonitumAPI\\MonitumDAL\\MonitumDAL.csproj"
             }
           }
         }

@@ -17,33 +17,10 @@ namespace MonitumAPI.Controllers
         }   
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            List<Gestor> gestorList = new List<Gestor>();
-            string CS = _configuration.GetConnectionString("WebApiDatabase");
-            using (SqlConnection con = new SqlConnection(CS))
-            {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Gestor", con);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    Gestor gestor = new Gestor();
-
-                    gestor.IdGestor = Convert.ToInt32(rdr["id_gestor"]);
-                    gestor.Email = rdr["email"].ToString();
-                    gestor.Password = rdr["password"].ToString();
-
-                    gestorList.Add(gestor);
-
-
-                }
-                rdr.Close();
-                con.Close();
-            }
-            
+            // pass to BLL! 
+            List<Gestor> gestorList = await MonitumDAL.GestorService.GetAllGestores(); 
             return new JsonResult(gestorList);
 
             
