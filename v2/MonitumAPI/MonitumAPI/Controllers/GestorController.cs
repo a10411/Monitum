@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using System.Data.SqlClient;
-using MonitumBOL.Models;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 
