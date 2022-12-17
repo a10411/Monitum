@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using MonitumBOL.Models;
+using MonitumBLL.Logic;
 
 namespace MonitumAPI.Controllers
 {
@@ -19,11 +20,8 @@ namespace MonitumAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            // pass to BLL! 
-            List<Gestor> gestorList = await MonitumDAL.GestorService.GetAllGestores(); 
-            return new JsonResult(gestorList);
-
-            
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            return new JsonResult(GestorLogic.GetGestores(CS));
         }
     }
 }

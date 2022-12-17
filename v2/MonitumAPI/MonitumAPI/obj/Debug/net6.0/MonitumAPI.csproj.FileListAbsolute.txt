@@ -35,3 +35,9 @@ D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Moni
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumBOL.pdb
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumDAL.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumDAL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumBLL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumBLL.pdb

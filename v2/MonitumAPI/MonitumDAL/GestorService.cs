@@ -7,11 +7,9 @@ namespace MonitumDAL
 {
     public class GestorService
     {
-        // COLOCAR ASYNC
-        public static async Task<List<Gestor>> GetAllGestores()
+        public static async Task<List<Gestor>> GetAllGestores(string conString)
         {
             var gestorList = new List<Gestor>();
-            string conString = DbAccess.ConString();
             using (SqlConnection con = new SqlConnection(conString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Gestor", con);

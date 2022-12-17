@@ -1,0 +1,17 @@
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumBLL.deps.json
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumBLL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumBLL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumBOL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumDAL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumBOL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\bin\Debug\net6.0\MonitumDAL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.csproj.AssemblyReference.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.AssemblyInfoInputs.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.AssemblyInfo.cs
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.csproj.CoreCompileInputs.cache
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.csproj.CopyComplete
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\refint\MonitumBLL.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\MonitumBLL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumBLL\obj\Debug\net6.0\ref\MonitumBLL.dll

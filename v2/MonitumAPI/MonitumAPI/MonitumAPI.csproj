@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonitumBLL\MonitumBLL.csproj" />
     <ProjectReference Include="..\MonitumBOL\MonitumBOL.csproj" />
     <ProjectReference Include="..\MonitumDAL\MonitumDAL.csproj" />
   </ItemGroup>
