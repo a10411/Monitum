@@ -13,3 +13,18 @@ D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\Moni
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\refint\MonitumDAL.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.pdb
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\ref\MonitumDAL.dll
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.deps.json
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.dll
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumDAL.pdb
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumBOL.dll
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\bin\Debug\net6.0\MonitumBOL.pdb
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.AssemblyReference.cache
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.AssemblyInfoInputs.cache
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.AssemblyInfo.cs
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.CoreCompileInputs.cache
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.csproj.CopyComplete
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.dll
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\refint\MonitumDAL.dll
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\MonitumDAL.pdb
+C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumDAL\obj\Debug\net6.0\ref\MonitumDAL.dll
