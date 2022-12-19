@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonitumBOL.Models
 {
-    internal class Logs_Metricas
+    public class Logs_Metricas
     {
         public int IdLog { get; set; }
         public int IdSala { get; set; }

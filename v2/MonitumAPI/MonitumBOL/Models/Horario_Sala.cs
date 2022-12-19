@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MonitumBOL.Models
 {
-    internal class Horario_Sala
+    public class Horario_Sala
     {
         public int IdHorario { get; set; }
         public int IdSala { get; set; }
