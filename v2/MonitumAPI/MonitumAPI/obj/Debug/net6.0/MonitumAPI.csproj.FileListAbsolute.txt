@@ -41,3 +41,4 @@ D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Micr
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumBLL.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumBLL.pdb
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
