@@ -9,8 +9,19 @@ using System.Threading.Tasks;
 
 namespace MonitumBLL.Logic
 {
+    /// <summary>
+    /// Classe que visa a implementação da parte de Business Logic Layer relativa à Sala
+    /// Estes métodos são consumidos pelo MonitumAPI (Layer API), e são responsáveis por abstrair a API de detalhes como o Business Object Layer e da obtenção dos dados no DAL
+    /// </summary>
     public class SalaLogic
     {
+        /// <summary>
+        /// Trata da parte lógica relativa à criação de uma sala na base de dados (sala que diz respeito a um estabelecimento
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (POST - Sala)
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados</param>
+        /// <param name="salaToAdd">Parâmetros da sala adicionar (idEstabelecimento, idEstado)</param>
+        /// <returns>Response com Status Code e mensagem (Status Code 200 caso sucesso, ou 500 INTERNAL SERVER ERROR caso tenha havido algum erro</returns>
         public static async Task<Response> AddSalaToEstabelecimento(string conString, Sala salaToAdd)
         {
             Response response = new Response();

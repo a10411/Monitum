@@ -9,8 +9,17 @@ using MonitumBOL.Models;
 
 namespace MonitumDAL
 {
+    /// <summary>
+    /// Class que visa implementar todos os métodos de Data Access Layer referentes à Sala
+    /// Isto é, todos os acessos à base de dados relativos à sala estarão implementados em funções implementadas dentro desta classe
+    /// </summary>
     public class SalaService
     {
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server e adicionar um registo de uma sala (adicionar uma sala relativa a um estabelecimento)
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
         public static async Task<Boolean> AddSala(string conString, Sala salaToAdd)
         {
             try
