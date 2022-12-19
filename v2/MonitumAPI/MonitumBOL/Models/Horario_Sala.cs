@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,15 @@ namespace MonitumBOL.Models
         public string DiaSemana { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }
+
+        public Horario_Sala(SqlDataReader rdr)
+        {
+            this.IdHorario = Convert.ToInt32(rdr["id_horario"]);
+            this.IdSala = Convert.ToInt32(rdr["id_sala"]);
+            this.DiaSemana = rdr["dia_semana"].ToString() ?? String.Empty;
+            this.HoraEntrada = Convert.ToDateTime(rdr["hora_entrada"]); // testar
+            this.HoraSaida = Convert.ToDateTime(rdr["hora_saida"]); // testar
+        }
 
     }
 }
