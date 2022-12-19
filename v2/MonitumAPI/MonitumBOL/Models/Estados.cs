@@ -8,5 +8,8 @@ namespace MonitumBOL.Models
 {
     internal class Estados
     {
+        public int IdEstado { get; set; }
+        public string Estado { get; set; }
+
     }
 }

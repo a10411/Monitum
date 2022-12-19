@@ -8,5 +8,9 @@ namespace MonitumBOL.Models
 {
     internal class Metricas
     {
+        public int IdMetrica { get; set; }
+        public string Nome { get; set; }
+        public string Medida { get; set; }
+
     }
 }

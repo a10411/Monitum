@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace MonitumBOL.Models
 {
     internal class Estabelecimento_Gestor
-    {
+    {   
+        public int IdEstabelecimento { get; set; }
+        public int IdGestor { get; set; }
+
     }
 }

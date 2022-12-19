@@ -8,5 +8,9 @@ namespace MonitumBOL.Models
 {
     internal class Estabelecimento
     {
+        public int IdEstabelecimento { get; set; }
+        public string Nome { get; set; }
+        public string Morada { get; set; }
+
     }
 }

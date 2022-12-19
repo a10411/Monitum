@@ -8,5 +8,11 @@ namespace MonitumBOL.Models
 {
     internal class Logs_Metricas
     {
+        public int IdLog { get; set; }
+        public int IdSala { get; set; }
+        public int IdMetrica { get; set; }
+        public int ValorMetrica { get; set; }
+        public DateTime DataHora { get; set; }
+
     }
 }
