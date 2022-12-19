@@ -31,7 +31,8 @@ namespace MonitumDAL
 
                     gestor.IdGestor = Convert.ToInt32(rdr["id_gestor"]);
                     gestor.Email = rdr["email"].ToString();
-                    gestor.Password = rdr["password"].ToString();
+                    gestor.Password_Hash = rdr["password_hash"].ToString();
+                    gestor.Password_Salt = rdr["password_salt"].ToString();
 
                     gestorList.Add(gestor);
 
