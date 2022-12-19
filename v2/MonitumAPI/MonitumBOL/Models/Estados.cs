@@ -12,6 +12,11 @@ namespace MonitumBOL.Models
         public int IdEstado { get; set; }
         public string Estado { get; set; }
 
+        public Estados()
+        {
+
+        }
+
         public Estados(SqlDataReader rdr)
         {
             this.IdEstado = Convert.ToInt32(rdr["id_estado"]);

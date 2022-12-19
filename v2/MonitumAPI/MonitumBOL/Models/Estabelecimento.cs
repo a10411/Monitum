@@ -13,6 +13,11 @@ namespace MonitumBOL.Models
         public string Nome { get; set; }
         public string Morada { get; set; }
 
+        public Estabelecimento()
+        {
+
+        }
+
         public Estabelecimento(SqlDataReader rdr)
         {
             this.IdEstabelecimento = Convert.ToInt32(rdr["id_estabelecimento"]);

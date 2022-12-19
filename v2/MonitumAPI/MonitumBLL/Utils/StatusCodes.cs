@@ -20,6 +20,7 @@ namespace MonitumBLL.Utils
         /// </summary>
         NOCONTENT = 204,
         UNAUTHORIZED = 401,
+        NOTFOUND = 404,
         INTERNALSERVERERROR = 500
     }
 }

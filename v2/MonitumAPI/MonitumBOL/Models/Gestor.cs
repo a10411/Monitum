@@ -9,7 +9,10 @@ namespace MonitumBOL.Models
         public string Password_Hash { get; set; }
         public string Password_Salt { get; set; }
 
-        
+        public Gestor()
+        {
+
+        }
 
         public Gestor(SqlDataReader rdr)
         {

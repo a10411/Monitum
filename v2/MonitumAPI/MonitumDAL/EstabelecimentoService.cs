@@ -28,12 +28,7 @@ namespace MonitumDAL
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Estabelecimento estabelecimento = new Estabelecimento();
-
-                    estabelecimento.IdEstabelecimento = Convert.ToInt32(rdr["id_establecimento"]);
-                    estabelecimento.Nome = rdr["nome"].ToString();
-                    estabelecimento.Morada = rdr["morada"].ToString();
-
+                    Estabelecimento estabelecimento = new Estabelecimento(rdr);
                     estabelecimentoList.Add(estabelecimento);
 
 

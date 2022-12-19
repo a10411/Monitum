@@ -13,6 +13,11 @@ namespace MonitumBOL.Models
         public string Nome { get; set; }
         public string Medida { get; set; }
 
+        public Metricas()
+        {
+
+        }
+
         public Metricas(SqlDataReader rdr)
         {
             this.IdMetrica = Convert.ToInt32(rdr["id_metrica"]);

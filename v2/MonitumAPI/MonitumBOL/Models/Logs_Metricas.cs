@@ -15,6 +15,11 @@ namespace MonitumBOL.Models
         public int ValorMetrica { get; set; }
         public DateTime DataHora { get; set; }
 
+        public Logs_Metricas()
+        {
+
+        }
+
         public Logs_Metricas(SqlDataReader rdr)
         {
             this.IdLog = Convert.ToInt32(rdr["id_log"]);

@@ -16,6 +16,11 @@ namespace MonitumBOL.Models
 
         public DateTime DataHora { get; set; }
 
+        public Comunicados()
+        {
+
+        }
+
         public Comunicados(SqlDataReader rdr)
         {
             this.IdComunicado = Convert.ToInt32(rdr["id_comunicado"]);
