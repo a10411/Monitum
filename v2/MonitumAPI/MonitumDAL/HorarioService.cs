@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonitumDAL
 {
-    internal class Horario
+    internal class HorarioService
     {
     }
 }

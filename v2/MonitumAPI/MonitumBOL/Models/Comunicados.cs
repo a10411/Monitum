@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonitumBOL.Models
 {
-    internal class Comunicados
+    public class Comunicados
     {
         public int IdComunicado { get; set; }
         public int IdSala { get; set; }
