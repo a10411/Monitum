@@ -27,16 +27,8 @@ namespace MonitumDAL
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Gestor gestor = new Gestor();
-
-                    gestor.IdGestor = Convert.ToInt32(rdr["id_gestor"]);
-                    gestor.Email = rdr["email"].ToString();
-                    gestor.Password_Hash = rdr["password_hash"].ToString();
-                    gestor.Password_Salt = rdr["password_salt"].ToString();
-
+                    Gestor gestor = new Gestor(rdr);
                     gestorList.Add(gestor);
-
-
                 }
                 rdr.Close();
                 con.Close();

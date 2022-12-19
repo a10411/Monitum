@@ -727,6 +727,9 @@
       },
       "System.Threading.Tasks.Extensions/4.5.1": {},
       "MonitumBOL/1.0.0": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.5"
+        },
         "runtime": {
           "MonitumBOL.dll": {}
         }
