@@ -34,7 +34,7 @@ namespace MonitumAPI.Controllers
             {
                 return StatusCode((int)response.StatusCode);
             }
-            return new JsonResult(GestorLogic.GetGestores(CS));
+            return new JsonResult(response);
             
         }
     }
