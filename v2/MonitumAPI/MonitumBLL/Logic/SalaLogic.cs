@@ -50,8 +50,39 @@ namespace MonitumBLL.Logic
             {
                 response.StatusCode = StatusCodes.SUCCESS;
                 response.Message = "Sucesso na obtenção dos dados";
-                response.Data = new JsonResult(salaList);
+                response.Data = salaList;
             }
+            return response;
+        }
+
+        // not finished
+        public static async Task<Response> GetMetrica(string conString, int idMetrica, int idSala)
+        {
+            Response response = new Response();
+            
+            try
+            {
+                Metricas metricas = await MonitumDAL.SalaService.GetMetricaBySala(conString, idMetrica, idSala);
+                if(metricas.IdMetrica == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Metrica was not found";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sucesso na obtenção dos dados";
+                    response.Data = metricas;
+                }
+                
+
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR; 
+                response.Message = e.ToString();
+            }
+            
             return response;
         }
     }

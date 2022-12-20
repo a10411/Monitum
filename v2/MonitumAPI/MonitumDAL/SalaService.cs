@@ -71,5 +71,34 @@ namespace MonitumDAL
                 throw;
             }
         }
+
+        public static async Task<Metricas> GetMetricaBySala(string conString, int idMetrica, int idSala)
+        {
+            try
+            {
+                var metrica = new Metricas();
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    SqlCommand cmd = new SqlCommand($"select TOP 1 * FROM Logs_Metricas INNER JOIN Metricas ON Metricas.id_metrica = {idMetrica} where id_sala = {idSala} and Logs_Metricas.id_metrica = {idMetrica}  order by id_log desc ", con);
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Metricas metricas = new Metricas(rdr);
+                    }
+                    rdr.Close();
+                    con.Close();
+                }
+                return metrica;
+            }
+            catch (Exception e) 
+            {
+                throw;
+            }
+            
+        }
     }
+
+
 }

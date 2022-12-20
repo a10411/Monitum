@@ -43,7 +43,7 @@ namespace MonitumAPI.Controllers
             }
             return new JsonResult(response);
 
-            
+
         }
 
         [HttpGet]
@@ -51,9 +51,22 @@ namespace MonitumAPI.Controllers
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await SalaLogic.GetSalas(CS, id);
-            if(response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        [HttpGet]
+        [Route("{idMetrica}")]
+        public async Task<IActionResult>  GetMetricaBySala(int idSala, int idMetrica)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.GetMetrica(CS, idSala, idMetrica);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);    
             }
             return new JsonResult(response);
         }
