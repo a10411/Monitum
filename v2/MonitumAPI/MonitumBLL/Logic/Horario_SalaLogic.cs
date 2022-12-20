@@ -35,5 +35,24 @@ namespace MonitumBLL.Logic
             }
             return response;
         }
+
+        public static async Task<Response> AddHorarioToSala(string conString, Horario_Sala horarioToAdd)
+        {
+            Response response = new Response();
+            try
+            {
+                if (await Horario_SalaService.AddHorario(conString, horarioToAdd))
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Horario was added to sala.";
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
     }
 }
