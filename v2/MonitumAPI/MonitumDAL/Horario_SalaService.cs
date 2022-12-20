@@ -59,12 +59,12 @@ namespace MonitumDAL
             }
         }
 
-        // CHANGE
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server e adicionar um registo de um comunicado
+        /// Método que visa adicionar um horário a uma sala de um estabelecimento
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
-        /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
+        /// <param name="horarioToAdd">Horário a adicionar à sala</param>
+        /// <returns>True se tudo tiver corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</returns>
         public static async Task<Boolean> AddHorario(string conString, Horario_Sala horarioToAdd)
         {
             try
@@ -92,6 +92,30 @@ namespace MonitumDAL
             }
 
 
+        }
+
+
+        public static async Task<Boolean> DeleteHorario(string conString, int IdHorario)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string deleteHorario = $"DELETE FROM Horario_Sala where id_horario = {IdHorario}";
+                    using (SqlCommand queryDeleteHorario = new SqlCommand(deleteHorario))
+                    {
+                        queryDeleteHorario.Connection = con;
+                        con.Open();
+                        queryDeleteHorario.ExecuteNonQuery();
+                        con.Close();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 

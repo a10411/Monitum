@@ -54,5 +54,24 @@ namespace MonitumBLL.Logic
             }
             return response;
         }
+
+        public static async Task<Response> DeleteHorarioSala(string conString, int IdHorario)
+        {
+            Response response = new Response();
+            try
+            {
+                if (await Horario_SalaService.DeleteHorario(conString, IdHorario))
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Horario was deleted from sala.";
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
     }
 }
