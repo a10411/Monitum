@@ -52,13 +52,13 @@ namespace MonitumDAL
                 var salaList = new List<Sala>();
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala WHERE id_estabelecimento = {idEstabelecimento}");
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala WHERE id_estabelecimento = {idEstabelecimento}",con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        Sala sala = new Sala();
+                        Sala sala = new Sala(rdr);
                         salaList.Add(sala);
                     }
                     rdr.Close();
