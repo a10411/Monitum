@@ -44,5 +44,32 @@ namespace MonitumDAL
             
             
         }
+
+        public static async Task<List<Sala>> GetSalasByEstabelecimento(string conString, int idEstabelecimento)
+        {
+            try
+            {   
+                var salaList = new List<Sala>();
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala WHERE id_estabelecimento = {idEstabelecimento}");
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Sala sala = new Sala();
+                        salaList.Add(sala);
+                    }
+                    rdr.Close();
+                    con.Close();
+                }
+                return salaList;
+            }
+            catch(Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

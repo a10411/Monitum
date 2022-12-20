@@ -1,4 +1,5 @@
-﻿using MonitumBLL.Utils;
+﻿using Microsoft.AspNetCore.Mvc;
+using MonitumBLL.Utils;
 using MonitumBOL.Models;
 using MonitumDAL;
 using System;
@@ -37,6 +38,19 @@ namespace MonitumBLL.Logic
             {
                 response.StatusCode = StatusCodes.INTERNALSERVERERROR;
                 response.Message = e.ToString();
+            }
+            return response;
+        }
+
+        public static async Task<Response> GetSalas(string conString, int idEstabelecimento)
+        {
+            Response response = new Response();
+            List<Sala> salaList = await MonitumDAL.SalaService.GetSalasByEstabelecimento(conString, idEstabelecimento);
+            if(salaList.Count != 0 ) 
+            {
+                response.StatusCode = StatusCodes.SUCCESS;
+                response.Message = "Sucesso na obtenção dos dados";
+                response.Data = new JsonResult(salaList);
             }
             return response;
         }

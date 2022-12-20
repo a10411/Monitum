@@ -45,5 +45,17 @@ namespace MonitumAPI.Controllers
 
             
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetSalaByEstabelecimento(int id)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.GetSalas(CS, id);
+            if(response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
     }
 }
