@@ -30,5 +30,30 @@ namespace MonitumAPI.Controllers
             }
             return new JsonResult(response);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddHorarioSala(Horario_Sala horarioToAdd)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await Horario_SalaLogic.AddHorarioToSala(CS, horarioToAdd);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        
+        [HttpDelete]
+        public async Task<IActionResult> DeleteHorarioSala(int IdHorario)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await Horario_SalaLogic.DeleteHorarioSala(CS, IdHorario);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace MonitumBLL.Logic
             {
                 response.StatusCode = StatusCodes.SUCCESS;
                 response.Message = "Sucesso na obtenção dos dados";
-                response.Data = new JsonResult(gestorList);
+                response.Data = gestorList;
             }
             return response;
         }

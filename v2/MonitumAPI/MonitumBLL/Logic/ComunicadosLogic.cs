@@ -25,12 +25,12 @@ namespace MonitumBLL.Logic
         public static async Task<Response> GetComunicados(string conString)
         {
             Response response = new Response();
-            List<Comunicados> gestorList = await MonitumDAL.ComunicadosService.GetAllComunicados(conString);
-            if (gestorList.Count != 0)
+            List<Comunicados> comunicadosList = await ComunicadosService.GetAllComunicados(conString);
+            if (comunicadosList.Count != 0)
             {
                 response.StatusCode = StatusCodes.SUCCESS;
                 response.Message = "Sucesso na obtenção dos dados";
-                response.Data = new JsonResult(gestorList);
+                response.Data = comunicadosList;
             }
             return response;
         }

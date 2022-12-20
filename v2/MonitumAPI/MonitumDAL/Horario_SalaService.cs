@@ -58,5 +58,65 @@ namespace MonitumDAL
                 throw;
             }
         }
+
+        /// <summary>
+        /// Método que visa adicionar um horário a uma sala de um estabelecimento
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="horarioToAdd">Horário a adicionar à sala</param>
+        /// <returns>True se tudo tiver corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</returns>
+        public static async Task<Boolean> AddHorario(string conString, Horario_Sala horarioToAdd)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string addHorario = "INSERT INTO Horario_Sala (id_sala,dia_semana,hora_entrada,hora_saida) VALUES (@idSala, @diaSemana, @horaEntrada, @horaSaida)";
+                    using (SqlCommand queryAddHorario = new SqlCommand(addHorario))
+                    {
+                        queryAddHorario.Connection = con;
+                        queryAddHorario.Parameters.Add("@idSala", SqlDbType.Int).Value = horarioToAdd.IdSala;
+                        queryAddHorario.Parameters.Add("@diaSemana", SqlDbType.VarChar).Value = horarioToAdd.DiaSemana;
+                        queryAddHorario.Parameters.Add("@horaEntrada", SqlDbType.Time).Value = horarioToAdd.HoraEntrada.TimeOfDay;
+                        queryAddHorario.Parameters.Add("@horaSaida", SqlDbType.Time).Value = horarioToAdd.HoraSaida.TimeOfDay;
+                        con.Open();
+                        queryAddHorario.ExecuteNonQuery();
+                        con.Close();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+
+        }
+
+
+        public static async Task<Boolean> DeleteHorario(string conString, int IdHorario)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string deleteHorario = $"DELETE FROM Horario_Sala where id_horario = {IdHorario}";
+                    using (SqlCommand queryDeleteHorario = new SqlCommand(deleteHorario))
+                    {
+                        queryDeleteHorario.Connection = con;
+                        con.Open();
+                        queryDeleteHorario.ExecuteNonQuery();
+                        con.Close();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
+
 }

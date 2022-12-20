@@ -49,16 +49,16 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addSala = "INSERT INTO Comunicados (id_sala,titulo,corpo,data_hora) VALUES (@idSala, @titulo, @corpo, @dataHora)";
-                    using (SqlCommand queryAddSala = new SqlCommand(addSala))
+                    string addComunicado = "INSERT INTO Comunicados (id_sala,titulo,corpo,data_hora) VALUES (@idSala, @titulo, @corpo, @dataHora)";
+                    using (SqlCommand queryAddComunicado = new SqlCommand(addComunicado))
                     {
-                        queryAddSala.Connection = con;
-                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = comunicadoToAdd.IdSala;
-                        queryAddSala.Parameters.Add("@titulo", SqlDbType.Char).Value = comunicadoToAdd.Titulo;
-                        queryAddSala.Parameters.Add("@corpo", SqlDbType.Char).Value = comunicadoToAdd.Corpo;
-                        queryAddSala.Parameters.Add("@dataHora", SqlDbType.Time).Value = comunicadoToAdd.DataHora.TimeOfDay;
+                        queryAddComunicado.Connection = con;
+                        queryAddComunicado.Parameters.Add("@idSala", SqlDbType.Int).Value = comunicadoToAdd.IdSala;
+                        queryAddComunicado.Parameters.Add("@titulo", SqlDbType.Char).Value = comunicadoToAdd.Titulo;
+                        queryAddComunicado.Parameters.Add("@corpo", SqlDbType.Char).Value = comunicadoToAdd.Corpo;
+                        queryAddComunicado.Parameters.Add("@dataHora", SqlDbType.Time).Value = comunicadoToAdd.DataHora.TimeOfDay;
                         con.Open();
-                        queryAddSala.ExecuteNonQuery();
+                        queryAddComunicado.ExecuteNonQuery();
                         con.Close();
                         return true;
                     }
