@@ -1,0 +1,79 @@
+\hypertarget{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller}{}\doxysection{Monitum\+A\+P\+I.\+Controllers.\+Sala\+Controller Class Reference}
+\label{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller}\index{MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}}
+Inheritance diagram for Monitum\+A\+P\+I.\+Controllers.\+Sala\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_ae0f6409ff2d949f7dcd842956695c199}\label{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_ae0f6409ff2d949f7dcd842956695c199}} 
+{\bfseries Sala\+Controller} (I\+Configuration configuration)
+\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a4daf561cca283b700bd54245b89e1325}{Add\+Sala\+To\+Estabelecimento}} (\mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}} sala\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Request P\+O\+ST relativo às Salas (adicionar uma sala a um estabelecimento) \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a689dd7b329e9f73f2e7ec5706a49fc63}{Get\+Salas\+By\+Estabelecimento}} (int id\+Estabelecimento)
+\begin{DoxyCompactList}\small\item\em Request G\+ET relativo à obtenção das salas de um estabelecimento \end{DoxyCompactList}\item 
+async Task$<$ I\+Action\+Result $>$ \mbox{\hyperlink{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a3127db58c52957477236aa71a588772c}{Get\+Last\+Metrica\+By\+Sala}} (int id\+Sala, int id\+Metrica)
+\begin{DoxyCompactList}\small\item\em Request G\+ET relativo à obtenção da última log de uma determinada métrica de uma sala Será útil para expor o ruído/ocupação \char`\"{}atual\char`\"{} na aplicação (\char`\"{}atual\char`\"{} dado que o objetivo é que o Arduino envie logs de 5 em 5 minutos, por isso, a última será a \char`\"{}atual\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a4daf561cca283b700bd54245b89e1325}\label{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a4daf561cca283b700bd54245b89e1325}} 
+\index{MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}!AddSalaToEstabelecimento@{AddSalaToEstabelecimento}}
+\index{AddSalaToEstabelecimento@{AddSalaToEstabelecimento}!MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}}
+\doxysubsubsection{\texorpdfstring{AddSalaToEstabelecimento()}{AddSalaToEstabelecimento()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Monitum\+A\+P\+I.\+Controllers.\+Sala\+Controller.\+Add\+Sala\+To\+Estabelecimento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}}}]{sala\+To\+Add }\end{DoxyParamCaption})}
+
+
+
+Request P\+O\+ST relativo às Salas (adicionar uma sala a um estabelecimento) 
+
+\begin{DoxyReturn}{Returns}
+Retorna a response obtida pelo B\+LL para o utilizador. Idealmente, retornará uma resposta com status code 200 (sucesso)
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a3127db58c52957477236aa71a588772c}\label{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a3127db58c52957477236aa71a588772c}} 
+\index{MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}!GetLastMetricaBySala@{GetLastMetricaBySala}}
+\index{GetLastMetricaBySala@{GetLastMetricaBySala}!MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}}
+\doxysubsubsection{\texorpdfstring{GetLastMetricaBySala()}{GetLastMetricaBySala()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Monitum\+A\+P\+I.\+Controllers.\+Sala\+Controller.\+Get\+Last\+Metrica\+By\+Sala (\begin{DoxyParamCaption}\item[{int}]{id\+Sala,  }\item[{int}]{id\+Metrica }\end{DoxyParamCaption})}
+
+
+
+Request G\+ET relativo à obtenção da última log de uma determinada métrica de uma sala Será útil para expor o ruído/ocupação \char`\"{}atual\char`\"{} na aplicação (\char`\"{}atual\char`\"{} dado que o objetivo é que o Arduino envie logs de 5 em 5 minutos, por isso, a última será a \char`\"{}atual\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Sala} & ID da sala para a qual queremos visualizar a última métrica\\
+\hline
+{\em id\+Metrica} & ID da métrica que queremos visualizar (ruído tem um determinado ID, ocupação tem outro, etc.)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a resposta obtida pelo B\+LL para o utilizador. Idealmente, retornará a log pretendida, com um status code 200 (sucesso).
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a689dd7b329e9f73f2e7ec5706a49fc63}\label{class_monitum_a_p_i_1_1_controllers_1_1_sala_controller_a689dd7b329e9f73f2e7ec5706a49fc63}} 
+\index{MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}!GetSalasByEstabelecimento@{GetSalasByEstabelecimento}}
+\index{GetSalasByEstabelecimento@{GetSalasByEstabelecimento}!MonitumAPI.Controllers.SalaController@{MonitumAPI.Controllers.SalaController}}
+\doxysubsubsection{\texorpdfstring{GetSalasByEstabelecimento()}{GetSalasByEstabelecimento()}}
+{\footnotesize\ttfamily async Task$<$I\+Action\+Result$>$ Monitum\+A\+P\+I.\+Controllers.\+Sala\+Controller.\+Get\+Salas\+By\+Estabelecimento (\begin{DoxyParamCaption}\item[{int}]{id\+Estabelecimento }\end{DoxyParamCaption})}
+
+
+
+Request G\+ET relativo à obtenção das salas de um estabelecimento 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Estabelecimento} & ID do estabelecimento para o qual o utilizador pretende ver as salas existentes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a resposta obtida pelo B\+LL para o utilizador. Idealmente, retornará uma lista de salas, com um status code 200 (sucesso).
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/toxic/\+Documents/\+Git\+Hub/\+Monitum/v2/\+Monitum\+A\+P\+I/\+Monitum\+A\+P\+I/\+Controllers/Sala\+Controller.\+cs\end{DoxyCompactItemize}

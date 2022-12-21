@@ -1,0 +1,89 @@
+\hypertarget{class_monitum_d_a_l_1_1_sala_service}{}\doxysection{Monitum\+D\+A\+L.\+Sala\+Service Class Reference}
+\label{class_monitum_d_a_l_1_1_sala_service}\index{MonitumDAL.SalaService@{MonitumDAL.SalaService}}
+
+
+Class que visa implementar todos os métodos de Data Access Layer referentes à Sala Isto é, todos os acessos à base de dados relativos à sala estarão implementados em funções implementadas dentro desta classe  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task$<$ Boolean $>$ \mbox{\hyperlink{class_monitum_d_a_l_1_1_sala_service_ac50499b79d8648cea9c29d50e32be36e}{Add\+Sala}} (string con\+String, \mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}} sala\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Método que visa aceder à base de dados S\+QL Server via query e adicionar um registo de uma sala (adicionar uma sala relativa a um estabelecimento) \end{DoxyCompactList}\item 
+static async Task$<$ List$<$ \mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}} $>$ $>$ \mbox{\hyperlink{class_monitum_d_a_l_1_1_sala_service_a79085d61b9480b105c79fafbf9beedf2}{Get\+Salas\+By\+Estabelecimento}} (string con\+String, int id\+Estabelecimento)
+\begin{DoxyCompactList}\small\item\em Método que visa aceder à base de dados S\+QL Server via query e obter as salas de um estabelecimento \end{DoxyCompactList}\item 
+static async Task$<$ \mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_log___metrica}{Log\+\_\+\+Metrica}} $>$ \mbox{\hyperlink{class_monitum_d_a_l_1_1_sala_service_abc4495657dab5d0d094cb85678f1462b}{Get\+Last\+Metrica\+By\+Sala}} (string con\+String, int id\+Metrica, int id\+Sala)
+\begin{DoxyCompactList}\small\item\em Método que visa aceder à base de dados S\+QL Server via query e obter a última métrica relativa a uma sala (métrica \char`\"{}atual\char`\"{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class que visa implementar todos os métodos de Data Access Layer referentes à Sala Isto é, todos os acessos à base de dados relativos à sala estarão implementados em funções implementadas dentro desta classe 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_monitum_d_a_l_1_1_sala_service_ac50499b79d8648cea9c29d50e32be36e}\label{class_monitum_d_a_l_1_1_sala_service_ac50499b79d8648cea9c29d50e32be36e}} 
+\index{MonitumDAL.SalaService@{MonitumDAL.SalaService}!AddSala@{AddSala}}
+\index{AddSala@{AddSala}!MonitumDAL.SalaService@{MonitumDAL.SalaService}}
+\doxysubsubsection{\texorpdfstring{AddSala()}{AddSala()}}
+{\footnotesize\ttfamily static async Task$<$Boolean$>$ Monitum\+D\+A\+L.\+Sala\+Service.\+Add\+Sala (\begin{DoxyParamCaption}\item[{string}]{con\+String,  }\item[{\mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}}}]{sala\+To\+Add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Método que visa aceder à base de dados S\+QL Server via query e adicionar um registo de uma sala (adicionar uma sala relativa a um estabelecimento) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con\+String} & String de conexão à base de dados, presente no projeto \char`\"{}\+Monitum\+A\+P\+I\char`\"{}, no ficheiro appsettings.\+json\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_monitum_d_a_l_1_1_sala_service_abc4495657dab5d0d094cb85678f1462b}\label{class_monitum_d_a_l_1_1_sala_service_abc4495657dab5d0d094cb85678f1462b}} 
+\index{MonitumDAL.SalaService@{MonitumDAL.SalaService}!GetLastMetricaBySala@{GetLastMetricaBySala}}
+\index{GetLastMetricaBySala@{GetLastMetricaBySala}!MonitumDAL.SalaService@{MonitumDAL.SalaService}}
+\doxysubsubsection{\texorpdfstring{GetLastMetricaBySala()}{GetLastMetricaBySala()}}
+{\footnotesize\ttfamily static async Task$<$\mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_log___metrica}{Log\+\_\+\+Metrica}}$>$ Monitum\+D\+A\+L.\+Sala\+Service.\+Get\+Last\+Metrica\+By\+Sala (\begin{DoxyParamCaption}\item[{string}]{con\+String,  }\item[{int}]{id\+Metrica,  }\item[{int}]{id\+Sala }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Método que visa aceder à base de dados S\+QL Server via query e obter a última métrica relativa a uma sala (métrica \char`\"{}atual\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con\+String} & String de conexão à base de dados, presente no projeto \char`\"{}\+Monitum\+A\+P\+I\char`\"{}, no ficheiro appsettings.\+json\\
+\hline
+{\em id\+Metrica} & ID da métrica que o utilizador pretende visualizar (ruído, ocupação, etc.)\\
+\hline
+{\em id\+Sala} & ID da sala para a qual o utilizador pretende visualizar a métrica\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Último log da métrica pretendida
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_monitum_d_a_l_1_1_sala_service_a79085d61b9480b105c79fafbf9beedf2}\label{class_monitum_d_a_l_1_1_sala_service_a79085d61b9480b105c79fafbf9beedf2}} 
+\index{MonitumDAL.SalaService@{MonitumDAL.SalaService}!GetSalasByEstabelecimento@{GetSalasByEstabelecimento}}
+\index{GetSalasByEstabelecimento@{GetSalasByEstabelecimento}!MonitumDAL.SalaService@{MonitumDAL.SalaService}}
+\doxysubsubsection{\texorpdfstring{GetSalasByEstabelecimento()}{GetSalasByEstabelecimento()}}
+{\footnotesize\ttfamily static async Task$<$List$<$\mbox{\hyperlink{class_monitum_b_o_l_1_1_models_1_1_sala}{Sala}}$>$ $>$ Monitum\+D\+A\+L.\+Sala\+Service.\+Get\+Salas\+By\+Estabelecimento (\begin{DoxyParamCaption}\item[{string}]{con\+String,  }\item[{int}]{id\+Estabelecimento }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Método que visa aceder à base de dados S\+QL Server via query e obter as salas de um estabelecimento 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con\+String} & String de conexão à base de dados, presente no projeto \char`\"{}\+Monitum\+A\+P\+I\char`\"{}, no ficheiro appsettings.\+json\\
+\hline
+{\em id\+Estabelecimento} & ID do estabelecimento para o qual pretendemos ver as salas\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista de salas do estabelecimento
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/toxic/\+Documents/\+Git\+Hub/\+Monitum/v2/\+Monitum\+A\+P\+I/\+Monitum\+D\+A\+L/Sala\+Service.\+cs\end{DoxyCompactItemize}
