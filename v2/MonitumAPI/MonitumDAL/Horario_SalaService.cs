@@ -32,6 +32,37 @@ namespace MonitumDAL
             return horarioSala;
             // retorna um horario com id = 0 caso não encontre nenhum com este ID
         }
+
+        public static async Task<List<Horario_Sala>> GetHorarioSalaByIdSala(string conString, int idSala)
+        {
+            try
+            {
+                var horarioSalaList= new List<Horario_Sala>();
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Horario_Sala where id_sala = {idSala}", con);
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while(rdr.Read())
+                    {
+                        Horario_Sala horarioSala = new Horario_Sala(rdr);
+                        horarioSalaList.Add(horarioSala);
+                        
+                    }
+                    rdr.Close();
+                    con.Close();    
+                }
+                return horarioSalaList;
+            }
+            catch (Exception e) 
+            {
+                throw;
+            }
+
+        }
+
         public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
         {
             try

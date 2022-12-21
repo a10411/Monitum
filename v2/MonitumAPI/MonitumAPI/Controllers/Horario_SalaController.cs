@@ -19,6 +19,18 @@ namespace MonitumAPI.Controllers
             _configuration = configuration;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetHorarioSalaByIdSala(int idSala)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await Horario_SalaLogic.GetHorario(CS, idSala);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);    
+            }
+            return new JsonResult(response);    
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
         {

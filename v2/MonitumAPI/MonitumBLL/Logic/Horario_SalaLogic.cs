@@ -11,6 +11,10 @@ namespace MonitumBLL.Logic
 {
     public class Horario_SalaLogic
     {
+
+       
+
+
         public static async Task<Response> UpdateHorario(string conString, Horario_Sala horarioToUpdate)
         {
             Response response = new Response();
@@ -34,6 +38,27 @@ namespace MonitumBLL.Logic
                 response.Message = e.ToString();
             }
             return response;
+        }
+
+        public static async Task<Response> GetHorario(string conString, int idSala)
+        {
+            Response response = new Response();
+            try
+            {   
+                List<Horario_Sala> horarioSalaList =  await MonitumDAL.Horario_SalaService.GetHorarioSalaByIdSala(conString, idSala);    
+                if(horarioSalaList.Count != 0)
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sucesso na obtenção dos dados";
+                    response.Data = horarioSalaList;
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+               return response;
+
         }
 
         public static async Task<Response> AddHorarioToSala(string conString, Horario_Sala horarioToAdd)
