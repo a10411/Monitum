@@ -8,30 +8,31 @@ using System.Threading.Tasks;
 namespace MonitumBOL.Models
 {
     /// <summary>
-    /// Business Object Layer relativa a um Estabelecimento
-    /// Implementa a class (model) Estabelecimento e os seus construtores
+    /// Business Object Layer relativa a uma Metrica
+    /// Implementa a class (model) Metrica e os seus construtores
     /// </summary>
-    public class Estabelecimento
+    public class Metrica
     {
-        public int IdEstabelecimento { get; set; }
+        public int IdMetrica { get; set; }
         public string Nome { get; set; }
-        public string Morada { get; set; }
+        public string Medida { get; set; }
 
-        public Estabelecimento()
+        public Metrica()
         {
 
         }
 
         /// <summary>
-        /// Construtor que visa criar um Estabelecimento convertendo dados obtidos a partir de um SqlDataReader
+        /// Construtor que visa criar uma Metrica convertendo dados obtidos a partir de um SqlDataReader
         /// Este construtor é bastante útil no DAL, onde recebemos dados da base de dados e pretendemos converte-los num objeto
         /// </summary>
         /// <param name="rdr">SqlDataReader</param>
-        public Estabelecimento(SqlDataReader rdr)
+        public Metrica(SqlDataReader rdr)
         {
-            this.IdEstabelecimento = Convert.ToInt32(rdr["id_estabelecimento"]);
+            this.IdMetrica = Convert.ToInt32(rdr["id_metrica"]);
             this.Nome = rdr["nome"].ToString() ?? String.Empty;
-            this.Morada = rdr["morada"].ToString() ?? String.Empty;
+            this.Medida = rdr["medida"].ToString() ?? String.Empty;
         }
+
     }
 }

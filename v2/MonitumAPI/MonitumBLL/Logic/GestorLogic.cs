@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 namespace MonitumBLL.Logic
 {
     /// <summary>
-    /// Classe que visa a implementação da parte de Business Logic Layer relativa ao Gestor
-    /// Estes métodos são consumidos pelo MonitumAPI (Layer API), e são responsáveis por abstrair a API de detalhes como o Business Object Layer e da obtenção dos dados no DAL
+    /// Esta classe implementa todas as funções que, por sua vez, implementam a parte lógica de cada request relativo aos gestores
+    /// Nesta classe, abstraímo-nos de rotas, autorizações, links, etc. que dizem respeito à API
+    /// Porém, a API consome esta classe no sentido em que esta é responsável por transformar objetos vindos do DAL em responses.
+    /// Esta classe é a última a lidar com objetos (models) e visa abstrair a API dos mesmos
+    /// Gera uma response com um status code e dados
     /// </summary>
     public class GestorLogic
     {
@@ -19,8 +22,8 @@ namespace MonitumBLL.Logic
         /// Trata da parte lógica relativa à obtenção de todos os Gestores presentes na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Gestor)
         /// </summary>
-        /// <param name="conString">Connection String da base de dados</param>
-        /// <returns>Response com Status Code, mensagem e dados</returns>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <returns>Response com Status Code, mensagem e dados (Gestores recebidos do DAL)</returns>
         public static async Task<Response> GetGestores(string conString)
         {
             Response response = new Response();

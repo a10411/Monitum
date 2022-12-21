@@ -72,11 +72,11 @@ namespace MonitumDAL
             }
         }
 
-        public static async Task<Logs_Metricas> GetMetricaBySala(string conString, int idMetrica, int idSala)
+        public static async Task<Log_Metrica> GetMetricaBySala(string conString, int idMetrica, int idSala)
         {
             try
             {
-                var log = new Logs_Metricas();
+                var log = new Log_Metrica();
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     SqlCommand cmd = new SqlCommand($"SELECT TOP 1 * FROM Logs_Metricas WHERE id_sala = {idSala} AND id_metrica = {idMetrica} ORDER BY id_log DESC", con);
@@ -85,7 +85,7 @@ namespace MonitumDAL
                     SqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        log = new Logs_Metricas(rdr);
+                        log = new Log_Metrica(rdr);
                     }
                     rdr.Close();
                     con.Close();

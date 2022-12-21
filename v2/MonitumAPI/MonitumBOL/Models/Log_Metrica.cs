@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace MonitumBOL.Models
 {
-    public class Logs_Metricas
+    /// <summary>
+    /// Business Object Layer relativa a um Log_Metrica (Log de uma Métrica)
+    /// Implementa a class (model) Log_Metrica e os seus construtores
+    /// </summary>
+    public class Log_Metrica
     {
         public int IdLog { get; set; }
         public int IdSala { get; set; }
@@ -15,12 +19,17 @@ namespace MonitumBOL.Models
         public int ValorMetrica { get; set; }
         public DateTime DataHora { get; set; }
 
-        public Logs_Metricas()
+        public Log_Metrica()
         {
 
         }
 
-        public Logs_Metricas(SqlDataReader rdr)
+        /// <summary>
+        /// Construtor que visa criar um Log_Metrica convertendo dados obtidos a partir de um SqlDataReader
+        /// Este construtor é bastante útil no DAL, onde recebemos dados da base de dados e pretendemos converte-los num objeto
+        /// </summary>
+        /// <param name="rdr">SqlDataReader</param>
+        public Log_Metrica(SqlDataReader rdr)
         {
             this.IdLog = Convert.ToInt32(rdr["id_log"]);
             this.IdSala = Convert.ToInt32(rdr["id_sala"]);

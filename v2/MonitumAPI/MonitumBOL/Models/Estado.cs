@@ -8,30 +8,29 @@ using System.Threading.Tasks;
 namespace MonitumBOL.Models
 {
     /// <summary>
-    /// Business Object Layer relativa a uma Sala
-    /// Implementa a class (model) Sala e os seus construtores
+    /// Business Object Layer relativa a um Estado
+    /// Implementa a class (model) Estado e os seus construtores
     /// </summary>
-    public class Sala
+    public class Estado
     {
-        public int IdSala { get; set; }
-        public int IdEstabelecimento { get; set; }
         public int IdEstado { get; set; }
+        public string Nome_Estado { get; set; }
 
-        public Sala()
+        public Estado()
         {
 
         }
 
         /// <summary>
-        /// Construtor que visa criar uma Sala convertendo dados obtidos a partir de um SqlDataReader
+        /// Construtor que visa criar um Estado convertendo dados obtidos a partir de um SqlDataReader
         /// Este construtor é bastante útil no DAL, onde recebemos dados da base de dados e pretendemos converte-los num objeto
         /// </summary>
         /// <param name="rdr">SqlDataReader</param>
-        public Sala(SqlDataReader rdr)
+        public Estado(SqlDataReader rdr)
         {
-            this.IdSala = Convert.ToInt32(rdr["id_sala"]);
-            this.IdEstabelecimento = Convert.ToInt32(rdr["id_estabelecimento"]);
             this.IdEstado = Convert.ToInt32(rdr["id_estado"]);
+            this.Nome_Estado = rdr["estado"].ToString() ?? String.Empty;
         }
+
     }
 }

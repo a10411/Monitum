@@ -60,7 +60,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpGet]
         [Route("/estabelecimento/{idEstabelecimento}")]
-        public async Task<IActionResult> GetSalaByEstabelecimento(int idEstabelecimento)
+        public async Task<IActionResult> GetSalasByEstabelecimento(int idEstabelecimento)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await SalaLogic.GetSalas(CS, idEstabelecimento);
@@ -71,9 +71,23 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
+        /// <summary>
+        /// Request GET relativo à obtenção da última log de uma determinada métrica de uma sala
+        /// Será útil para expor o ruído/ocupação "atual" na aplicação ("atual" dado que o objetivo é que o Arduino envie logs de 5 em 5 minutos, por isso, a última será a "atual")
+        /// </summary>
+        /// <param name="idSala">ID da sala para a qual queremos visualizar a última métrica</param>
+        /// <param name="idMetrica">ID da métrica que queremos visualizar (ruído tem um determinado ID, ocupação tem outro, etc.)</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o utilizador. Idealmente, retornará a log pretendida, com um status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpGet]
         [Route("/GetLastLogMetricaSala/sala/{idSala}/metrica/{idMetrica}")]
-        public async Task<IActionResult>  GetMetricaBySala(int idSala, int idMetrica)
+        public async Task<IActionResult> GetMetricaBySala(int idSala, int idMetrica)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await SalaLogic.GetMetricaBySala(CS, idMetrica, idSala);

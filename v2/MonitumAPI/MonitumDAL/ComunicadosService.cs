@@ -16,9 +16,9 @@ namespace MonitumDAL
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>Lista de comunicados</returns>
-        public static async Task<List<Comunicados>> GetAllComunicados(string conString)
+        public static async Task<List<Comunicado>> GetAllComunicados(string conString)
         {
-            var comunicadosList = new List<Comunicados>();
+            var comunicadosList = new List<Comunicado>();
             using (SqlConnection con = new SqlConnection(conString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Comunicados", con);
@@ -28,7 +28,7 @@ namespace MonitumDAL
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Comunicados comunicado = new Comunicados(rdr);
+                    Comunicado comunicado = new Comunicado(rdr);
                     comunicadosList.Add(comunicado);
                 }
                 rdr.Close();
@@ -43,7 +43,7 @@ namespace MonitumDAL
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
-        public static async Task<Boolean> AddComunicado(string conString, Comunicados comunicadoToAdd)
+        public static async Task<Boolean> AddComunicado(string conString, Comunicado comunicadoToAdd)
         {
             try
             {
