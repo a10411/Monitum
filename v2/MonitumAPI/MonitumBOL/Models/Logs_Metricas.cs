@@ -26,7 +26,7 @@ namespace MonitumBOL.Models
             this.IdSala = Convert.ToInt32(rdr["id_sala"]);
             this.IdMetrica = Convert.ToInt32(rdr["id_metrica"]);
             this.ValorMetrica = Convert.ToInt32(rdr["valor_metrica"]);
-            this.DataHora = Convert.ToDateTime(rdr["data_hora"]); // testar
+            this.DataHora = Convert.ToDateTime(rdr["data_hora"].ToString()); // testar
         }
 
     }

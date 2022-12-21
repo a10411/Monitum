@@ -28,7 +28,7 @@ namespace MonitumAPI.Controllers
         /// <summary>
         /// Request GET relativo aos Comunicados
         /// </summary>
-        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Gestores</returns>
+        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Comunicados</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
@@ -52,9 +52,13 @@ namespace MonitumAPI.Controllers
         /// <summary>
         /// Request POST relativo aos Comunicados
         /// </summary>
-        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Gestores</returns>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpPost]
         public async Task<IActionResult> AddComunicado(Comunicados comunicadoToAdd)
