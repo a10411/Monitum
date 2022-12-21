@@ -50,13 +50,19 @@ namespace MonitumBLL.Logic
             return response;
         }
 
-        
-        public static async Task<Response> GetHorario(string conString, int idSala)
+        /// <summary>
+        /// Trata da parte lógica relativa à obtenção dos horários de uma sala, dados estes que residem na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Horario (GetHorariosSalaByIdSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="idSala">ID da Sala para a qual queremos visualizar horários</param>
+        /// <returns>Response com Status Code, mensagem e dados (Horários da sala)</returns>
+        public static async Task<Response> GetHorariosByIdSala(string conString, int idSala)
         {
             Response response = new Response();
             try
             {   
-                List<Horario_Sala> horarioSalaList =  await MonitumDAL.Horario_SalaService.GetHorarioSalaByIdSala(conString, idSala);    
+                List<Horario_Sala> horarioSalaList =  await Horario_SalaService.GetHorariosSalaByIdSala(conString, idSala);    
                 if(horarioSalaList.Count != 0)
                 {
                     response.StatusCode = StatusCodes.SUCCESS;

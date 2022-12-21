@@ -22,6 +22,30 @@ namespace MonitumAPI.Controllers
         }
 
         /// <summary>
+        /// Request GET relativo aos horários de uma sala, que o utilizador pretenda visualizar
+        /// </summary>
+        /// <param name="idSala">ID da Sala para a qual o utilizador pretende ver os horários</param>
+        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmnete, retornará a lista de horários, com uma mensagem de sucesso.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [HttpGet]
+        public async Task<IActionResult> GetHorariosSalaByIdSala(int idSala)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await Horario_SalaLogic.GetHorariosByIdSala(CS, idSala);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        /// <summary>
         /// Request PUT relativo a um horário de uma sala, que o gestor pretenda atualizar
         /// </summary>
         /// <param name="horarioToUpdate">Horário que visa substituir o que reside na base de dados (o atualizado)</param>

@@ -33,7 +33,7 @@ namespace MonitumDAL
             // retorna um horario com id = 0 caso não encontre nenhum com este ID
         }
 
-        public static async Task<List<Horario_Sala>> GetHorarioSalaByIdSala(string conString, int idSala)
+        public static async Task<List<Horario_Sala>> GetHorariosSalaByIdSala(string conString, int idSala)
         {
             try
             {
