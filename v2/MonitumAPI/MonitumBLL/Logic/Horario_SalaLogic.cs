@@ -50,6 +50,28 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        
+        public static async Task<Response> GetHorario(string conString, int idSala)
+        {
+            Response response = new Response();
+            try
+            {   
+                List<Horario_Sala> horarioSalaList =  await MonitumDAL.Horario_SalaService.GetHorarioSalaByIdSala(conString, idSala);    
+                if(horarioSalaList.Count != 0)
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sucesso na obtenção dos dados";
+                    response.Data = horarioSalaList;
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+               return response;
+
+        }
+
         /// <summary>
         /// Trata da parte lógica relativa à inserção de um horário relativo a uma sala na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (POST - Horario (AddHorarioSala))
