@@ -47,10 +47,11 @@ namespace MonitumAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSalaByEstabelecimento(int id)
+        [Route("/estabelecimento/{idEstabelecimento}")]
+        public async Task<IActionResult> GetSalaByEstabelecimento(int idEstabelecimento)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await SalaLogic.GetSalas(CS, id);
+            Response response = await SalaLogic.GetSalas(CS, idEstabelecimento);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);
@@ -59,11 +60,11 @@ namespace MonitumAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{idMetrica}")]
+        [Route("/GetLastLogMetricaSala/sala/{idSala}/metrica/{idMetrica}")]
         public async Task<IActionResult>  GetMetricaBySala(int idSala, int idMetrica)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await SalaLogic.GetMetrica(CS, idSala, idMetrica);
+            Response response = await SalaLogic.GetMetricaBySala(CS, idMetrica, idSala);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);    

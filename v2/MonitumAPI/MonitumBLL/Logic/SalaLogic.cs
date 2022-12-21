@@ -56,14 +56,15 @@ namespace MonitumBLL.Logic
         }
 
         // not finished
-        public static async Task<Response> GetMetrica(string conString, int idMetrica, int idSala)
+        public static async Task<Response> GetMetricaBySala(string conString, int idMetrica, int idSala)
         {
             Response response = new Response();
             
             try
             {
-                Metricas metricas = await MonitumDAL.SalaService.GetMetricaBySala(conString, idMetrica, idSala);
-                if(metricas.IdMetrica == 0)
+
+                Logs_Metricas log = await SalaService.GetMetricaBySala(conString, idMetrica, idSala);
+                if(log.IdLog == 0)
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;
                     response.Message = "Metrica was not found";
@@ -72,7 +73,7 @@ namespace MonitumBLL.Logic
                 {
                     response.StatusCode = StatusCodes.SUCCESS;
                     response.Message = "Sucesso na obtenção dos dados";
-                    response.Data = metricas;
+                    response.Data = log;
                 }
                 
 
