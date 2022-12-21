@@ -24,7 +24,7 @@ namespace MonitumAPI.Controllers
         /// <summary>
         /// Request POST relativo às Salas (adicionar uma sala a um estabelecimento)
         /// </summary>
-        /// <returns>Retorna a response obtida pelo BLL para a sala. Idealmente, retornará uma resposta com status code 200 (sucesso)</returns>
+        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará uma resposta com status code 200 (sucesso)</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
@@ -46,6 +46,18 @@ namespace MonitumAPI.Controllers
 
         }
 
+        /// <summary>
+        /// Request GET relativo à obtenção das salas de um estabelecimento
+        /// </summary>
+        /// <param name="idEstabelecimento">ID do estabelecimento para o qual o utilizador pretende ver as salas existentes</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o utilizador. Idealmente, retornará uma lista de salas, com um status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpGet]
         [Route("/estabelecimento/{idEstabelecimento}")]
         public async Task<IActionResult> GetSalaByEstabelecimento(int idEstabelecimento)

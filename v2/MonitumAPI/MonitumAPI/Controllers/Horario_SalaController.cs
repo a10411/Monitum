@@ -3,6 +3,8 @@ using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 using MonitumBOL.Models;
 using MonitumDAL;
+using Swashbuckle.AspNetCore.Annotations;
+using StatusCodes = Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace MonitumAPI.Controllers
 {
@@ -19,6 +21,18 @@ namespace MonitumAPI.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Request PUT relativo a um horário de uma sala, que o gestor pretenda atualizar
+        /// </summary>
+        /// <param name="horarioToUpdate">Horário que visa substituir o que reside na base de dados (o atualizado)</param>
+        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará o novo horário, com uma mensagem de sucesso.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpPut]
         public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
         {
@@ -31,6 +45,19 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
+
+        /// <summary>
+        /// Request POST relativo a um horário de uma sala, que o gestor pretenda adicionar
+        /// </summary>
+        /// <param name="horarioToAdd">Horário a adicionar à base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpPost]
         public async Task<IActionResult> AddHorarioSala(Horario_Sala horarioToAdd)
         {
@@ -43,7 +70,19 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
-        
+
+        /// <summary>
+        /// Request DELETE relativo a um horário de uma sala, que o gestor pretenda apagar
+        /// </summary>
+        /// <param name="IdHorario">ID do horário a remover da base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o DELETE foi bem sucedido.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpDelete]
         public async Task<IActionResult> DeleteHorarioSala(int IdHorario)
         {
