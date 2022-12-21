@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace MonitumDAL
 {
-    public class ComunicadosService
+    /// <summary>
+    /// Class que visa implementar todos os métodos de Data Access Layer referentes aos Comunicados
+    /// Isto é, todos os acessos à base de dados relativos aos comunicados estarão implementados em funções implementadas dentro desta classe
+    /// </summary>
+    public class ComunicadoService
     {
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server e obter todos os registos de comunicados lá criados (tabela Comunicados)
+        /// Método que visa aceder à base de dados SQL Server via query e obter todos os registos de comunicados lá criados (tabela Comunicados)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>Lista de comunicados</returns>
@@ -39,7 +43,7 @@ namespace MonitumDAL
         }
 
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server e adicionar um registo de um comunicado
+        /// Método que visa aceder à base de dados SQL Server via query e adicionar um registo de um comunicado
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>

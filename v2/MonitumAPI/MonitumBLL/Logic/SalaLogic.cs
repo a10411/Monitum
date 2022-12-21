@@ -67,20 +67,20 @@ namespace MonitumBLL.Logic
 
         /// <summary>
         /// Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados
-        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Salas (GetMetricaBySala))
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Salas (GetLastMetricaBySala))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="idMetrica">ID da métrica que o utilizador pretende visualizar</param>
         /// <param name="idSala">ID da sala para a qual o utilizador pretende visualizar o último log da métrica</param>
         /// <returns>Response com Status Code, mensagem e dados (última log)</returns>
-        public static async Task<Response> GetMetricaBySala(string conString, int idMetrica, int idSala)
+        public static async Task<Response> GetLastMetricaBySala(string conString, int idMetrica, int idSala)
         {
             Response response = new Response();
             
             try
             {
 
-                Log_Metrica log = await SalaService.GetMetricaBySala(conString, idMetrica, idSala);
+                Log_Metrica log = await SalaService.GetLastMetricaBySala(conString, idMetrica, idSala);
                 if(log.IdLog == 0)
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;

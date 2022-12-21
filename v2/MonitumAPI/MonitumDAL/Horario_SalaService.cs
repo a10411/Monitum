@@ -9,8 +9,18 @@ using System.Threading.Tasks;
 
 namespace MonitumDAL
 {
+    /// <summary>
+    /// Class que visa implementar todos os métodos de Data Access Layer referentes ao Horario_Sala (Horário da Sala)
+    /// Isto é, todos os acessos à base de dados relativos ao Horario_Sala estarão implementados em funções implementadas dentro desta classe
+    /// </summary>
     public class Horario_SalaService
     {
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter um horário de uma sala
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idHorario">ID do horário que pretendemos obter</param>
+        /// <returns>Horário obtido, caso não encontre nenhum, retorna um horário com ID = 0</returns>
         public static async Task<Horario_Sala> GetHorarioSala(string conString, int idHorario)
         {
             Horario_Sala horarioSala = new Horario_Sala();
@@ -33,6 +43,12 @@ namespace MonitumDAL
             // retorna um horario com id = 0 caso não encontre nenhum com este ID
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter todos os horários relativos a uma sala
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala para a qual pretendemos obter os horários</param>
+        /// <returns>Horários da sala</returns>
         public static async Task<List<Horario_Sala>> GetHorariosSalaByIdSala(string conString, int idSala)
         {
             try
@@ -63,6 +79,12 @@ namespace MonitumDAL
 
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="horarioUpdated">Horário atualizado</param>
+        /// <returns>Horário atualizado (utilizando a função GetHorarioSala)</returns>
         public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
         {
             try
@@ -91,11 +113,11 @@ namespace MonitumDAL
         }
 
         /// <summary>
-        /// Método que visa adicionar um horário a uma sala de um estabelecimento
+        /// Método que visa aceder à base de dados SQL Server via query e adicionar um horário a uma sala de um estabelecimento
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <param name="horarioToAdd">Horário a adicionar à sala</param>
-        /// <returns>True se tudo tiver corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</returns>
+        /// <returns>True se tudo tenha corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</returns>
         public static async Task<Boolean> AddHorario(string conString, Horario_Sala horarioToAdd)
         {
             try
@@ -125,7 +147,12 @@ namespace MonitumDAL
 
         }
 
-
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e apagar um horário existente na mesma
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="IdHorario">ID do horário a apagar</param>
+        /// <returns>True caso tudo tenha corrido bem (horário removido), algum erro caso o horário não tenha sido removido.</returns>
         public static async Task<Boolean> DeleteHorario(string conString, int IdHorario)
         {
             try

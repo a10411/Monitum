@@ -11,7 +11,7 @@ namespace MonitumDAL
     public class GestorService
     {
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server e obter todos os registos de gestores lá criados (tabela Gestor)
+        /// Método que visa aceder à base de dados SQL Server via query e obter todos os registos de gestores lá criados (tabela Gestor)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>Lista de gestores</returns>

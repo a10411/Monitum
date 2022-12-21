@@ -87,10 +87,10 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpGet]
         [Route("/GetLastLogMetricaSala/sala/{idSala}/metrica/{idMetrica}")]
-        public async Task<IActionResult> GetMetricaBySala(int idSala, int idMetrica)
+        public async Task<IActionResult> GetLastMetricaBySala(int idSala, int idMetrica)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await SalaLogic.GetMetricaBySala(CS, idMetrica, idSala);
+            Response response = await SalaLogic.GetLastMetricaBySala(CS, idMetrica, idSala);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);    

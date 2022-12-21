@@ -28,7 +28,7 @@ namespace MonitumBLL.Logic
         public static async Task<Response> GetComunicados(string conString)
         {
             Response response = new Response();
-            List<Comunicado> comunicadosList = await ComunicadosService.GetAllComunicados(conString);
+            List<Comunicado> comunicadosList = await ComunicadoService.GetAllComunicados(conString);
             if (comunicadosList.Count != 0)
             {
                 response.StatusCode = StatusCodes.SUCCESS;
@@ -50,7 +50,7 @@ namespace MonitumBLL.Logic
             Response response = new Response();
             try
             {
-                if (await ComunicadosService.AddComunicado(conString, comunicadoToAdd))
+                if (await ComunicadoService.AddComunicado(conString, comunicadoToAdd))
                 {
                     response.StatusCode = StatusCodes.SUCCESS;
                     response.Message = "Comunicado was added to sala.";

@@ -16,7 +16,7 @@ namespace MonitumDAL
     public class SalaService
     {
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server e adicionar um registo de uma sala (adicionar uma sala relativa a um estabelecimento)
+        /// Método que visa aceder à base de dados SQL Server via query e adicionar um registo de uma sala (adicionar uma sala relativa a um estabelecimento)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
@@ -45,6 +45,12 @@ namespace MonitumDAL
             
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter as salas de um estabelecimento
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idEstabelecimento">ID do estabelecimento para o qual pretendemos ver as salas</param>
+        /// <returns>Lista de salas do estabelecimento</returns>
         public static async Task<List<Sala>> GetSalasByEstabelecimento(string conString, int idEstabelecimento)
         {
             try
@@ -72,7 +78,14 @@ namespace MonitumDAL
             }
         }
 
-        public static async Task<Log_Metrica> GetMetricaBySala(string conString, int idMetrica, int idSala)
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter a última métrica relativa a uma sala (métrica "atual")
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idMetrica">ID da métrica que o utilizador pretende visualizar (ruído, ocupação, etc.)</param>
+        /// <param name="idSala">ID da sala para a qual o utilizador pretende visualizar a métrica</param>
+        /// <returns>Último log da métrica pretendida</returns>
+        public static async Task<Log_Metrica> GetLastMetricaBySala(string conString, int idMetrica, int idSala)
         {
             try
             {
