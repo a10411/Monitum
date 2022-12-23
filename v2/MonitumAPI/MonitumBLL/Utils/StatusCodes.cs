@@ -7,17 +7,13 @@ using System.Threading.Tasks;
 namespace MonitumBLL.Utils
 {
     /// <summary>
-    /// 
+    /// Enum que visa enumerar os HTTP status codes
+    /// Facilita o processo de atribuir um status code a uma resposta, sem ter de o fazer pelo seu número, mas sim pelo seu significado
+    /// Success, NoContent, etc.
     /// </summary>
     public enum StatusCodes
     {
-        /// <summary>
-        /// Success test
-        /// </summary>
         SUCCESS = 200,
-        /// <summary>
-        /// test
-        /// </summary>
         NOCONTENT = 204,
         BADREQUEST = 400,
         UNAUTHORIZED = 401,

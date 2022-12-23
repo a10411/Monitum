@@ -38,6 +38,14 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa ao Login do Gestor
+        /// Gera uma resposta que será utilizada pela MonitumAPI para resopnder ao request do utilizador (POST - Gestor (LoginGestor))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="email">Email do gestor que pretende fazer login (passado por parâmetro no MonitumAPI, ao chamar esta função)</param>
+        /// <param name="password">Password do gestor que pretende fazer login (passado por parâmetro no MonitumAPI, ao chamar esta função)</param>
+        /// <returns>Response com Status Code e mensagem (Status Code de sucesso, not found caso não exista um gestor na BD com estes dados ou erro interno)</returns>
         public static async Task<Response> LoginGestor(string conString, string email, string password)
         {
             Response response = new Response();
@@ -64,6 +72,13 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa ao Registo do Gestor
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="email">Email do gestor que pretende fazer registo (passado por parâmetro no MonitumAPI, ao chamar esta função)</param>
+        /// <param name="password">Password do gestor que pretende fazer registo (passado por parâmetro no MonitumAPI, ao chamar esta função)</param>
+        /// <returns>Response com Status Code e mensagem (Status Code de sucesso ou erro interno)</returns>
         public static async Task<Response> RegisterGestor(string conString, string email, string password)
         {
             Response response = new Response();
@@ -77,7 +92,7 @@ namespace MonitumBLL.Logic
                 }
                 else
                 {
-                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.StatusCode = StatusCodes.INTERNALSERVERERROR;
                     response.Message = "Não foi possível registar o gestor.";
                 }
                 return response;

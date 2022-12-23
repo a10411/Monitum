@@ -38,7 +38,14 @@ namespace MonitumDAL
             return gestorList;
         }
 
-        public static async Task<Boolean> LoginGestor(string conString, string email, string password) // hash and salt
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL via query e confirmar se os dados de email e password são válidos e pertencem a um gestor existente na BD (efetuar Login)
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="email">Email do gestor que se pretende autenticar</param>
+        /// <param name="password">Password do gestor que se pretende autenticar</param>
+        /// <returns>True caso dados estejam corretos (autenticação realizada), false caso dados incorretos ou erro interno</returns>
+        public static async Task<Boolean> LoginGestor(string conString, string email, string password)
         {
             try
             {
@@ -52,6 +59,7 @@ namespace MonitumDAL
                     SqlDataReader rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
+                        // Hash e salt handling
                         string hashedPWFromDb = rdr["password_hash"].ToString();
                         string salt = rdr["password_salt"].ToString();
                         rdr.Close();
@@ -76,7 +84,14 @@ namespace MonitumDAL
             
         }
 
-        public static async Task<Boolean> RegisterGestor(string conString, string email, string password) // ASSOCIAR GESTOR A UM ESTABELECIMENTO
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL via query e adicionar um novo gestor, encriptando a sua password (registo)
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="email">Email do gestor que se pretende registar</param>
+        /// <param name="password">Password do gestor que se pretende registar</param>
+        /// <returns>True caso gestor tenha sido introduzio, erro interno caso tenha existido algum erro</returns>
+        public static async Task<Boolean> RegisterGestor(string conString, string email, string password) // TODO: ASSOCIAR GESTOR A UM ESTABELECIMENTO, GARANTIR QUE NÃO HÁ DOIS EMAILS IGUAIS!
         {
             string salt = HashSaltClass.GenerateSalt();
             byte[] hashedPW = HashSaltClass.GetHash(password, salt);

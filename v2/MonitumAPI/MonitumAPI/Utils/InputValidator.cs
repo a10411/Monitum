@@ -2,6 +2,9 @@
 
 namespace MonitumAPI.Utils
 {
+    /// <summary>
+    /// Classe que visa implementar todas as funções de validação de inputs (emails, passwords, etc.)
+    /// </summary>
     public class InputValidator
     {
         public static Boolean emailChecker(string email)
