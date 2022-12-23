@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MonitumBLL.Utils;
 using MonitumBOL.Models;
+using MonitumDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,58 @@ namespace MonitumBLL.Logic
                 response.StatusCode = StatusCodes.SUCCESS;
                 response.Message = "Sucesso na obtenção dos dados";
                 response.Data = gestorList;
+            }
+            return response;
+        }
+
+        public static async Task<Response> LoginGestor(string conString, string email, string password)
+        {
+            Response response = new Response();
+            try
+            {
+                Boolean respBool = await GestorService.LoginGestor(conString, email, password);
+                if (respBool)
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Gestor autenticado.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Credenciais inválidas";
+                }
+                return response;
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
+
+        public static async Task<Response> RegisterGestor(string conString, string email, string password)
+        {
+            Response response = new Response();
+            try
+            {
+                Boolean respBool = await GestorService.RegisterGestor(conString, email, password);
+                if (respBool)
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Gestor registado.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Não foi possível registar o gestor.";
+                }
+                return response;
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
             }
             return response;
         }

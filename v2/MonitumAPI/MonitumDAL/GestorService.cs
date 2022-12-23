@@ -1,4 +1,5 @@
 ﻿using MonitumBOL.Models;
+using MonitumDAL.AuthUtils;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -35,6 +36,73 @@ namespace MonitumDAL
             }
 
             return gestorList;
+        }
+
+        public static async Task<Boolean> LoginGestor(string conString, string email, string password) // hash and salt
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Gestor where email = '{email}'", con);
+
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        string hashedPWFromDb = rdr["password_hash"].ToString();
+                        string salt = rdr["password_salt"].ToString();
+                        rdr.Close();
+                        con.Close();
+                        if (HashSaltClass.CompareHashedPasswords(password, hashedPWFromDb, salt))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    rdr.Close();
+                    con.Close();
+                    return false;
+                }
+            } catch
+            {
+                throw;
+            }
+            
+        }
+
+        public static async Task<Boolean> RegisterGestor(string conString, string email, string password) // ASSOCIAR GESTOR A UM ESTABELECIMENTO
+        {
+            string salt = HashSaltClass.GenerateSalt();
+            byte[] hashedPW = HashSaltClass.GetHash(password, salt);
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string addGestor = "INSERT INTO Gestor (email,password_hash,password_salt) VALUES (@email, @password_hash, @password_salt)";
+                    using (SqlCommand queryAddGestor = new SqlCommand(addGestor))
+                    {
+                        queryAddGestor.Connection = con;
+                        queryAddGestor.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                        queryAddGestor.Parameters.Add("@password_hash", SqlDbType.VarChar).Value = Convert.ToBase64String(hashedPW);
+                        queryAddGestor.Parameters.Add("@password_salt", System.Data.SqlDbType.VarChar).Value = salt;
+                        con.Open();
+                        queryAddGestor.ExecuteNonQuery();
+                        con.Close();
+                        return true;
+                    }
+
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

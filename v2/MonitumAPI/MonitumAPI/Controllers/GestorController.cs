@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MonitumAPI.Utils;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
+using MonitumDAL;
 using Swashbuckle.AspNetCore.Annotations;
 using StatusCodes = Microsoft.AspNetCore.Http.StatusCodes;
 
@@ -45,6 +47,35 @@ namespace MonitumAPI.Controllers
             }
             return new JsonResult(response);
             
+        }
+
+        [HttpPost]
+        [Route("/Login")]
+        public async Task<IActionResult> LoginGestor(string email, string password)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await GestorLogic.LoginGestor(CS, email, password);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        [HttpPost]
+        [Route("/Register")]
+        public async Task<IActionResult> RegistoGestor(string email, string password)
+        {
+            // Confirmar se o email introduzido é válido
+            if (!InputValidator.emailChecker(email)) return StatusCode((int)MonitumBLL.Utils.StatusCodes.BADREQUEST);
+
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await GestorLogic.RegisterGestor(CS, email, password);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
         }
     }
 }
