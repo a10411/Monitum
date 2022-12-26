@@ -103,5 +103,31 @@ namespace MonitumBLL.Logic
             
             return response;
         }
+
+        public static async Task<Response> UpdateEstadoSala(string conString, int idSala, int idEstado)
+        {
+            Response response = new Response();
+            try
+            {
+                Sala salaReturned = await SalaService.UpdateEstadoSala(conString, idSala, idEstado);
+                if (salaReturned.IdSala == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Sala was not found.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sala was updated.";
+                    response.Data = salaReturned;
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
     }
 }

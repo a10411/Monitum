@@ -111,7 +111,59 @@ namespace MonitumDAL
             }
             
         }
+        public static async Task<Sala> GetSala(string conString, int idSala)
+        {
+            Sala sala = new Sala();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala where id_sala = {idSala}", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    sala = new Sala(rdr);
+                }
+                rdr.Close();
+                con.Close();
+            }
+
+            return sala;
+            // retorna uma sala com id = 0 caso não encontre nenhum com este ID
+        }
+
+        public static async Task<Sala> UpdateEstadoSala(string conString, int idSala, int idEstado)
+        {
+            try
+            {
+                // UPDATE Sala set id_estado = {id_estado} where id_sala = {id_sala}
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string addSala = "UPDATE Sala set id_estado = @idEstado where id_sala = @idSala";
+                    using (SqlCommand queryAddSala = new SqlCommand(addSala))
+                    {
+                        queryAddSala.Connection = con;
+                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = idEstado;
+                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = idSala;
+                        con.Open();
+                        queryAddSala.ExecuteNonQuery();
+                        con.Close();
+                        return await GetSala(conString, idSala);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 
+    
 
+    
 }
+
+
+

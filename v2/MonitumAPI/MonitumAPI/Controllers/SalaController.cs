@@ -99,5 +99,19 @@ namespace MonitumAPI.Controllers
             }
             return new JsonResult(response);
         }
+
+        [Authorize]
+        [HttpPost]
+        [Route("/UpdateEstadoSala/sala/{idSala}/estado/{idEstado}")]
+        public async Task<IActionResult> UpdateEstadoSala(int idSala, int idEstado)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.UpdateEstadoSala(CS, idSala, idEstado);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
     }
 }
