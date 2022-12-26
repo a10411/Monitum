@@ -111,6 +111,13 @@ namespace MonitumDAL
             }
             
         }
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter uma sala com um determinado ID
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala que pretendemos obter</param>
+        /// <returns>Sala pretendida, ou sala com id = 0 caso nenhuma tenha sido encontrada</returns>
         public static async Task<Sala> GetSala(string conString, int idSala)
         {
             Sala sala = new Sala();
@@ -133,6 +140,13 @@ namespace MonitumDAL
             // retorna uma sala com id = 0 caso não encontre nenhum com este ID
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar o estado de uma sala
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala que pretendemos atualizar</param>
+        /// <param name="idEstado">ID do estado para o qual queremos atualizar a sala</param>
+        /// <returns>Sala atualizada</returns>
         public static async Task<Sala> UpdateEstadoSala(string conString, int idSala, int idEstado)
         {
             try
