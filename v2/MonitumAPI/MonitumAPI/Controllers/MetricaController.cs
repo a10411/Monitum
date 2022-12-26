@@ -25,6 +25,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request POST relativo a uma métrica, que o gestor pretende adicionar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
         /// </summary>
         /// <param name="metricaToAdd">Métrica a adicionar à base de dados</param>
         /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>

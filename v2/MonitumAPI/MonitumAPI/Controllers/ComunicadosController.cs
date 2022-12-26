@@ -52,6 +52,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request POST relativo aos Comunicados
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
         /// </summary>
         /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]

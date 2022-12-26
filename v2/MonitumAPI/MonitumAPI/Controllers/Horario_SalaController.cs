@@ -48,6 +48,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request PUT relativo a um horário de uma sala, que o gestor pretenda atualizar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
         /// </summary>
         /// <param name="horarioToUpdate">Horário que visa substituir o que reside na base de dados (o atualizado)</param>
         /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará o novo horário, com uma mensagem de sucesso.</returns>
@@ -74,6 +75,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request POST relativo a um horário de uma sala, que o gestor pretenda adicionar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize) 
         /// </summary>
         /// <param name="horarioToAdd">Horário a adicionar à base de dados</param>
         /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>
@@ -100,6 +102,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request DELETE relativo a um horário de uma sala, que o gestor pretenda apagar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
         /// </summary>
         /// <param name="IdHorario">ID do horário a remover da base de dados</param>
         /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o DELETE foi bem sucedido.</returns>

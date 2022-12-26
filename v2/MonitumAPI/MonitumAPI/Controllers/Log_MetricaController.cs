@@ -47,6 +47,10 @@ namespace MonitumAPI.Controllers
             }
             return new JsonResult(response);
         }
+
+
+
+
         [SwaggerResponse(Microsoft.AspNetCore.Http.StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MonitumAPI.Utils;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 using MonitumDAL;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Data;
 using StatusCodes = Microsoft.AspNetCore.Http.StatusCodes;
 
 namespace MonitumAPI.Controllers
@@ -27,6 +29,7 @@ namespace MonitumAPI.Controllers
 
         /// <summary>
         /// Request GET relativo aos Gestores
+        /// Apenas um admin consegue fazer este request com sucesso (Authorize(Roles="Admin"))
         /// </summary>
         /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Gestores</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
@@ -36,6 +39,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllGestores()
         {
