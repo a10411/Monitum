@@ -138,6 +138,39 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica da obtenção da informação do estado da sala (aberta ou fechada), dados estes que residem na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Sala (CheckSalaOpen))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="idSala">ID da sala para a qual o utilizador pretende a informação</param>
+        /// <returns>Response com Status Code, mensagem e dados (nos dados, estará true ou false, consoante se se encontra aberta ou não)</returns>
+        public static async Task<Response> CheckSalaOpen(string conString, int idSala){
+            Response response = new Response();
+            try
+            {
+                Boolean salaIsOpen = await SalaService.CheckSalaOpen(conString, idSala);
+                response.StatusCode = StatusCodes.SUCCESS;
+                if (salaIsOpen)
+                {
+                    response.Message = "The room is opened.";
+                    response.Data = true;
+                }
+                else
+                {
+                    response.Message = "The room is closed.";
+                    response.Data = false;
+                }
+            } catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+
+        }
+
+        /// <summary>
         /// Trata da parte lógica relativa à atualização de uma sala que resida na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Sala (UpdateSala))
         /// </summary>

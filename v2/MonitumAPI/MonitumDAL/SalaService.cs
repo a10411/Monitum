@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MonitumBOL.Models;
+using MonitumDAL.Utils;
 
 namespace MonitumDAL
 {
@@ -151,7 +152,6 @@ namespace MonitumDAL
         {
             try
             {
-                // UPDATE Sala set id_estado = {id_estado} where id_sala = {id_sala}
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     string addSala = "UPDATE Sala set id_estado = @idEstado where id_sala = @idSala";
@@ -174,6 +174,46 @@ namespace MonitumDAL
         }
 
         /// <summary>
+        /// Método que visa chamar métodos já existentes (reutiliza métodos) e indica se uma sala está aberta ou fechada atualmente
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala que pretendemos obter esta informação</param>
+        /// <returns>True se está aberta, false se está fechada</returns>
+        public static async Task<Boolean> CheckSalaOpen(string conString, int idSala)
+        {
+            try
+            {
+                // checkar estado da sala, se for = 1 (Ativa) segue
+                // checkar horario, se está aberta atualmente, true
+                Sala salaRequested = await GetSala(conString, idSala);
+                if (salaRequested.IdEstado == 1)
+                {
+                    List<Horario_Sala> horariosSalaObtained = await Horario_SalaService.GetHorariosSalaByIdSala(conString, idSala);
+                    DayOfWeek todayWeekDay = DateTime.Today.DayOfWeek;
+                    TimeSpan timeNow = DateTime.Now.TimeOfDay;
+                    string todayWeekDayPT = WeekdayConvertion.WeekdayConverterEngToPT(todayWeekDay.ToString());
+                    foreach (Horario_Sala horario_aux in horariosSalaObtained)
+                    {
+                        if (horario_aux.DiaSemana == todayWeekDayPT)
+                        {
+                            TimeSpan horaEntrada = horario_aux.HoraEntrada.TimeOfDay;
+                            TimeSpan horaSaida = horario_aux.HoraSaida.TimeOfDay;
+                            if (horaEntrada <= timeNow && horaSaida >= timeNow)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    
         /// Método que visa aceder à base de dados SQL Server via query e atualizar um registo de uma sala (atualizar uma sala relativa a um estabelecimento)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
