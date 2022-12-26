@@ -50,7 +50,11 @@ namespace MonitumAPI.Controllers
 
 
 
-
+        /// <summary>
+        /// Request POST relativo a log metrica
+        /// </summary>
+        /// <param name="logMetricaToAdd">log a adicionar à base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o POST foi bem sucedido.</returns>
         [SwaggerResponse(Microsoft.AspNetCore.Http.StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
