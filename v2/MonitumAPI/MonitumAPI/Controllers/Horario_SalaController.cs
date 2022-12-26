@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MonitumAPI.Utils;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 using MonitumBOL.Models;
@@ -63,6 +64,9 @@ namespace MonitumAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
         {
+            // Confirmar se dia da semana é válido
+            if (!InputValidator.weekdayPTChecker(horarioToUpdate.DiaSemana)) return StatusCode((int)MonitumBLL.Utils.StatusCodes.BADREQUEST);
+
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await Horario_SalaLogic.UpdateHorario(CS, horarioToUpdate);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
@@ -90,6 +94,9 @@ namespace MonitumAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddHorarioSala(Horario_Sala horarioToAdd)
         {
+            // Confirmar se dia da semana é válido
+            if (!InputValidator.weekdayPTChecker(horarioToAdd.DiaSemana)) return StatusCode((int)MonitumBLL.Utils.StatusCodes.BADREQUEST);
+
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await Horario_SalaLogic.AddHorarioToSala(CS, horarioToAdd);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
