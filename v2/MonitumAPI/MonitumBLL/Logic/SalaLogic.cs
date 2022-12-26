@@ -169,6 +169,8 @@ namespace MonitumBLL.Logic
             return response;
 
         }
+
+        /// <summary>
         /// Trata da parte lógica relativa à atualização de uma sala que resida na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Sala (UpdateSala))
         /// </summary>

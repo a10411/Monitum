@@ -207,10 +207,12 @@ namespace MonitumDAL
 
                 }
                 return false;
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 throw;
             }
+        }
     
         /// Método que visa aceder à base de dados SQL Server via query e atualizar um registo de uma sala (atualizar uma sala relativa a um estabelecimento)
         /// </summary>
