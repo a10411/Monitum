@@ -72,7 +72,11 @@ namespace MonitumAPI.Controllers
             {
                 return StatusCode((int)response.StatusCode);
             }
+            JwtUtils jwt = new JwtUtils(_configuration);
+            var token = jwt.GenerateJWTToken("gestor");
+            response.Data = token;
             return new JsonResult(response);
+            //return new JsonResult(token);
         }
 
         /// <summary>

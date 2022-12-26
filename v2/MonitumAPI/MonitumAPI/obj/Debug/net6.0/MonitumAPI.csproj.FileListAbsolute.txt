@@ -91,3 +91,10 @@ C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumAPI\obj\De
 C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumAPI\obj\Debug\net6.0\MonitumAPI.pdb
 C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumAPI\obj\Debug\net6.0\MonitumAPI.genruntimeconfig.cache
 C:\Users\toxic\Documents\IPCA\3ano\1S\PA\Monitum\v2\MonitumAPI\MonitumAPI\obj\Debug\net6.0\ref\MonitumAPI.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
