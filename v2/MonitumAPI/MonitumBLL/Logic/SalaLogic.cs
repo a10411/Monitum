@@ -47,7 +47,7 @@ namespace MonitumBLL.Logic
 
         /// <summary>
         /// Trata da parte lógica relativa à obtenção de todas as salas de um estabelecimento, dados estes que residem na base de dados
-        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Salas (GetSalasByEstabelecimento))
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Sala (GetSalasByEstabelecimento))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="idEstabelecimento">ID do estabelecimento para o qual queremos visualizar as salas</param>
@@ -67,7 +67,7 @@ namespace MonitumBLL.Logic
 
         /// <summary>
         /// Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados
-        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Salas (GetLastMetricaBySala))
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Sala (GetLastMetricaBySala))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="idMetrica">ID da métrica que o utilizador pretende visualizar</param>
@@ -104,6 +104,14 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa à atualização do estado de uma sala, dados estes que residem na base dados (tanto os estados, como as salas)
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PATCH - Sala (UpdateEstadoSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="idSala">ID da sala que o gestor pretende atualizar o estado</param>
+        /// <param name="idEstado">ID do novo estado da sala</param>
+        /// <returns>Response com Status Code, mensagem e dados (idealmente, nos dados estará a sala atualizada)</returns>
         public static async Task<Response> UpdateEstadoSala(string conString, int idSala, int idEstado)
         {
             Response response = new Response();

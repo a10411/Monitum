@@ -100,8 +100,16 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
+        /// <summary>
+        /// Request PATCH relativo à atualização do estado de uma sala
+        /// Útil para quando o gestor pretender arquivar uma sala ou voltar a colocar uma sala ativa
+        /// Apenas pode ser feito pelo Gestor
+        /// </summary>
+        /// <param name="idSala">ID sala a atualizar</param>
+        /// <param name="idEstado">ID estado para o qual pretendemos atualizar a sala</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala atualizada, com um status code 200 (sucesso).</returns>
         [Authorize]
-        [HttpPost]
+        [HttpPatch]
         [Route("/UpdateEstadoSala/sala/{idSala}/estado/{idEstado}")]
         public async Task<IActionResult> UpdateEstadoSala(int idSala, int idEstado)
         {

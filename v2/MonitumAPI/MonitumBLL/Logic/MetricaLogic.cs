@@ -27,7 +27,6 @@ namespace MonitumBLL.Logic
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="metricaToAdd">Métrica inserida pelo gestor para adicionar à base de dados</param>
         /// <returns>Response com Status Code e mensagem (indicando que a métrica foi adicionada)</returns>
-
         public static async Task<Response> AddMetrica(string conString, Metrica metricaToAdd)
         {
             Response response= new Response();

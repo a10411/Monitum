@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MonitumAPI.Utils
 {
+    /// <summary>
+    /// Visa implementar as funções relacionadas com JWT Tokens (autorização)
+    /// </summary>
     public class JwtUtils
     {
         private readonly IConfiguration _configuration;
@@ -12,6 +15,11 @@ namespace MonitumAPI.Utils
         {
             _configuration = configuration;
         }
+        /// <summary>
+        /// Função que visa gerar um JWT token com uma determinada role (Gestor, Administrador, etc.)
+        /// </summary>
+        /// <param name="role">Role que estará presente no token</param>
+        /// <returns>String com o token gerado</returns>
         public string GenerateJWTToken(string role) 
         {
             var issuer = _configuration["Jwt:Issuer"];
