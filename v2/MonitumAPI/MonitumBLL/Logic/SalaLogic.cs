@@ -145,8 +145,7 @@ namespace MonitumBLL.Logic
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="idSala">ID da sala para a qual o utilizador pretende a informação</param>
         /// <returns>Response com Status Code, mensagem e dados (nos dados, estará true ou false, consoante se se encontra aberta ou não)</returns>
-        public static async Task<Response> CheckSalaOpen(string conString, int idSala)
-        {
+        public static async Task<Response> CheckSalaOpen(string conString, int idSala){
             Response response = new Response();
             try
             {
@@ -162,8 +161,40 @@ namespace MonitumBLL.Logic
                     response.Message = "The room is closed.";
                     response.Data = false;
                 }
-                    
             } catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+
+        }
+        /// Trata da parte lógica relativa à atualização de uma sala que resida na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Sala (UpdateSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="salaToUpdate">Horário inserido pelo gestor para atualizar</param>
+        /// <returns>Response com Status Code, mensagem e dados (Horario atualizado)</returns>
+        public static async Task<Response> UpdateSala(string conString, Sala salaToUpdate)
+        {
+            Response response = new Response();
+            try
+            {
+                
+                Sala salaReturned = await SalaService.UpdateSala(conString, salaToUpdate);
+                if (salaReturned.IdSala == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Sala was not found.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sala was updated.";
+                    response.Data = salaReturned;
+                }
+            }
+            catch (Exception e)
             {
                 response.StatusCode = StatusCodes.INTERNALSERVERERROR;
                 response.Message = e.ToString();
