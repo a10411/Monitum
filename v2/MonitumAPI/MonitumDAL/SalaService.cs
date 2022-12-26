@@ -173,28 +173,28 @@ namespace MonitumDAL
             }
         }
 
-    
+        /// <summary>
         /// Método que visa aceder à base de dados SQL Server via query e atualizar um registo de uma sala (atualizar uma sala relativa a um estabelecimento)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
-        public static async Task<Sala> UpdateSala(string conString, Sala salaToUpdate)
+        public static async Task<Sala> UpdateSala(string conString, int idSala, int idEstabelecimento, int idEstado)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addSala = "UPDATE Sala SET id_sala = @idSala, id_estabelecimento = @idEstabelecimento, id_estado = @idEstado where id_sala = @idSala";
+                    string addSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado where id_sala = @idSala";
                     using (SqlCommand queryAddSala = new SqlCommand(addSala))
                     {
                         queryAddSala.Connection = con;
-                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = salaToUpdate.IdSala;
-                        queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaToUpdate.IdEstabelecimento;
-                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaToUpdate.IdEstado;
+                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = idSala;
+                        queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = idEstabelecimento;
+                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = idEstado;
                         con.Open();
                         queryAddSala.ExecuteNonQuery();
                         con.Close();
-                        return await GetSala(conString, salaToUpdate.IdSala);
+                        return await GetSala(conString, idSala);
                     }
                 }
             }

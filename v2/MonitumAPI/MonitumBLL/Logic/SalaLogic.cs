@@ -144,13 +144,13 @@ namespace MonitumBLL.Logic
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="salaToUpdate">Horário inserido pelo gestor para atualizar</param>
         /// <returns>Response com Status Code, mensagem e dados (Horario atualizado)</returns>
-        public static async Task<Response> UpdateSala(string conString, Sala salaToUpdate)
+        public static async Task<Response> UpdateSala(string conString, int idSala, int idEstabelecimento, int idEstado)
         {
             Response response = new Response();
             try
             {
                 
-                Sala salaReturned = await SalaService.UpdateSala(conString, salaToUpdate);
+                Sala salaReturned = await SalaService.UpdateSala(conString, idSala, idEstabelecimento, idEstado);
                 if (salaReturned.IdSala == 0)
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;
