@@ -108,6 +108,13 @@ namespace MonitumAPI.Controllers
         /// <param name="idSala">ID sala a atualizar</param>
         /// <param name="idEstado">ID estado para o qual pretendemos atualizar a sala</param>
         /// <returns>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala atualizada, com um status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize]
         [HttpPatch]
         [Route("/UpdateEstadoSala/sala/{idSala}/estado/{idEstado}")]
@@ -120,6 +127,33 @@ namespace MonitumAPI.Controllers
                 return StatusCode((int)response.StatusCode);
             }
             return new JsonResult(response);
+        }
+
+
+        /// <summary>
+        /// Request GET relativo à obtenção de informação do estado de uma sala (aberta ou fechada)
+        /// </summary>
+        /// <param name="idSala">ID sala a obter informação de aberta ou fechada</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o utilizador. Idealmente, retornará uma resposta com True, caso se encontre aberta, ou False caso fechada, com status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [HttpGet]
+        [Route("/CheckSalaOpen/sala/{idSala}")]
+        public async Task<IActionResult> CheckSalaOpen(int idSala)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.CheckSalaOpen(CS, idSala);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+
         }
     }
 }
