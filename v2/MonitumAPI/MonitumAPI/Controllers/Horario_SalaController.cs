@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 using MonitumBOL.Models;
@@ -57,6 +58,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
         {
@@ -82,6 +84,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddHorarioSala(Horario_Sala horarioToAdd)
         {
@@ -107,6 +110,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> DeleteHorarioSala(int IdHorario)
         {

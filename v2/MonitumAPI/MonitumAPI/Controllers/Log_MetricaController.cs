@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MonitumBLL.Logic;
 using MonitumBLL.Utils;
 using MonitumBOL.Models;
@@ -53,6 +54,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddLogMetrica(Log_Metrica logMetricaToAdd)
         {

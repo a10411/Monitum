@@ -21,7 +21,7 @@ namespace MonitumAPI.Utils
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var permClaims = new List<Claim>();
-            permClaims.Add(new Claim("role", role));
+            permClaims.Add(new Claim(ClaimTypes.Role, role));
 
 
             var token = new JwtSecurityToken(issuer: issuer, audience: audience, claims: permClaims,
