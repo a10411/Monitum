@@ -111,7 +111,73 @@ namespace MonitumDAL
             }
             
         }
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter uma sala com um determinado ID
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala que pretendemos obter</param>
+        /// <returns>Sala pretendida, ou sala com id = 0 caso nenhuma tenha sido encontrada</returns>
+        public static async Task<Sala> GetSala(string conString, int idSala)
+        {
+            Sala sala = new Sala();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala where id_sala = {idSala}", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    sala = new Sala(rdr);
+                }
+                rdr.Close();
+                con.Close();
+            }
+
+            return sala;
+            // retorna uma sala com id = 0 caso não encontre nenhum com este ID
+        }
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar o estado de uma sala
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idSala">ID da sala que pretendemos atualizar</param>
+        /// <param name="idEstado">ID do estado para o qual queremos atualizar a sala</param>
+        /// <returns>Sala atualizada</returns>
+        public static async Task<Sala> UpdateEstadoSala(string conString, int idSala, int idEstado)
+        {
+            try
+            {
+                // UPDATE Sala set id_estado = {id_estado} where id_sala = {id_sala}
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string addSala = "UPDATE Sala set id_estado = @idEstado where id_sala = @idSala";
+                    using (SqlCommand queryAddSala = new SqlCommand(addSala))
+                    {
+                        queryAddSala.Connection = con;
+                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = idEstado;
+                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = idSala;
+                        con.Open();
+                        queryAddSala.ExecuteNonQuery();
+                        con.Close();
+                        return await GetSala(conString, idSala);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 
+    
 
+    
 }
+
+
+

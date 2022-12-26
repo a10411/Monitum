@@ -43,7 +43,6 @@ namespace MonitumBLL.Logic
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="logMetricaToAdd">Log inserida pelo sitema físico para adicionar à base de dados</param>
         /// <returns>Response com Status Code e mensagem (indicando que a log foi adicionada)</returns>
-
         public static async Task<Response> AddLogMetrica(string conString, Log_Metrica logMetricaToAdd)
         {
             Response response= new Response();
