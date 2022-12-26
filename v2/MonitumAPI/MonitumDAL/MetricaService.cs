@@ -16,10 +16,30 @@ namespace MonitumDAL
     public class MetricaService
     {
 
+        public static async Task<Metrica> GetMetricaSala(string conString, int idMetrica)
+        {
+            Metrica metrica = new Metrica();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Metricas where id_metrica = {idMetrica}", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while(rdr.Read())
+                {
+                    metrica = new Metrica(rdr);    
+                }
+                rdr.Close();
+                con.Close();
+            }
+            return metrica;
+        }
+
 
 
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server via query e adicionar um horário a uma sala de um estabelecimento
+        /// Método que visa aceder à base de dados SQL Server via query e adicionar uma Metrica a uma sala de um estabelecimento
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json </param>
         /// <param name="metricaToAdd">Métrica a adicionar</param>
@@ -49,6 +69,39 @@ namespace MonitumDAL
                 throw;
             }
         }
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar uma Metrica a uma sala de um estabelecimento
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="metricaToUpdate">Métrica a atualizar</param>
+        /// <returns></returns>
+
+        public static async Task<Metrica> UpdateMetrica(string conString, Metrica metricaToUpdate)
+        {
+            try
+            {
+                using(SqlConnection con = new SqlConnection(conString))
+                {
+                    string updateMetrica = ("UPDATE Metricas SET nome = @nome, medida = @medida");
+                    using(SqlCommand queryUpdateMetrica = new SqlCommand(updateMetrica))
+                    {
+                        queryUpdateMetrica.Connection = con;
+                        queryUpdateMetrica.Parameters.Add("@nome", SqlDbType.VarChar).Value = metricaToUpdate.Nome;
+                        queryUpdateMetrica.Parameters.Add("@medida", SqlDbType.VarChar).Value= metricaToUpdate.Medida;
+                        con.Open() ;
+                        queryUpdateMetrica.ExecuteNonQuery();
+                        con.Close();
+                        return await GetMetricaSala(conString, metricaToUpdate.IdMetrica);
+                    }
+                }
+            }
+            catch(Exception e) 
+            { 
+                throw; 
+            }
+        }
+
 
     }
 

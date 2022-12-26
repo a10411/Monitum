@@ -22,7 +22,7 @@ namespace MonitumBLL.Logic
 
         /// <summary>
         /// Trata da parte lógica relativa à inserção de uma métrica na base de dados
-        /// Gera uma res+psta que será utilizada pela MomitumAPI para responder ao request do utilizador (POST - Metrica (AddMetrica))
+        /// Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (POST - Metrica (AddMetrica))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="metricaToAdd">Métrica inserida pelo gestor para adicionar à base de dados</param>
@@ -45,5 +45,38 @@ namespace MonitumBLL.Logic
             }
             return response;
         }
+        /// <summary>
+        /// Trata da parte lógica relativa à atualização de uma métrica na base de dados
+        ///  Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PUT - Metrica (AddMetrica))</summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="metricaToUpdate">Métrica atualizada pelo gestor para adicionar à base de dados</param>
+        /// <returns>Response com Status Code e mensagem (indicando que a métrica foi atualizada)</returns>
+        public static async Task<Response> UpdateMetrica(string conString, Metrica metricaToUpdate)
+        {
+            Response response= new Response();
+            try
+            {
+                Metrica metricaReturned = await MetricaService.UpdateMetrica(conString, metricaToUpdate);
+                if(metricaReturned.IdMetrica == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Metrica was not found.";
+                }
+                else
+                {
+                    response.StatusCode= StatusCodes.SUCCESS;
+                    response.Message = "Metrica was updated.";
+                    response.Data = metricaReturned;
+                }
+            }
+            catch(Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
+
+
     }
 }
