@@ -132,12 +132,35 @@ namespace MonitumAPI.Controllers
 
 
         /// <summary>
-        /// Request PUT relativo a uma sala, que o gestor pretenda atualizar
+        /// Request PUT relativo a uma sala, que o gestor pretenda substituir
         /// </summary>
-        /// <param name="idSala"></param>
-        /// <param name="idEstabelecimento"></param>
-        /// <param name="idEstado"></param>
-        /// <returns></returns>
+        /// <param name="salaToUpdate">Sala que o gestor pretende substituir na BD</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala substituida, com um status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
+        [HttpPut]
+        public async Task<IActionResult> PutSala(Sala salaToUpdate)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.PutSala(CS, salaToUpdate);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        /// <summary>
+        /// Request PATCH relativo a uma sala, que o gestor pretenda atualizar
+        /// </summary>
+        /// <param name="salaToUpdate">Sala que o gestor pretende atualizar na BD</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala atualizada, com um status code 200 (sucesso).</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
@@ -147,11 +170,10 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize]
         [HttpPatch]
-        [Route("/UpdateSala/sala/{idSala}")]
-        public async Task<IActionResult> UpdateSala(int idSala, int idEstabelecimento, int idEstado)
+        public async Task<IActionResult> UpdateSala(Sala salaToUpdate)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await SalaLogic.UpdateSala(CS, idSala, idEstabelecimento, idEstado);
+            Response response = await SalaLogic.UpdateSala(CS, salaToUpdate);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);

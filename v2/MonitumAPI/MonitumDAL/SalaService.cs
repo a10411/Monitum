@@ -213,12 +213,15 @@ namespace MonitumDAL
                 throw;
             }
         }
-    
-        /// Método que visa aceder à base de dados SQL Server via query e atualizar um registo de uma sala (atualizar uma sala relativa a um estabelecimento)
+
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e substituir um registo de uma sala (substituir uma sala relativa a um estabelecimento)
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
-        /// <returns>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</returns>
-        public static async Task<Sala> UpdateSala(string conString, int idSala, int idEstabelecimento, int idEstado)
+        /// <param name="salaToUpdate">Sala a substituir</param>
+        /// <returns>Sala nova (substituida) ou erro</returns>
+        public static async Task<Sala> PutSala(string conString, Sala salaToUpdate)
         {
             try
             {
@@ -228,13 +231,13 @@ namespace MonitumDAL
                     using (SqlCommand queryAddSala = new SqlCommand(addSala))
                     {
                         queryAddSala.Connection = con;
-                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = idSala;
-                        queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = idEstabelecimento;
-                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = idEstado;
+                        queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = salaToUpdate.IdSala;
+                        queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaToUpdate.IdEstabelecimento;
+                        queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaToUpdate.IdEstado;
                         con.Open();
                         queryAddSala.ExecuteNonQuery();
                         con.Close();
-                        return await GetSala(conString, idSala);
+                        return await GetSala(conString, salaToUpdate.IdSala);
                     }
                 }
             }
@@ -242,14 +245,48 @@ namespace MonitumDAL
             {
                 throw;
             }
+        }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar o registo de uma sala (atualizar uma sala relativa a um estabelecimento)
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="salaUpdated">Sala a atualizar</param>
+        /// <returns>Sala atualizada ou erro</returns>
+        public static async Task<Sala> UpdateSala(string conString, Sala salaUpdated)
+        {
+            Sala salaAtual = await GetSala(conString, salaUpdated.IdSala);
+            salaUpdated.IdSala = salaUpdated.IdSala != 0 ? salaUpdated.IdSala : salaAtual.IdSala;
+            salaUpdated.IdEstabelecimento = salaUpdated.IdEstabelecimento != 0 ? salaUpdated.IdEstabelecimento : salaAtual.IdEstabelecimento;
+            salaUpdated.IdEstado = salaUpdated.IdEstado != 0 ? salaUpdated.IdEstado : salaAtual.IdEstado;
 
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string updateSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado where id_sala = @idSala";
+                    using (SqlCommand queryUpdateSala = new SqlCommand(updateSala))
+                    {
+                        queryUpdateSala.Connection = con;
+                        queryUpdateSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaUpdated.IdEstabelecimento;
+                        queryUpdateSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaUpdated.IdEstado;
+                        queryUpdateSala.Parameters.Add("@idSala", SqlDbType.Int).Value = salaUpdated.IdSala;
+                        con.Open();
+                        queryUpdateSala.ExecuteNonQuery();
+                        con.Close();
+                        return await GetSala(conString, salaUpdated.IdSala);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 
     
 
-    
 }
 
 

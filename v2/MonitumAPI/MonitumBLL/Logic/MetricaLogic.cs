@@ -46,11 +46,11 @@ namespace MonitumBLL.Logic
             return response;
         }
         /// <summary>
-        /// Trata da parte lógica relativa à atualização de uma métrica na base de dados
-        ///  Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PUT - Metrica (AddMetrica))</summary>
+        /// Trata da parte lógica relativa à substituição de uma métrica na base de dados
+        /// Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PUT - Metrica (PutMetrica))</summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
-        /// <param name="metricaToUpdate">Métrica atualizada pelo gestor para adicionar à base de dados</param>
-        /// <returns>Response com Status Code e mensagem (indicando que a métrica foi atualizada)</returns>
+        /// <param name="metricaToUpdate">Métrica inserida pelo gestor para substituir na base de dados</param>
+        /// <returns>Response com Status Code, mensagem (indicando que a métrica foi substituída) e dados (métrica atualizada (nova))</returns>
         public static async Task<Response> PutMetrica(string conString, Metrica metricaToUpdate)
         {
             Response response= new Response();
@@ -65,7 +65,7 @@ namespace MonitumBLL.Logic
                 else
                 {
                     response.StatusCode= StatusCodes.SUCCESS;
-                    response.Message = "Metrica was updated.";
+                    response.Message = "Metrica was swapped.";
                     response.Data = metricaReturned;
                 }
             }
@@ -77,6 +77,13 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa à atualização de uma métrica na base de dados
+        /// Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PATCH - Metrica (UpdateMetrica))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="metricaToUpdate">Métrica inserida pelo gestor para atualizar na base de dados</param>
+        /// <returns>Response com Status Code, mensagem (indicando que a métrica foi atualizada) e dados (métrica atualizada)</returns>
         public static async Task<Response> UpdateMetrica(string conString, Metrica metricaToUpdate)
         {
             Response response = new Response();

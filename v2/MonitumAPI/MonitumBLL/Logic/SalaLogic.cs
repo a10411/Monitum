@@ -171,19 +171,51 @@ namespace MonitumBLL.Logic
         }
 
         /// <summary>
-        /// Trata da parte lógica relativa à atualização de uma sala que resida na base de dados
-        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Sala (UpdateSala))
+        /// Trata da parte lógica relativa à substituição de uma sala que resida na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Sala (PutSala))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
-        /// <param name="salaToUpdate">Horário inserido pelo gestor para atualizar</param>
-        /// <returns>Response com Status Code, mensagem e dados (Horario atualizado)</returns>
-        public static async Task<Response> UpdateSala(string conString, int idSala, int idEstabelecimento, int idEstado)
+        /// <param name="salaToUpdate">Sala inserida pelo gestor para substituir</param>
+        /// <returns>Response com Status Code, mensagem e dados (Sala nova (substituida))</returns>
+        public static async Task<Response> PutSala(string conString, Sala salaToUpdate)
         {
             Response response = new Response();
             try
             {
-                
-                Sala salaReturned = await SalaService.UpdateSala(conString, idSala, idEstabelecimento, idEstado);
+                Sala salaReturned = await SalaService.PutSala(conString, salaToUpdate);
+                if (salaReturned.IdSala == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Sala was not found.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Sala was swapped.";
+                    response.Data = salaReturned;
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// Trata da parte lógica relativa à atualização de uma sala que resida na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PATCH - Sala (UpdateSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="salaToUpdate">Sala inserida pelo gestor para atualizar</param>
+        /// <returns>Response com Status Code, mensagem e dados (Sala ataulizada)</returns>
+        public static async Task<Response> UpdateSala(string conString, Sala salaToUpdate)
+        {
+            Response response = new Response();
+            try
+            {
+                Sala salaReturned = await SalaService.UpdateSala(conString, salaToUpdate);
                 if (salaReturned.IdSala == 0)
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;

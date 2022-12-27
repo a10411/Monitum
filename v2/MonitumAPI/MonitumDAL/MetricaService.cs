@@ -71,11 +71,11 @@ namespace MonitumDAL
         }
 
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server via query e atualizar uma Metrica a uma sala de um estabelecimento
+        /// Método que visa aceder à base de dados SQL Server via query e substituir uma Métrica lá existente
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
-        /// <param name="metricaToUpdated">Métrica a atualizar</param>
-        /// <returns>Métrica atualizada</returns>
+        /// <param name="metricaToUpdated">Métrica a substituir</param>
+        /// <returns>Métrica nova (substituída)</returns>
         public static async Task<Metrica> PutMetrica(string conString, Metrica metricaToUpdated)
         {
             try
@@ -101,6 +101,12 @@ namespace MonitumDAL
             }
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar uma Métrica lá existente
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="metricaUpdated">Métrica a atualizar</param>
+        /// <returns>Métrica atualizada</returns>
         public static async Task<Metrica> UpdateMetrica(string conString, Metrica metricaUpdated)
         {
             
