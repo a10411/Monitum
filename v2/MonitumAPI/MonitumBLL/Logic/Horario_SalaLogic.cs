@@ -19,11 +19,11 @@ namespace MonitumBLL.Logic
     public class Horario_SalaLogic
     {
         /// <summary>
-        /// Trata da parte lógica relativa à atualização de um horário que resida na base de dados
-        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (PUT - Horario (UpdateHorarioSala))
+        /// Trata da parte lógica relativa à substituição (pedido PUT) de um horário que resida na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do gestor (PUT - Horario (PutHorarioSala))
         /// </summary>
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
-        /// <param name="horarioToUpdate">Horário inserido pelo gestor para atualizar</param>
+        /// <param name="horarioToUpdate">Horário inserido pelo gestor para substituir</param>
         /// <returns>Response com Status Code, mensagem e dados (Horario atualizado)</returns>
         public static async Task<Response> PutHorario(string conString, Horario_Sala horarioToUpdate)
         {
@@ -50,6 +50,13 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa à atualização (pedido UPDATE) de um horário que resida na base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do gestor (UPDATE - Horario (UpdateHorarioSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="horarioToUpdate">Horário inserido pelo gestor para atualizar</param>
+        /// <returns></returns>
         public static async Task<Response> UpdateHorario(string conString, Horario_Sala horarioToUpdate)
         {
             Response response = new Response();

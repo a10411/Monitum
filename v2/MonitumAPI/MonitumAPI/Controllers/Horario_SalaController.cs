@@ -48,11 +48,11 @@ namespace MonitumAPI.Controllers
         }
 
         /// <summary>
-        /// Request PUT relativo a um horário de uma sala, que o gestor pretenda atualizar
+        /// Request PUT relativo a um horário de uma sala, que o gestor pretenda substituir
         /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
         /// </summary>
-        /// <param name="horarioToUpdate">Horário que visa substituir o que reside na base de dados (o atualizado)</param>
-        /// <returns>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará o novo horário, com uma mensagem de sucesso.</returns>
+        /// <param name="horarioToUpdate">Horário que visa substituir o que reside na base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará o novo horário, com uma mensagem de sucesso.</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
@@ -76,6 +76,19 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
+        /// <summary>
+        /// Request UPDATE relativo a um horário de uma sala, que o gestor pretenda atualizar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
+        /// </summary>
+        /// <param name="horarioToUpdate">Horário que visa atualizar o que reside na base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará o novo horário, com uma mensagem de sucesso.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize]
         [HttpPatch]
         public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)

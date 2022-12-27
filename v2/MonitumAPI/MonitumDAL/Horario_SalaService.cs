@@ -80,7 +80,7 @@ namespace MonitumDAL
         }
 
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente
+        /// Método que visa aceder à base de dados SQL Server via query e substituir (pedido PUT) um horário lá existente
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <param name="horarioUpdated">Horário atualizado</param>
@@ -117,6 +117,12 @@ namespace MonitumDAL
             }
         }
 
+        /// <summary>
+        /// Nétodo que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente, porém, apenas atualizando os campos que o gestor introduziu no request UPDATE
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="horarioUpdated">Horário atualizado (apenas vai atualizar campos que o gestor tenha inserido no request)</param>
+        /// <returns>Horário atualizado (utilizando a função GetHorarioSala)</returns>
         public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
         {
             Horario_Sala horarioAtual = await GetHorarioSala(conString, horarioUpdated.IdHorario);
