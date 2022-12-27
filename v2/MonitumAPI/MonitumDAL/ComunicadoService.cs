@@ -60,7 +60,7 @@ namespace MonitumDAL
                         queryAddComunicado.Parameters.Add("@idSala", SqlDbType.Int).Value = comunicadoToAdd.IdSala;
                         queryAddComunicado.Parameters.Add("@titulo", SqlDbType.Char).Value = comunicadoToAdd.Titulo;
                         queryAddComunicado.Parameters.Add("@corpo", SqlDbType.Char).Value = comunicadoToAdd.Corpo;
-                        queryAddComunicado.Parameters.Add("@dataHora", SqlDbType.DateTime).Value = comunicadoToAdd.DataHora;
+                        queryAddComunicado.Parameters.Add("@dataHora", SqlDbType.DateTime).Value = DateTime.Now.ToString();
                         con.Open();
                         queryAddComunicado.ExecuteNonQuery();
                         con.Close();

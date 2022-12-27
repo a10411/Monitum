@@ -60,7 +60,7 @@ namespace MonitumDAL
                         queryAddLogMetrica.Parameters.Add("@IdSala", System.Data.SqlDbType.Int).Value = logMetricaToAdd.IdSala;
                         queryAddLogMetrica.Parameters.Add("@IdMetrica", System.Data.SqlDbType.Int).Value = logMetricaToAdd.IdMetrica;
                         queryAddLogMetrica.Parameters.Add("@ValorMetrica", System.Data.SqlDbType.Int).Value = logMetricaToAdd.ValorMetrica;
-                        queryAddLogMetrica.Parameters.Add("@DataHora", System.Data.SqlDbType.Time).Value = logMetricaToAdd.DataHora.TimeOfDay;
+                        queryAddLogMetrica.Parameters.Add("@DataHora", System.Data.SqlDbType.DateTime).Value = DateTime.Now.ToString();
                         con.Open();
                         queryAddLogMetrica.ExecuteNonQuery();
                         con.Close();
