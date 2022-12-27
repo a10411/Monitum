@@ -25,6 +25,31 @@ namespace MonitumBLL.Logic
         /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
         /// <param name="horarioToUpdate">Horário inserido pelo gestor para atualizar</param>
         /// <returns>Response com Status Code, mensagem e dados (Horario atualizado)</returns>
+        public static async Task<Response> PutHorario(string conString, Horario_Sala horarioToUpdate)
+        {
+            Response response = new Response();
+            try
+            {
+                Horario_Sala horarioSalaReturned = await Horario_SalaService.PutHorario(conString, horarioToUpdate);
+                if (horarioSalaReturned.IdHorario == 0)
+                {
+                    response.StatusCode = StatusCodes.NOTFOUND;
+                    response.Message = "Horario was not found or there is overlapping of schedules.";
+                } else
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Horario was updated.";
+                    response.Data = horarioSalaReturned;
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
+
         public static async Task<Response> UpdateHorario(string conString, Horario_Sala horarioToUpdate)
         {
             Response response = new Response();
@@ -35,7 +60,8 @@ namespace MonitumBLL.Logic
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;
                     response.Message = "Horario was not found or there is overlapping of schedules.";
-                } else
+                }
+                else
                 {
                     response.StatusCode = StatusCodes.SUCCESS;
                     response.Message = "Horario was updated.";

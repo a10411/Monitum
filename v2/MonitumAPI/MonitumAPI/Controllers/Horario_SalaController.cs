@@ -62,11 +62,29 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize]
         [HttpPut]
-        public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
+        public async Task<IActionResult> PutHorarioSala(Horario_Sala horarioToUpdate)
         {
             // Confirmar se dia da semana é válido
             if (!InputValidator.weekdayPTChecker(horarioToUpdate.DiaSemana)) return StatusCode((int)MonitumBLL.Utils.StatusCodes.BADREQUEST);
 
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await Horario_SalaLogic.PutHorario(CS, horarioToUpdate);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        [Authorize]
+        [HttpPatch]
+        public async Task<IActionResult> UpdateHorarioSala(Horario_Sala horarioToUpdate)
+        {
+            if (horarioToUpdate.DiaSemana != null && horarioToUpdate.DiaSemana != String.Empty)
+            {
+                // Confirmar se dia da semana é válido
+                if (!InputValidator.weekdayPTChecker(horarioToUpdate.DiaSemana)) return StatusCode((int)MonitumBLL.Utils.StatusCodes.BADREQUEST);
+            }
             string CS = _configuration.GetConnectionString("WebApiDatabase");
             Response response = await Horario_SalaLogic.UpdateHorario(CS, horarioToUpdate);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
