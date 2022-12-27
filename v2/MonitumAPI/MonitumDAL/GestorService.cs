@@ -95,7 +95,7 @@ namespace MonitumDAL
             Gestor gestor = new Gestor();
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM Gestor where email = {email}", con);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Gestor where email = '{email}'", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -118,7 +118,7 @@ namespace MonitumDAL
         /// <param name="email">Email do gestor que se pretende registar</param>
         /// <param name="password">Password do gestor que se pretende registar</param>
         /// <returns>True caso gestor tenha sido introduzio, erro interno caso tenha existido algum erro</returns>
-        public static async Task<Boolean> RegisterGestor(string conString, string email, string password) // TODO: ASSOCIAR GESTOR A UM ESTABELECIMENTO, GARANTIR QUE NÃO HÁ DOIS EMAILS IGUAIS!
+        public static async Task<Boolean> RegisterGestor(string conString, string email, string password)
         {
             string salt = HashSaltClass.GenerateSalt();
             byte[] hashedPW = HashSaltClass.GetHash(password, salt);
@@ -136,7 +136,7 @@ namespace MonitumDAL
                         con.Open();
                         queryAddGestor.ExecuteNonQuery();
                         con.Close();
-                        await GestorService.SetGestor(conString, email);
+                        await GestorService.SetGestorToEstabelecimento(conString, email);
                         return true;
                     }
 
@@ -147,21 +147,22 @@ namespace MonitumDAL
                 throw;
             }
         }
+
         /// <summary>
-        /// 
+        /// Método que visa aceder à base de dados via SQL Query e adicionar um novo registo na tabela Estabelecimento_Gestor consoante o email de um Gestor (no único estabelecimento existente com ID 1)
         /// </summary>
-        /// <param name="conString"></param>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public static async Task<Boolean> SetGestor(string conString, string email) 
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="email">Email do gestor a adicionar</param>
+        /// <returns>True se adicionar, False se não adicionar</returns>
+        public static async Task<Boolean> SetGestorToEstabelecimento(string conString, string email) 
         {
             try
             {
-                Gestor gestor = await GetGestorByEmail(conString, email); // NÀO ESTÁ A DAR - DUARTE
+                Gestor gestor = await GetGestorByEmail(conString, email);
 
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addGestorEstabelecimento = "INSERT INTO Gestor_Estabelecimento (id_estabelecimento,id_gestor) VALUES (@idEstabelecimento,@idGestor)";
+                    string addGestorEstabelecimento = "INSERT INTO Estabelecimento_Gestor (id_estabelecimento,id_gestor) VALUES (@idEstabelecimento,@idGestor)";
                     using (SqlCommand queryAddGestorEstabelecimento = new SqlCommand(addGestorEstabelecimento))
                     {
                         queryAddGestorEstabelecimento.Connection = con;

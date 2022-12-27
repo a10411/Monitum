@@ -26,7 +26,7 @@ namespace MonitumBOL.Models
         public Gestor(SqlDataReader rdr)
         {
             this.IdGestor = Convert.ToInt32(rdr["id_gestor"]);
-            this.Email = rdr["email"].ToString() ?? String.Empty; ;
+            this.Email = rdr["email"].ToString() ?? String.Empty;
             this.Password_Hash = rdr["password_hash"].ToString() ?? String.Empty;
             this.Password_Salt = rdr["password_salt"].ToString() ?? String.Empty;
         }
