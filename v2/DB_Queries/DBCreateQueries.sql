@@ -6,7 +6,7 @@ CREATE TABLE Logs_Metricas (id_log int IDENTITY NOT NULL, id_sala int NOT NULL, 
 CREATE TABLE Metricas (id_metrica int IDENTITY NOT NULL, nome varchar(255) NOT NULL, medida varchar(255) NULL, PRIMARY KEY (id_metrica));
 CREATE TABLE Sala (id_sala int IDENTITY NOT NULL, id_estabelecimento int NOT NULL, id_estado int NOT NULL, PRIMARY KEY (id_sala));
 CREATE TABLE Estados (id_estado int IDENTITY NOT NULL, estado varchar(255) NOT NULL, PRIMARY KEY (id_estado));
-CREATE TABLE Comunicados (id_comunicado int IDENTITY NOT NULL, id_sala int NOT NULL, titulo varchar(255) NOT NULL, corpo varchar(255) NOT NULL, data_hora time(7) NOT NULL, PRIMARY KEY (id_comunicado));
+CREATE TABLE Comunicados (id_comunicado int IDENTITY NOT NULL, id_sala int NOT NULL, titulo varchar(255) NOT NULL, corpo varchar(255) NOT NULL, data_hora datetime NOT NULL, PRIMARY KEY (id_comunicado));
 ALTER TABLE Estabelecimento_Gestor ADD CONSTRAINT FKEstabeleci532222 FOREIGN KEY (id_estabelecimento) REFERENCES Estabelecimento (id_estabelecimento);
 ALTER TABLE Logs_Metricas ADD CONSTRAINT FKLogs_Metri706591 FOREIGN KEY (id_metrica) REFERENCES Metricas (id_metrica);
 ALTER TABLE Horario_Sala ADD CONSTRAINT FKHorario_Sa576410 FOREIGN KEY (id_sala) REFERENCES Sala (id_sala);
