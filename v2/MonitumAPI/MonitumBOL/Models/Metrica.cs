@@ -14,8 +14,8 @@ namespace MonitumBOL.Models
     public class Metrica
     {
         public int IdMetrica { get; set; }
-        public string Nome { get; set; }
-        public string Medida { get; set; }
+        public string? Nome { get; set; }
+        public string? Medida { get; set; }
 
         public Metrica()
         {

@@ -63,6 +63,19 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize]
         [HttpPut]
+        public async Task<IActionResult> PutMetrica(Metrica metricaToUpdate)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await MetricaLogic.PutMetrica(CS, metricaToUpdate);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        [Authorize]
+        [HttpPatch]
         public async Task<IActionResult> UpdateMetrica(Metrica metricaToUpdate)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");

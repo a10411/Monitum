@@ -16,7 +16,7 @@ namespace MonitumDAL
     public class MetricaService
     {
 
-        public static async Task<Metrica> GetMetricaSala(string conString, int idMetrica)
+        public static async Task<Metrica> GetMetrica(string conString, int idMetrica)
         {
             Metrica metrica = new Metrica();
             using (SqlConnection con = new SqlConnection(conString))
@@ -74,10 +74,9 @@ namespace MonitumDAL
         /// Método que visa aceder à base de dados SQL Server via query e atualizar uma Metrica a uma sala de um estabelecimento
         /// </summary>
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
-        /// <param name="metricaToUpdate">Métrica a atualizar</param>
-        /// <returns></returns>
-
-        public static async Task<Metrica> UpdateMetrica(string conString, Metrica metricaToUpdate)
+        /// <param name="metricaToUpdated">Métrica a atualizar</param>
+        /// <returns>Métrica atualizada</returns>
+        public static async Task<Metrica> PutMetrica(string conString, Metrica metricaToUpdated)
         {
             try
             {
@@ -87,12 +86,12 @@ namespace MonitumDAL
                     using(SqlCommand queryUpdateMetrica = new SqlCommand(updateMetrica))
                     {
                         queryUpdateMetrica.Connection = con;
-                        queryUpdateMetrica.Parameters.Add("@nome", SqlDbType.VarChar).Value = metricaToUpdate.Nome;
-                        queryUpdateMetrica.Parameters.Add("@medida", SqlDbType.VarChar).Value= metricaToUpdate.Medida;
+                        queryUpdateMetrica.Parameters.Add("@nome", SqlDbType.VarChar).Value = metricaToUpdated.Nome;
+                        queryUpdateMetrica.Parameters.Add("@medida", SqlDbType.VarChar).Value= metricaToUpdated.Medida;
                         con.Open() ;
                         queryUpdateMetrica.ExecuteNonQuery();
                         con.Close();
-                        return await GetMetricaSala(conString, metricaToUpdate.IdMetrica);
+                        return await GetMetrica(conString, metricaToUpdated.IdMetrica);
                     }
                 }
             }
@@ -100,6 +99,40 @@ namespace MonitumDAL
             { 
                 throw; 
             }
+        }
+
+        public static async Task<Metrica> UpdateMetrica(string conString, Metrica metricaUpdated)
+        {
+            
+            Metrica metricaAtual = await GetMetrica(conString, metricaUpdated.IdMetrica);
+            metricaUpdated.IdMetrica = metricaUpdated.IdMetrica != 0 ? metricaUpdated.IdMetrica : metricaAtual.IdMetrica;
+            metricaUpdated.Nome = metricaUpdated.Nome != String.Empty && metricaUpdated.Nome != null ? metricaUpdated.Nome : metricaAtual.Nome;
+            metricaUpdated.Medida= metricaUpdated.Medida != String.Empty && metricaUpdated.Medida != null ? metricaUpdated.Medida : metricaAtual.Medida;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string updateMetrica = "UPDATE Metricas SET nome = @nome, medida = @medida where id_metrica = @idMetrica";
+                    using (SqlCommand queryUpdateMetrica = new SqlCommand(updateMetrica))
+                    {
+                        queryUpdateMetrica.Connection = con;
+                        queryUpdateMetrica.Parameters.Add("@nome", SqlDbType.VarChar).Value = metricaUpdated.Nome;
+                        queryUpdateMetrica.Parameters.Add("@medida", SqlDbType.VarChar).Value = metricaUpdated.Medida;
+                        queryUpdateMetrica.Parameters.Add("@idMetrica", SqlDbType.Int).Value = metricaUpdated.IdMetrica;
+                        con.Open();
+                        queryUpdateMetrica.ExecuteNonQuery();
+                        con.Close();
+                        return await GetMetrica(conString, metricaUpdated.IdMetrica);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+
         }
 
 
