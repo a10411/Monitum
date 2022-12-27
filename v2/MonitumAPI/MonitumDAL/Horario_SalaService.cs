@@ -87,6 +87,11 @@ namespace MonitumDAL
         /// <returns>Horário atualizado (utilizando a função GetHorarioSala)</returns>
         public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
         {
+            if (await CheckSobreposicaoHorarios(conString, horarioUpdated) == false)
+            {
+                return new Horario_Sala();
+                // horario com ID = 0
+            }
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -120,6 +125,10 @@ namespace MonitumDAL
         /// <returns>True se tudo tenha corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</returns>
         public static async Task<Boolean> AddHorario(string conString, Horario_Sala horarioToAdd)
         {
+            if (await CheckSobreposicaoHorarios(conString, horarioToAdd) == false)
+            {
+                return false;
+            }
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -139,12 +148,35 @@ namespace MonitumDAL
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
 
 
+        }
+
+        public static async Task<Boolean> CheckSobreposicaoHorarios(string conString, Horario_Sala horarioToVerify)
+        {
+            try
+            {
+                List<Horario_Sala> horariosReceived = await GetHorariosSalaByIdSala(conString, horarioToVerify.IdSala);
+                foreach (Horario_Sala horario_aux in horariosReceived)
+                {
+                    if (horario_aux.DiaSemana == horarioToVerify.DiaSemana)
+                    {
+                        if ((horarioToVerify.HoraEntrada >= horario_aux.HoraEntrada && horarioToVerify.HoraEntrada <= horario_aux.HoraSaida) || (horarioToVerify.HoraSaida >= horario_aux.HoraEntrada && horarioToVerify.HoraSaida <= horario_aux.HoraSaida) || (horario_aux.HoraEntrada >= horarioToVerify.HoraEntrada && horario_aux.HoraEntrada <= horarioToVerify.HoraSaida) || (horario_aux.HoraSaida >= horarioToVerify.HoraEntrada && horario_aux.HoraSaida <= horarioToVerify.HoraSaida))
+                        {
+                            return false;
+                        }
+                    }
+                    
+                }
+                return true;
+            } catch
+            {
+                throw;
+            }
         }
 
         /// <summary>
