@@ -85,7 +85,7 @@ namespace MonitumDAL
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <param name="horarioUpdated">Horário atualizado</param>
         /// <returns>Horário atualizado (utilizando a função GetHorarioSala)</returns>
-        public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
+        public static async Task<Horario_Sala> PutHorario(string conString, Horario_Sala horarioUpdated)
         {
             if (await CheckSobreposicaoHorarios(conString, horarioUpdated) == true)
             {
@@ -112,6 +112,47 @@ namespace MonitumDAL
                     }
                 }
             } catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public static async Task<Horario_Sala> UpdateHorario(string conString, Horario_Sala horarioUpdated)
+        {
+            Horario_Sala horarioAtual = await GetHorarioSala(conString, horarioUpdated.IdHorario);
+            horarioUpdated.IdSala = horarioUpdated.IdSala != 0 ? horarioUpdated.IdSala : horarioAtual.IdSala;
+            horarioUpdated.DiaSemana = horarioUpdated.DiaSemana != String.Empty && horarioUpdated.DiaSemana != null ? horarioUpdated.DiaSemana : horarioAtual.DiaSemana;
+            horarioUpdated.HoraEntrada = horarioUpdated.HoraEntrada != new DateTime() ? horarioUpdated.HoraEntrada : horarioAtual.HoraEntrada;
+            horarioUpdated.HoraSaida = horarioUpdated.HoraSaida != new DateTime() ? horarioUpdated.HoraSaida : horarioAtual.HoraSaida;
+            horarioUpdated.IdHorario = horarioUpdated.IdHorario != 0 ? horarioUpdated.IdHorario : horarioAtual.IdHorario;
+
+            
+            if (await CheckSobreposicaoHorarios(conString, horarioUpdated) == true)
+            {
+                return new Horario_Sala();
+                // horario com ID = 0
+            }
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string updateHorario = "UPDATE Horario_Sala SET id_sala = @idSala, dia_semana = @diaSemana, hora_entrada = @horaEntrada, hora_saida = @horaSaida where id_horario = @idHorario";
+                    using (SqlCommand queryUpdateHorario = new SqlCommand(updateHorario))
+                    {
+                        queryUpdateHorario.Connection = con;
+                        queryUpdateHorario.Parameters.Add("@idSala", SqlDbType.Int).Value = horarioUpdated.IdSala;
+                        queryUpdateHorario.Parameters.Add("@diaSemana", SqlDbType.VarChar).Value = horarioUpdated.DiaSemana;
+                        queryUpdateHorario.Parameters.Add("@horaEntrada", SqlDbType.Time).Value = horarioUpdated.HoraEntrada.TimeOfDay;
+                        queryUpdateHorario.Parameters.Add("@horaSaida", SqlDbType.Time).Value = horarioUpdated.HoraSaida.TimeOfDay;
+                        queryUpdateHorario.Parameters.Add("@idHorario", SqlDbType.Int).Value = horarioUpdated.IdHorario;
+                        con.Open();
+                        queryUpdateHorario.ExecuteNonQuery();
+                        con.Close();
+                        return await GetHorarioSala(conString, horarioUpdated.IdHorario);
+                    }
+                }
+            }
+            catch (Exception e)
             {
                 throw;
             }
@@ -170,7 +211,7 @@ namespace MonitumDAL
                 List<Horario_Sala> horariosReceived = await GetHorariosSalaByIdSala(conString, horarioToVerify.IdSala);
                 foreach (Horario_Sala horario_aux in horariosReceived)
                 {
-                    if (horario_aux.DiaSemana == horarioToVerify.DiaSemana)
+                    if (horario_aux.DiaSemana == horarioToVerify.DiaSemana && horario_aux.IdHorario != horarioToVerify.IdHorario)
                     {
                         if ((horarioToVerify.HoraEntrada >= horario_aux.HoraEntrada && horarioToVerify.HoraEntrada <= horario_aux.HoraSaida) || (horarioToVerify.HoraSaida >= horario_aux.HoraEntrada && horarioToVerify.HoraSaida <= horario_aux.HoraSaida) || (horario_aux.HoraEntrada >= horarioToVerify.HoraEntrada && horario_aux.HoraEntrada <= horarioToVerify.HoraSaida) || (horario_aux.HoraSaida >= horarioToVerify.HoraEntrada && horario_aux.HoraSaida <= horarioToVerify.HoraSaida))
                         {

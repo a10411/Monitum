@@ -15,7 +15,7 @@ namespace MonitumBOL.Models
     {
         public int IdHorario { get; set; }
         public int IdSala { get; set; }
-        public string DiaSemana { get; set; }
+        public string? DiaSemana { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }
 
