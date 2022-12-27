@@ -34,7 +34,7 @@ namespace MonitumBLL.Logic
                 if (horarioSalaReturned.IdHorario == 0)
                 {
                     response.StatusCode = StatusCodes.NOTFOUND;
-                    response.Message = "Horario was not found.";
+                    response.Message = "Horario was not found or there is overlapping of schedules.";
                 } else
                 {
                     response.StatusCode = StatusCodes.SUCCESS;
@@ -94,6 +94,11 @@ namespace MonitumBLL.Logic
                 {
                     response.StatusCode = StatusCodes.SUCCESS;
                     response.Message = "Horario was added to sala.";
+                }
+                else
+                {
+                    response.StatusCode = StatusCodes.BADREQUEST;
+                    response.Message = "There is overlapping of schedules.";
                 }
             }
             catch (Exception e)
