@@ -101,7 +101,31 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
-        
+        /// <summary>
+        /// Request DELETE relativo a um horário de uma sala, que o gestor pretenda apagar
+        /// Apenas um gestor consegue fazer este request com sucesso (Authorize)
+        /// </summary>
+        /// <param name="idComunicado">ID do horário a remover da base de dados</param>
+        /// <returns>Retorna a response obtida pelo BLL para o gestor. Idealmente, retornará uma response que diz que o DELETE foi bem sucedido.</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
+        [HttpDelete]
+        public async Task <IActionResult> DeleteComunicado(int idComunicado)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await ComunicadoLogic.DeleteComunicado(CS, idComunicado);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
 
     }
 }

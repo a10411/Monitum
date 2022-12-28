@@ -130,5 +130,35 @@ namespace MonitumDAL
                 throw;
             }
         }
+
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e apagar um comunicado existente na mesma
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idComunicado">ID do comunicado a apagar</param>
+        /// <returns>True caso tudo tenha corrido bem (comunicado removido), algum erro caso o comunicado não tenha sido removido.</returns>
+
+        public static async Task<Boolean> DeleteComunicado(string conString, int idComunicado)
+        {
+            try
+            {
+                using(SqlConnection con = new SqlConnection(conString))
+                {
+                    string deleteComunicado = $"DELETE FROM Comunicados WHERE id_comunicado = {idComunicado}";
+                    using (SqlCommand queryDeleteComunicado = new SqlCommand(deleteComunicado)) 
+                    {
+                        queryDeleteComunicado.Connection= con;
+                        con.Open();
+                        queryDeleteComunicado.ExecuteNonQuery();
+                        con.Close();
+                        return true;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -97,7 +97,32 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        /// <summary>
+        /// Trata da parte lógica relativa à remoção de um horário relativo a uma sala da base de dados
+        /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (DELETE - Horario (DeleteHorarioSala))
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <param name="idComunicado">ID do horário a remover</param>
+        /// <returns>Response com Status Code e mensagem (indicando que o horário foi adicionado)</returns>
 
+        public static async Task<Response> DeleteComunicado(string conString, int idComunicado)
+        {
+            Response response = new Response();
+            try
+            {
+                if(await ComunicadoService.DeleteComunicado(conString, idComunicado))
+                {
+                    response.StatusCode = StatusCodes.SUCCESS;
+                    response.Message = "Comunicado was deleted from sala";
+                }
+            }
+            catch (Exception e)
+            {
+                response.StatusCode = StatusCodes.INTERNALSERVERERROR;
+                response.Message = e.ToString();
+            }
+            return response;
+        }
 
     }
 
