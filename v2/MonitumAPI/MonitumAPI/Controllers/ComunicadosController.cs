@@ -41,7 +41,7 @@ namespace MonitumAPI.Controllers
         public async Task<IActionResult> GetAllComunicados()
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await ComunicadosLogic.GetComunicados(CS);
+            Response response = await ComunicadoLogic.GetComunicados(CS);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);
@@ -67,7 +67,7 @@ namespace MonitumAPI.Controllers
         public async Task<IActionResult> AddComunicado(Comunicado comunicadoToAdd)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
-            Response response = await ComunicadosLogic.AddComunicado(CS, comunicadoToAdd);
+            Response response = await ComunicadoLogic.AddComunicado(CS, comunicadoToAdd);
             if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
             {
                 return StatusCode((int)response.StatusCode);
@@ -75,5 +75,33 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
 
         }
+
+        /// <summary>
+        /// Request PATCH relativo a um Comunicado, que o gestor pretenda atualizar
+        /// </summary>
+        /// <param name="salaToUpdate">Comunicado que o gestor pretende atualizar na BD</param>
+        /// <returns>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará Comunicado atualizado, com um status code 200 (sucesso).</returns>
+        [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
+        [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, Description = "Api key authentication was not provided or it is not valid.")]
+        [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
+        [Authorize]
+        [HttpPatch]
+        public async Task<IActionResult> UpdateComunicado(Comunicado comunicadoToUpdate)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await ComunicadoLogic.UpdateComunicado(CS, comunicadoToUpdate);
+            if(response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
+        
+
     }
 }

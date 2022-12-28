@@ -42,6 +42,27 @@ namespace MonitumDAL
             return comunicadosList;
         }
 
+        public static async Task<Comunicado> GetComunicado(string conString, int idComunicado)
+        {
+            Comunicado comunicado = new Comunicado();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Comunicados where id_comunicado = {idComunicado}", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    comunicado = new Comunicado(rdr);
+                }
+                rdr.Close();
+                con.Close();
+            }
+
+            return comunicado;
+        }
+
         /// <summary>
         /// Método que visa aceder à base de dados SQL Server via query e adicionar um registo de um comunicado
         /// </summary>
@@ -73,7 +94,41 @@ namespace MonitumDAL
                 throw;
             }
 
+        }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e atualizar o registo de um comunicado (atualizar um comunicado relativo a uma sala)
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="comunicadoUpdated">Comunicado a atualizar</param>
+        /// <returns>Comunicado atualizado ou erro</returns>
+        public static async Task<Comunicado> UpdateComunicado(string conString, Comunicado comunicadoUpdated)
+        {
+            Comunicado comunicadoAtual = await GetComunicado(conString, comunicadoUpdated.IdComunicado);
+            comunicadoUpdated.IdComunicado = comunicadoUpdated.IdComunicado != 0 ? comunicadoUpdated.IdComunicado : comunicadoAtual.IdComunicado;
+            comunicadoUpdated.IdSala = comunicadoUpdated.IdSala != 0 ? comunicadoUpdated.IdSala : comunicadoAtual.IdSala;
+            try
+            {
+                using(SqlConnection con = new SqlConnection(conString))
+                {
+                    string updateComunicado = "UPDATE Comunicados SET titulo = @titulo, corpo = @corpo where id_comunicado = @idComunicado";
+                    using (SqlCommand queryUpdateComunicado = new SqlCommand(updateComunicado))
+                    {
+                        queryUpdateComunicado.Connection= con;
+                        queryUpdateComunicado.Parameters.Add("@titulo", SqlDbType.VarChar).Value = comunicadoUpdated.Titulo;
+                        queryUpdateComunicado.Parameters.Add("@corpo", SqlDbType.VarChar).Value = comunicadoUpdated.Corpo;
+                        queryUpdateComunicado.Parameters.Add("@idComunicado", SqlDbType.VarChar).Value = comunicadoUpdated.IdComunicado;
+                        con.Open();
+                        queryUpdateComunicado.ExecuteNonQuery();
+                        con.Close();
+                        return await GetComunicado(conString, comunicadoUpdated.IdComunicado);
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                throw;
+            }
         }
     }
 }
