@@ -5,11 +5,13 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitumAPI", "MonitumAPI\MonitumAPI.csproj", "{8C9B8ACA-D0A9-4D53-A7D6-CC7E982FA3C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumBOL", "MonitumBOL\MonitumBOL.csproj", "{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitumBOL", "MonitumBOL\MonitumBOL.csproj", "{DA231CFE-1418-43F0-BEB7-B0F7C43B6513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumDAL", "MonitumDAL\MonitumDAL.csproj", "{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitumDAL", "MonitumDAL\MonitumDAL.csproj", "{00340EC2-C73D-4BE0-90E5-ADA39C30CCB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitumBLL", "MonitumBLL\MonitumBLL.csproj", "{0C9E02A5-686D-44C8-94F6-85F17AC8991B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonitumBLL", "MonitumBLL\MonitumBLL.csproj", "{0C9E02A5-686D-44C8-94F6-85F17AC8991B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monitum_SOAP_Service", "..\Monitum_SOAP_Service\Monitum_SOAP_Service\Monitum_SOAP_Service.csproj", "{5D5AC6B0-037E-459B-B7F1-0A9DC3FF6F92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C9E02A5-686D-44C8-94F6-85F17AC8991B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D5AC6B0-037E-459B-B7F1-0A9DC3FF6F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D5AC6B0-037E-459B-B7F1-0A9DC3FF6F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D5AC6B0-037E-459B-B7F1-0A9DC3FF6F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D5AC6B0-037E-459B-B7F1-0A9DC3FF6F92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
