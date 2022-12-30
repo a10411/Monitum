@@ -117,7 +117,7 @@ namespace MonitumDAL
         /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <param name="email">Email do gestor que se pretende registar</param>
         /// <param name="password">Password do gestor que se pretende registar</param>
-        /// <returns>True caso gestor tenha sido introduzio, erro interno caso tenha existido algum erro</returns>
+        /// <returns>True caso gestor tenha sido introduzido, erro interno caso tenha existido algum erro</returns>
         public static async Task<Boolean> RegisterGestor(string conString, string email, string password)
         {
             string salt = HashSaltClass.GenerateSalt();

@@ -88,7 +88,7 @@ namespace MonitumAPI.Controllers
         /// </summary>
         /// <param name="email">Email do gestor para registar</param>
         /// <param name="password">Password do gestor para registar, posteriomente, no DAL, fará a conversão para hash e salt</param>
-        /// <returns>Retorna a response obtida pelo DLL para o utilizador. Idealmente (caso o gestor tenha introduzido dados válidos para registo), retonrará uma resposta de sucesso (gestor registado).</returns>
+        /// <returns>Retorna a response obtida pelo DLL para o utilizador. Idealmente (caso o gestor tenha introduzido dados válidos para registo), retornará uma resposta de sucesso (gestor registado).</returns>
         [SwaggerResponse(StatusCodes.Status200OK, Description = "Method successfully executed.")]
         [SwaggerResponse(StatusCodes.Status204NoContent, Description = "No content was found.")]
         [SwaggerResponse(StatusCodes.Status400BadRequest, Description = "The endpoint or data structure is not in line with expectations.")]
