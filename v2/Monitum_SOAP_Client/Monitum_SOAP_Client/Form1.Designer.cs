@@ -59,6 +59,7 @@
             // 
             this.textBoxPasswordAdmin.Location = new System.Drawing.Point(234, 91);
             this.textBoxPasswordAdmin.Name = "textBoxPasswordAdmin";
+            this.textBoxPasswordAdmin.PasswordChar = '*';
             this.textBoxPasswordAdmin.Size = new System.Drawing.Size(247, 26);
             this.textBoxPasswordAdmin.TabIndex = 3;
             // 
@@ -75,6 +76,7 @@
             // 
             this.textBoxPasswordGestor.Location = new System.Drawing.Point(234, 192);
             this.textBoxPasswordGestor.Name = "textBoxPasswordGestor";
+            this.textBoxPasswordGestor.PasswordChar = '*';
             this.textBoxPasswordGestor.Size = new System.Drawing.Size(247, 26);
             this.textBoxPasswordGestor.TabIndex = 7;
             // 
@@ -128,7 +130,7 @@
             this.Controls.Add(this.textBoxEmailAdmin);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Adicionar Gestor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

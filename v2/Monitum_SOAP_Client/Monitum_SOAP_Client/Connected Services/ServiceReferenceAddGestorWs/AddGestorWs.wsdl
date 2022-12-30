@@ -96,6 +96,7 @@
       <wsdl:output message="tns:CalcularSomaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RegistarGestorBD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Regista um gestor na BD</wsdl:documentation>
       <wsdl:input message="tns:RegistarGestorBDSoapIn" />
       <wsdl:output message="tns:RegistarGestorBDSoapOut" />
     </wsdl:operation>
