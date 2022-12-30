@@ -39,7 +39,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
-        //[Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")] // DEPOIS VOLTAR A COLOCAR
         [HttpGet]
         public async Task<IActionResult> GetAllGestores()
         {
@@ -67,7 +67,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpPost]
-        [Route("/Login")]
+        [Route("/LoginGestor")]
         public async Task<IActionResult> LoginGestor(string email, string password)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
@@ -98,7 +98,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        [Route("/Register")]
+        [Route("/RegisterGestor")]
         public async Task<IActionResult> RegistoGestor(string email, string password)
         {
             // Confirmar se o email introduzido é válido
