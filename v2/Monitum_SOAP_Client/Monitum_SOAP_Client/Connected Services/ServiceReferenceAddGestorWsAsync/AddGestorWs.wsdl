@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://ipca.pt/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://ipca.pt/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ISI2022 - MonitumWS</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ipca.pt/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularSoma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcularSomaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalcularSomaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistarGestorBD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailGestor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passwordGestor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAdmin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passwordAdmin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistarGestorBDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistarGestorBDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistarGestorUsingAPI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistarGestorUsingAPIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistarGestorUsingAPIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcularSomaSoapIn">
+    <wsdl:part name="parameters" element="tns:CalcularSoma" />
+  </wsdl:message>
+  <wsdl:message name="CalcularSomaSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcularSomaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistarGestorBDSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistarGestorBD" />
+  </wsdl:message>
+  <wsdl:message name="RegistarGestorBDSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistarGestorBDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistarGestorUsingAPISoapIn">
+    <wsdl:part name="parameters" element="tns:RegistarGestorUsingAPI" />
+  </wsdl:message>
+  <wsdl:message name="RegistarGestorUsingAPISoapOut">
+    <wsdl:part name="parameters" element="tns:RegistarGestorUsingAPIResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AddGestorWsSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalcularSoma">
+      <wsdl:input message="tns:CalcularSomaSoapIn" />
+      <wsdl:output message="tns:CalcularSomaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorBD">
+      <wsdl:input message="tns:RegistarGestorBDSoapIn" />
+      <wsdl:output message="tns:RegistarGestorBDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorUsingAPI">
+      <wsdl:input message="tns:RegistarGestorUsingAPISoapIn" />
+      <wsdl:output message="tns:RegistarGestorUsingAPISoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddGestorWsSoap" type="tns:AddGestorWsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://ipca.pt/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularSoma">
+      <soap:operation soapAction="http://ipca.pt/CalcularSoma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorBD">
+      <soap:operation soapAction="http://ipca.pt/RegistarGestorBD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorUsingAPI">
+      <soap:operation soapAction="http://ipca.pt/RegistarGestorUsingAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AddGestorWsSoap12" type="tns:AddGestorWsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://ipca.pt/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalcularSoma">
+      <soap12:operation soapAction="http://ipca.pt/CalcularSoma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorBD">
+      <soap12:operation soapAction="http://ipca.pt/RegistarGestorBD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistarGestorUsingAPI">
+      <soap12:operation soapAction="http://ipca.pt/RegistarGestorUsingAPI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddGestorWs">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ISI2022 - MonitumWS</wsdl:documentation>
+    <wsdl:port name="AddGestorWsSoap" binding="tns:AddGestorWsSoap">
+      <soap:address location="https://localhost:44344/Services/AddGestorWs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AddGestorWsSoap12" binding="tns:AddGestorWsSoap12">
+      <soap12:address location="https://localhost:44344/Services/AddGestorWs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
