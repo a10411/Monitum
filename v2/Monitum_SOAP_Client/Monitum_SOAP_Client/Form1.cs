@@ -19,8 +19,7 @@ namespace Monitum_SOAP_Client
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-           //ServiceReferenceAddGestorWs.AddGestorWsSoap wsProxy = new ServiceReferenceAddGestorWs.AddGestorWsSoap();
-            ServiceReferenceAddGestorWsAsync.AddGestorWsSoap = new ServiceReferenceAddGestorWsAsync.AddGestorWsSoap();
+            ServiceReferenceAddGestorWs.AddGestorWsSoapClient wsProxy = new ServiceReferenceAddGestorWs.AddGestorWsSoapClient();
 
             string emailAdmin = textBoxEmailAdmin.Text;
             string passwordAdmin = textBoxPasswordAdmin.Text;
@@ -28,7 +27,14 @@ namespace Monitum_SOAP_Client
             string emailGestor = textBoxEmailGestor.Text;
             string passwordGestor = textBoxPasswordGestor.Text;
 
-            bool resultado = wsProxy.RegistarGestorBD();
+            bool resultado = wsProxy.RegistarGestorBD(emailGestor, passwordGestor, emailAdmin, passwordAdmin);
+            if (resultado)
+            {
+                MessageBox.Show("Sucesso! Gestor adicionado.");
+            } else
+            {
+                MessageBox.Show("Erro ao adicionar gestor.");
+            }
         }
     }
 }
