@@ -45,7 +45,8 @@ namespace Monitum_SOAP_Service.Services
         /// <param name="emailAdmin">Email do administrador que está a registar este gestor (apenas um administrador consegue registar um gestor)</param>
         /// <param name="passwordAdmin">Password do administrador que está a registar este gestor</param>
         /// <returns>True se adicionar, false se não adicionar</returns>
-        [WebMethod]
+        [WebMethod(MessageName = "Registar_Gestor",
+                   Description = "Regista um gestor na BD")]
         public Boolean RegistarGestorBD(string emailGestor, string passwordGestor, string emailAdmin, string passwordAdmin)
         {
             string conString = "data source=LAPTOP-IHSTCNCH;initial catalog=MonitumDB;trusted_connection=true";
