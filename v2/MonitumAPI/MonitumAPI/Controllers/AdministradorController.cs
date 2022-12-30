@@ -36,7 +36,7 @@ namespace MonitumAPI.Controllers
             //return new JsonResult(token);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("/RegisterAdmin")]
         public async Task<IActionResult> RegistoAdministrador(string email, string password)

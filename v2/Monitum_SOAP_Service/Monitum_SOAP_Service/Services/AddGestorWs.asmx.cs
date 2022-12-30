@@ -38,34 +38,59 @@ namespace Monitum_SOAP_Service.Services
         }
 
         [WebMethod]
-        public Boolean RegistarGestorCopy(string email, string password)
+        public Boolean RegistarGestorBD(string emailGestor, string passwordGestor, string emailAdmin, string passwordAdmin)
         {
             string conString = "data source=LAPTOP-IHSTCNCH;initial catalog=MonitumDB;trusted_connection=true";
-            string salt = GenerateSalt();
-            byte[] hashedPW = GetHash(password, salt);
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addGestor = "INSERT INTO Gestor (email,password_hash,password_salt) VALUES (@email, @password_hash, @password_salt)";
-                    using (SqlCommand queryAddGestor = new SqlCommand(addGestor))
-                    {
-                        queryAddGestor.Connection = con;
-                        queryAddGestor.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
-                        queryAddGestor.Parameters.Add("@password_hash", SqlDbType.VarChar).Value = Convert.ToBase64String(hashedPW);
-                        queryAddGestor.Parameters.Add("@password_salt", System.Data.SqlDbType.VarChar).Value = salt;
-                        con.Open();
-                        queryAddGestor.ExecuteNonQuery();
-                        con.Close();
-                        //await GestorService.SetGestorToEstabelecimento(conString, email);
-                        return true;
-                    }
+                    // Verificar Administrador
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Administrador where email = '{emailAdmin}'", con);
 
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        // Hash e salt handling
+                        string hashedPWFromDb = rdr["password_hash"].ToString();
+                        string saltAdmin = rdr["password_salt"].ToString();
+                        rdr.Close();
+                        con.Close();
+                        if (!CompareHashedPasswords(passwordAdmin, hashedPWFromDb, saltAdmin))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            // Adicionar Gestor
+                            string salt = GenerateSalt();
+                            byte[] hashedPW = GetHash(passwordGestor, salt);
+                            string addGestor = "INSERT INTO Gestor (email,password_hash,password_salt) VALUES (@email, @password_hash, @password_salt)";
+                            using (SqlCommand queryAddGestor = new SqlCommand(addGestor))
+                            {
+                                queryAddGestor.Connection = con;
+                                queryAddGestor.Parameters.Add("@email", SqlDbType.VarChar).Value = emailGestor;
+                                queryAddGestor.Parameters.Add("@password_hash", SqlDbType.VarChar).Value = Convert.ToBase64String(hashedPW);
+                                queryAddGestor.Parameters.Add("@password_salt", System.Data.SqlDbType.VarChar).Value = salt;
+                                con.Open();
+                                queryAddGestor.ExecuteNonQuery();
+                                con.Close();
+                                //await GestorService.SetGestorToEstabelecimento(conString, email);
+                                return true;
+                            }
+                        }
+                    }
+                    rdr.Close();
+                    con.Close();
+                    return false;
                 }
             }
             catch
             {
-                throw;
+                return false;
             }
         }
 
@@ -121,6 +146,20 @@ namespace Monitum_SOAP_Service.Services
                 byte[] hashedBytes = sha256.ComputeHash(byteArray);
                 return hashedBytes;
             }
+        }
+
+        /// <summary>
+        /// Compara duas hashed passwords, a introduzida pelo user, e a existente na base de dados (com auxilio do Salt já existente na BD)
+        /// Caso sejam iguais, retorna true, indicando que a password introduzida está correta
+        /// </summary>
+        /// <param name="userInputPassword">Password introduzida pelo utilizador</param>
+        /// <param name="ExistingHashedBase64StringPassword">Hashed password existente na base de dados</param>
+        /// <param name="SaltOnDB">Salt existente na base de dados</param>
+        /// <returns>True caso iguais (password correta), false caso diferentes (password introduzida incorreta)</returns>
+        public static bool CompareHashedPasswords(string userInputPassword, string ExistingHashedBase64StringPassword, string SaltOnDB)
+        {
+            string UserInputHashedPassword = Convert.ToBase64String(GetHash(userInputPassword, SaltOnDB));
+            return ExistingHashedBase64StringPassword == UserInputHashedPassword;
         }
     }
 }
