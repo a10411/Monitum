@@ -37,6 +37,14 @@ namespace Monitum_SOAP_Service.Services
             return x + y;
         }
 
+        /// <summary>
+        /// Web service para adicionar um gestor (registar um gestor) e adicionar o mesmo ao único estabelecimento existente
+        /// </summary>
+        /// <param name="emailGestor">Email do gestor a registar</param>
+        /// <param name="passwordGestor">Password do gestor a registar</param>
+        /// <param name="emailAdmin">Email do administrador que está a registar este gestor (apenas um administrador consegue registar um gestor)</param>
+        /// <param name="passwordAdmin">Password do administrador que está a registar este gestor</param>
+        /// <returns>True se adicionar, false se não adicionar</returns>
         [WebMethod]
         public Boolean RegistarGestorBD(string emailGestor, string passwordGestor, string emailAdmin, string passwordAdmin)
         {
@@ -121,7 +129,7 @@ namespace Monitum_SOAP_Service.Services
             }
         }
 
-        // TO-DO
+        // TO-DO (not done)
         [WebMethod]
         public string RegistarGestorUsingAPI(string email, string password)
         {
