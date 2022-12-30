@@ -78,8 +78,35 @@ namespace Monitum_SOAP_Service.Services
                                 con.Open();
                                 queryAddGestor.ExecuteNonQuery();
                                 con.Close();
-                                //await GestorService.SetGestorToEstabelecimento(conString, email);
-                                return true;
+
+                                // Get gestor by email
+                                cmd = new SqlCommand($"SELECT * FROM Gestor where email = '{emailGestor}'", con);
+                                cmd.CommandType = CommandType.Text;
+                                con.Open();
+
+                                rdr = cmd.ExecuteReader();
+                                int idGestor = 0;
+                                while (rdr.Read())
+                                {
+                                    idGestor = Convert.ToInt32(rdr["id_gestor"]);
+                                }
+                                rdr.Close();
+                                con.Close();
+
+
+                                // Set gestor to estabelecimento
+                                string addGestorEstabelecimento = "INSERT INTO Estabelecimento_Gestor (id_estabelecimento,id_gestor) VALUES (@idEstabelecimento,@idGestor)";
+                                using (SqlCommand queryAddGestorEstabelecimento = new SqlCommand(addGestorEstabelecimento))
+                                {
+                                    queryAddGestorEstabelecimento.Connection = con;
+                                    queryAddGestorEstabelecimento.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = 1;
+                                    queryAddGestorEstabelecimento.Parameters.Add("@idGestor", SqlDbType.Int).Value = idGestor;
+
+                                    con.Open();
+                                    queryAddGestorEstabelecimento.ExecuteNonQuery();
+                                    con.Close();
+                                    return true;
+                                }
                             }
                         }
                     }
