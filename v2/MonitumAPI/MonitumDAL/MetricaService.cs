@@ -21,7 +21,7 @@ namespace MonitumDAL
             Metrica metrica = new Metrica();
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM Metricas where id_metrica = {idMetrica}", con);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Metrica where id_metrica = {idMetrica}", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -50,7 +50,7 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addMetrica = "INSERT INTO Metricas (nome,medida) VALUES (@nome, @medida)"; // AINDA VOU DAR FIX, METER METRICA POR ESTABELECIMENTO E POR SALA BRB
+                    string addMetrica = "INSERT INTO Metrica (nome,medida) VALUES (@nome, @medida)"; // AINDA VOU DAR FIX, METER METRICA POR ESTABELECIMENTO E POR SALA BRB
                     using (SqlCommand queryAddMetrica = new SqlCommand(addMetrica))
                     {
                         queryAddMetrica.Connection = con;
@@ -82,7 +82,7 @@ namespace MonitumDAL
             {
                 using(SqlConnection con = new SqlConnection(conString))
                 {
-                    string updateMetrica = ("UPDATE Metricas SET nome = @nome, medida = @medida");
+                    string updateMetrica = ("UPDATE Metrica SET nome = @nome, medida = @medida");
                     using(SqlCommand queryUpdateMetrica = new SqlCommand(updateMetrica))
                     {
                         queryUpdateMetrica.Connection = con;
@@ -119,7 +119,7 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string updateMetrica = "UPDATE Metricas SET nome = @nome, medida = @medida where id_metrica = @idMetrica";
+                    string updateMetrica = "UPDATE Metrica SET nome = @nome, medida = @medida where id_metrica = @idMetrica";
                     using (SqlCommand queryUpdateMetrica = new SqlCommand(updateMetrica))
                     {
                         queryUpdateMetrica.Connection = con;

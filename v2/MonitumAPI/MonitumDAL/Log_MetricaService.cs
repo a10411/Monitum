@@ -25,7 +25,7 @@ namespace MonitumDAL
             var logList = new List<Log_Metrica>();  
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM Logs_Metricas WHERE id_sala = {idSala}", con);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Log_Metrica WHERE id_sala = {idSala}", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -53,7 +53,7 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addLogMetrica = "INSERT INTO Logs_Metricas (id_sala, id_metrica, valor_metrica, data_hora) VALUES (@IdSala, @IdMetrica, @ValorMetrica, @DataHora)";
+                    string addLogMetrica = "INSERT INTO Log_Metrica (id_sala, id_metrica, valor_metrica, data_hora) VALUES (@IdSala, @IdMetrica, @ValorMetrica, @DataHora)";
                     using (SqlCommand queryAddLogMetrica = new SqlCommand(addLogMetrica))
                     {
                         queryAddLogMetrica.Connection = con;

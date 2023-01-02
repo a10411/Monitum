@@ -25,7 +25,7 @@ namespace MonitumDAL
             var comunicadosList = new List<Comunicado>();
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Comunicados", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Comunicado", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -47,7 +47,7 @@ namespace MonitumDAL
             Comunicado comunicado = new Comunicado();
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand($"SELECT * FROM Comunicados where id_comunicado = {idComunicado}", con);
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Comunicado where id_comunicado = {idComunicado}", con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
 
@@ -74,7 +74,7 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addComunicado = "INSERT INTO Comunicados (id_sala,titulo,corpo,data_hora) VALUES (@idSala, @titulo, @corpo, @dataHora)";
+                    string addComunicado = "INSERT INTO Comunicado (id_sala,titulo,corpo,data_hora) VALUES (@idSala, @titulo, @corpo, @dataHora)";
                     using (SqlCommand queryAddComunicado = new SqlCommand(addComunicado))
                     {
                         queryAddComunicado.Connection = con;
@@ -111,7 +111,7 @@ namespace MonitumDAL
             {
                 using(SqlConnection con = new SqlConnection(conString))
                 {
-                    string updateComunicado = "UPDATE Comunicados SET titulo = @titulo, corpo = @corpo where id_comunicado = @idComunicado";
+                    string updateComunicado = "UPDATE Comunicado SET titulo = @titulo, corpo = @corpo where id_comunicado = @idComunicado";
                     using (SqlCommand queryUpdateComunicado = new SqlCommand(updateComunicado))
                     {
                         queryUpdateComunicado.Connection= con;
@@ -144,7 +144,7 @@ namespace MonitumDAL
             {
                 using(SqlConnection con = new SqlConnection(conString))
                 {
-                    string deleteComunicado = $"DELETE FROM Comunicados WHERE id_comunicado = {idComunicado}";
+                    string deleteComunicado = $"DELETE FROM Comunicado WHERE id_comunicado = {idComunicado}";
                     using (SqlCommand queryDeleteComunicado = new SqlCommand(deleteComunicado)) 
                     {
                         queryDeleteComunicado.Connection= con;
