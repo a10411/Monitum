@@ -49,7 +49,7 @@ namespace Monitum_SOAP_Service.Services
                    Description = "Regista um gestor na BD")]
         public Boolean RegistarGestorBD(string emailGestor, string passwordGestor, string emailAdmin, string passwordAdmin)
         {
-            string conString = "data source=LAPTOP-IHSTCNCH;initial catalog=MonitumDB;trusted_connection=true";
+            string conString = "data source=.;initial catalog=MonitumDB;trusted_connection=true";
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
