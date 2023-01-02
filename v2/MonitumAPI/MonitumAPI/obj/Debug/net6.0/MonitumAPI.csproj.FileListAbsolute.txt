@@ -98,3 +98,5 @@ D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Micr
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\bin\Debug\net6.0\MonitumAPI.xml
+D:\Coding\GitHub Projects\Monitum\v2\MonitumAPI\MonitumAPI\obj\Debug\net6.0\MonitumAPI.xml

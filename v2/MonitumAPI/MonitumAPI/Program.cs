@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +40,8 @@ builder.Services.AddSwaggerGen(c => {
             new string[] {}
         }
     });
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
+    $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
