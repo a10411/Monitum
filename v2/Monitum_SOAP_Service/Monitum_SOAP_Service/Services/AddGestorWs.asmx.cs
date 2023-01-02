@@ -130,30 +130,6 @@ namespace Monitum_SOAP_Service.Services
             }
         }
 
-        // TO-DO (not done)
-        [WebMethod]
-        public string RegistarGestorUsingAPI(string email, string password)
-        {
-            // passar para post de registar gestor!
-            // depois disso, tirar o comment do authorize no gestor controller (GET)
-            var url = "https://localhost:7225/Gestor";
-            var request = WebRequest.Create(url);
-            request.Method = "GET";
-
-            using (var webResponse = request.GetResponse())
-            {
-                using (var webStream = webResponse.GetResponseStream())
-                {
-                    using (var reader = new StreamReader(webStream))
-                    {
-                        var data = reader.ReadToEnd();
-                        return data.ToString();
-                    }
-                }
-            }
-            
-        }
-
         /// <summary>
         /// Classe que visa gerar um random salt, que acompanhará a password para a sua encriptação e posterior desencriptação
         /// </summary>
