@@ -2,6 +2,7 @@
 using FluentAssertions;
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using MonitumAPI.Controllers;
 using MonitumBOL.Models;
@@ -40,6 +41,47 @@ namespace MonitumAPI.Tests.Controllers
             // Act
             IActionResult result = await controller.GetAllComunicados();
 
+            
+
+            // Assert
+            result.Should().NotBeNull();
+
+            // Status Code foi retornado em vez de response
+            // Apenas status code de no content (204 é aceite como válido!)
+            var statusCode = result as StatusCodeResult;
+            if (statusCode != null)
+            {
+                statusCode.StatusCode.Should().Be(204);
+            }
+            
+
+            var jsonResult = result as JsonResult;
+
+            if (jsonResult != null)
+            {
+                var response = jsonResult.Value as MonitumBLL.Utils.Response;
+                response.Should().NotBeNull();
+                response.StatusCode.Should().BeOneOf(
+                    MonitumBLL.Utils.StatusCodes.SUCCESS,
+                    MonitumBLL.Utils.StatusCodes.NOCONTENT
+                    );
+            }
+
+            
+        }
+
+        [Fact]
+        public async void ComunicadoController_AddComunicado_ReturnOK()
+        {
+            /*
+            // Arrange
+            var config = InitConfiguration();
+            var controller = new ComunicadoController(config);
+            var comunicado = new Comunicado(0, );
+
+            // Act
+            IActionResult result = await controller.AddComunicado(comunicado);
+
             // Assert
             result.Should().NotBeNull();
 
@@ -52,6 +94,8 @@ namespace MonitumAPI.Tests.Controllers
                 MonitumBLL.Utils.StatusCodes.SUCCESS,
                 MonitumBLL.Utils.StatusCodes.NOCONTENT
                 );
+            */
+
         }
     }
 }

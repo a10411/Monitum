@@ -25,6 +25,17 @@ namespace MonitumBOL.Models
 
         }
 
+        public Comunicado(int idComunicado, int idSala, string titulo, string corpo, DateTime dataHora)
+        {
+            IdComunicado = idComunicado;
+            IdSala = idSala;
+            Titulo = titulo;
+            Corpo = corpo;
+            DataHora = dataHora;
+        }
+
+
+
         /// <summary>
         /// Construtor que visa criar um Comunicado convertendo dados obtidos a partir de um SqlDataReader
         /// Este construtor é bastante útil no DAL, onde recebemos dados da base de dados e pretendemos converte-los num objeto
