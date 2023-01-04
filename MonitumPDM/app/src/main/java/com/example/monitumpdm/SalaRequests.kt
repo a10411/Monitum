@@ -1,7 +1,5 @@
 package com.example.monitumpdm
-import android.content.ContentValues.TAG
-import android.security.KeyChainAliasCallback
-import android.service.controls.ControlsProviderService.TAG
+
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -9,20 +7,15 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-
 
 object SalaRequests {
     private val client = OkHttpClient()
 
     fun getAllSalas(scope: CoroutineScope, callback: (ArrayList<Sala>)->Unit){
         scope.launch(Dispatchers.IO){
-            val request = Request.Builder().url("meter Url do ngrok e o route presente no projeto").get().build()
+            val request = Request.Builder().url("https://6d6a-2001-8a0-fe0e-4b00-d869-5f4d-2f4b-d1f6.eu.ngrok.io/estabelecimento/1").get().build()
+            // meter em utils o link da api
 
             client.newCall(request).execute().use{ response ->
                 if(!response.isSuccessful) throw IOException("Unexpected code $response")
@@ -30,20 +23,19 @@ object SalaRequests {
                 val result = response.body!!.string()
 
                 val jsonObject = JSONObject(result)
-                if (jsonObject.getString("statusCode") == "200"{
-                        var clientes = arrayListOf<Sala>()
-                        val SalaJSONData = jsonObject.getJSONObject("data")
-                        val SalaJSONList = SalaJSONData.getJSONArray("value")
-
-                        for (i in 0 until SalaJSONList.length()){
-                            val item = SalaJSONList.getJSONObject(i)
+                if (jsonObject.getString("statusCode") == "200"){
+                        var salas = arrayListOf<Sala>()
+                        val salaJSONData = jsonObject.getJSONArray("data")
+                        // Log.d("SalaRequests", salaJSONData.toString())
+                        for (i in 0 until salaJSONData.length()){
+                            val item = salaJSONData.getJSONObject(i)
                             val sala = Sala.fromJSON(item)
-                            sala.add(sala)
+                            salas.add(sala)
                         }
                         scope.launch(Dispatchers.Main){
-                            callback(sala)
+                            callback(salas)
                         }
-                }
+                    }
 
             }
         }
