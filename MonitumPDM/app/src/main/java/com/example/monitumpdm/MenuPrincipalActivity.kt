@@ -1,12 +1,18 @@
 package com.example.monitumpdm
 
+import android.content.Intent
+import android.graphics.Canvas
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
 
 class MenuPrincipalActivity : AppCompatActivity() {
@@ -25,6 +31,8 @@ class MenuPrincipalActivity : AppCompatActivity() {
             salas = it
             adapter.notifyDataSetChanged()
         }
+
+
     }
 
     inner class SalasAdapter: BaseAdapter(){
@@ -46,9 +54,21 @@ class MenuPrincipalActivity : AppCompatActivity() {
             val textViewNomeSala = rootView.findViewById<TextView>(R.id.textViewNomeSala)
             val textViewEstadoSala = rootView.findViewById<TextView>(R.id.textViewEstadoSala)
 
-            textViewNomeSala.text = salas[pos].nome;
-            textViewEstadoSala.text = salas[pos].Estado; //trocar! ir buscar se esta aberta ou fechada
+            textViewNomeSala.text = salas[pos].nome
+            textViewEstadoSala.text = salas[pos].Estado
 
+            val salaStatusColor = rootView.findViewById<SalaStatusColor>(R.id.salaStatusColor)
+            salaStatusColor.isOpen = salas[pos].Estado == "Aberta"
+
+            rootView.setOnClickListener{
+                val intent = Intent(this@MenuPrincipalActivity, SalaDetailActivity::class.java)
+                intent.putExtra("idSala", salas[pos].idSala)
+                intent.putExtra("nome", salas[pos].idSala)
+                intent.putExtra("idEstabelecimento", salas[pos].idSala)
+                intent.putExtra("idEstado", salas[pos].idSala)
+                intent.putExtra("Estado", salas[pos].idSala)
+                startActivity(intent)
+            }
 
             return rootView
 

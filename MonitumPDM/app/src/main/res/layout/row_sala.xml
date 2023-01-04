@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:layout_height="128dp"
+    android:background="#F5F5F5"
+    android:foregroundTintMode="src_over">
 
     <TextView
         android:id="@+id/textViewNomeSala"
@@ -25,10 +26,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/inter_regular"
-        android:paddingBottom="64dp"
         android:text="TextView"
         android:textColor="#373737"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNomeSala" />
+
+    <com.example.monitumpdm.SalaStatusColor
+        android:id="@+id/salaStatusColor"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
