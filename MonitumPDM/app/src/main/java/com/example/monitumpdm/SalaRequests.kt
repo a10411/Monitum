@@ -45,7 +45,7 @@ object SalaRequests {
         }
     }
 
-    fun checkSalaOpen(idSala: Int ): String{
+    fun checkSalaOpen(idSala: Int): String{
         val link = UtilsAPI().connectionNgRok()
         val request = Request.Builder().url("${link}/CheckSalaOpen/sala/$idSala").get().build()
 

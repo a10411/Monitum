@@ -20,20 +20,13 @@ class SalaStatusColor: View {
         defStyleAttr
     )
 
-    var isOpen = false
+    var color = "#F53333";
 
     override fun onDraw(canvas: Canvas?){
         super.onDraw(canvas)
 
         val paint = Paint()
-        paint.color = (Color.parseColor("#F53333"))
-
-        val id = this.id
-        if (isOpen){
-            paint.color = (Color.parseColor("#3EE723"))
-        } else {
-            paint.color = (Color.parseColor("#F53333"))
-        }
+        paint.color = (Color.parseColor(color))
         canvas?.drawRect(Rect(0, 0, width, height), paint)
     }
 }

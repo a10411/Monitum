@@ -1,17 +1,8 @@
-﻿using FakeItEasy;
-using FluentAssertions;
-using FluentAssertions.Common;
+﻿using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using MonitumAPI.Controllers;
 using MonitumBOL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit.Sdk;
 
 namespace MonitumAPI.Tests.Controllers
 {

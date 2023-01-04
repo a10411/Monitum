@@ -58,15 +58,19 @@ class MenuPrincipalActivity : AppCompatActivity() {
             textViewEstadoSala.text = salas[pos].Estado
 
             val salaStatusColor = rootView.findViewById<SalaStatusColor>(R.id.salaStatusColor)
-            salaStatusColor.isOpen = salas[pos].Estado == "Aberta"
+            if (salas[pos].Estado == "Aberta"){
+                salaStatusColor.color = "#3EE723"
+            } else {
+                salaStatusColor.color = "#F53333"
+            }
 
             rootView.setOnClickListener{
                 val intent = Intent(this@MenuPrincipalActivity, SalaDetailActivity::class.java)
                 intent.putExtra("idSala", salas[pos].idSala)
-                intent.putExtra("nome", salas[pos].idSala)
-                intent.putExtra("idEstabelecimento", salas[pos].idSala)
-                intent.putExtra("idEstado", salas[pos].idSala)
-                intent.putExtra("Estado", salas[pos].idSala)
+                intent.putExtra("nome", salas[pos].nome)
+                intent.putExtra("idEstabelecimento", salas[pos].idEstabelecimento)
+                intent.putExtra("idEstado", salas[pos].idEstado)
+                intent.putExtra("Estado", salas[pos].Estado)
                 startActivity(intent)
             }
 
