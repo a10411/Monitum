@@ -27,12 +27,13 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addSala = "INSERT INTO Sala (id_estabelecimento, id_estado) VALUES (@idEstabelecimento, @idEstado)";
+                    string addSala = "INSERT INTO Sala (id_estabelecimento, id_estado, nome) VALUES (@idEstabelecimento, @idEstado, @nome)";
                     using (SqlCommand queryAddSala = new SqlCommand(addSala))
                     {
                         queryAddSala.Connection = con;
                         queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaToAdd.IdEstabelecimento;
                         queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaToAdd.IdEstado;
+                        queryAddSala.Parameters.Add("@nome", SqlDbType.Char).Value = salaToAdd.Nome;
                         con.Open();
                         queryAddSala.ExecuteNonQuery();
                         con.Close();
@@ -227,13 +228,14 @@ namespace MonitumDAL
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado where id_sala = @idSala";
+                    string addSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado, nome = @nome where id_sala = @idSala";
                     using (SqlCommand queryAddSala = new SqlCommand(addSala))
                     {
                         queryAddSala.Connection = con;
                         queryAddSala.Parameters.Add("@idSala", SqlDbType.Int).Value = salaToUpdate.IdSala;
                         queryAddSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaToUpdate.IdEstabelecimento;
                         queryAddSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaToUpdate.IdEstado;
+                        queryAddSala.Parameters.Add("@nome", SqlDbType.Char).Value = salaToUpdate.Nome;
                         con.Open();
                         queryAddSala.ExecuteNonQuery();
                         con.Close();
@@ -259,17 +261,19 @@ namespace MonitumDAL
             salaUpdated.IdSala = salaUpdated.IdSala != 0 ? salaUpdated.IdSala : salaAtual.IdSala;
             salaUpdated.IdEstabelecimento = salaUpdated.IdEstabelecimento != 0 ? salaUpdated.IdEstabelecimento : salaAtual.IdEstabelecimento;
             salaUpdated.IdEstado = salaUpdated.IdEstado != 0 ? salaUpdated.IdEstado : salaAtual.IdEstado;
+            salaUpdated.Nome = salaUpdated.Nome != String.Empty && salaUpdated.Nome != null ? salaUpdated.Nome : salaAtual.Nome;
 
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string updateSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado where id_sala = @idSala";
+                    string updateSala = "UPDATE Sala SET id_estabelecimento = @idEstabelecimento, id_estado = @idEstado, nome = @nome where id_sala = @idSala";
                     using (SqlCommand queryUpdateSala = new SqlCommand(updateSala))
                     {
                         queryUpdateSala.Connection = con;
                         queryUpdateSala.Parameters.Add("@idEstabelecimento", SqlDbType.Int).Value = salaUpdated.IdEstabelecimento;
                         queryUpdateSala.Parameters.Add("@idEstado", SqlDbType.Int).Value = salaUpdated.IdEstado;
+                        queryUpdateSala.Parameters.Add("@nome", SqlDbType.Char).Value = salaUpdated.Nome;
                         queryUpdateSala.Parameters.Add("@idSala", SqlDbType.Int).Value = salaUpdated.IdSala;
                         con.Open();
                         queryUpdateSala.ExecuteNonQuery();

@@ -107,6 +107,8 @@ namespace MonitumDAL
             Comunicado comunicadoAtual = await GetComunicado(conString, comunicadoUpdated.IdComunicado);
             comunicadoUpdated.IdComunicado = comunicadoUpdated.IdComunicado != 0 ? comunicadoUpdated.IdComunicado : comunicadoAtual.IdComunicado;
             comunicadoUpdated.IdSala = comunicadoUpdated.IdSala != 0 ? comunicadoUpdated.IdSala : comunicadoAtual.IdSala;
+            comunicadoUpdated.Titulo = comunicadoUpdated.Titulo != String.Empty && comunicadoUpdated.Titulo != null ? comunicadoUpdated.Titulo : comunicadoAtual.Titulo;
+            comunicadoUpdated.Corpo = comunicadoUpdated.Corpo != String.Empty && comunicadoUpdated.Corpo != null ? comunicadoUpdated.Corpo : comunicadoAtual.Corpo;
             try
             {
                 using(SqlConnection con = new SqlConnection(conString))
