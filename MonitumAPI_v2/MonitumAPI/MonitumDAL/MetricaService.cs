@@ -16,6 +16,11 @@ namespace MonitumDAL
     public class MetricaService
     {
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL via query e obter todas as  métricas lá presentes
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <returns>Lista de métricas presentes na base de dados</returns>
         public static async Task<List<Metrica>> GetAllMetricas(string conString)
         {
             var metricasList = new List<Metrica>();
@@ -38,6 +43,12 @@ namespace MonitumDAL
             return metricasList;
         }
 
+        /// <summary>
+        /// Método que visa aceder à base de dados SQL Server via query e obter uma métrica específica
+        /// </summary>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
+        /// <param name="idMetrica">ID métrica que queremos obter</param>
+        /// <returns>Métrica obtida</returns>
         public static async Task<Metrica> GetMetrica(string conString, int idMetrica)
         {
             Metrica metrica = new Metrica();
@@ -61,18 +72,18 @@ namespace MonitumDAL
 
 
         /// <summary>
-        /// Método que visa aceder à base de dados SQL Server via query e adicionar uma Metrica a uma sala de um estabelecimento
+        /// Método que visa aceder à base de dados SQL Server via query e adicionar uma Metrica
         /// </summary>
-        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json </param>
+        /// <param name="conString">String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</param>
         /// <param name="metricaToAdd">Métrica a adicionar</param>
-        /// <returns></returns>
+        /// <returns>True caso tenha adicionado, erro caso algum erro tenha existido</returns>
         public static async Task<Boolean> AddMetrica(string conString, Metrica metricaToAdd)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string addMetrica = "INSERT INTO Metrica (nome,medida) VALUES (@nome, @medida)"; // AINDA VOU DAR FIX, METER METRICA POR ESTABELECIMENTO E POR SALA BRB
+                    string addMetrica = "INSERT INTO Metrica (nome,medida) VALUES (@nome, @medida)";
                     using (SqlCommand queryAddMetrica = new SqlCommand(addMetrica))
                     {
                         queryAddMetrica.Connection = con;

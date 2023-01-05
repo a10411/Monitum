@@ -19,7 +19,11 @@ namespace MonitumBLL.Logic
     public class MetricaLogic
     {
 
-
+        /// <summary>
+        /// Trata da parte lógica relativa à visualização de todas as métricas presentes na base de dados
+        /// </summary>
+        /// <param name="conString">Connection String da base de dados, que reside no appsettings.json do projeto MonitumAPI</param>
+        /// <returns>Response com Status Code, mensagem e dados (lista de métricas)</returns>
         public static async Task<Response> GetMetricas(string conString)
         {
             Response response = new Response();
