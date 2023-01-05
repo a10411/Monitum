@@ -401,3 +401,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+MonitumAPI_v2/MonitumAPI/MonitumAPI/appsettings.json
+MonitumPDM/app/src/main/java/com/example/monitumpdm/UtilsAPI.kt
+MonitumPDM/app/src/main/java/com/example/monitumpdm/UtilsAPI.kt
