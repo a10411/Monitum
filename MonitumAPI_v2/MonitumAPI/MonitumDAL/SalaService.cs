@@ -94,7 +94,7 @@ namespace MonitumDAL
                 var log = new Log_Metrica();
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    SqlCommand cmd = new SqlCommand($"SELECT TOP 1 * FROM Logs_Metricas WHERE id_sala = {idSala} AND id_metrica = {idMetrica} ORDER BY id_log DESC", con);
+                    SqlCommand cmd = new SqlCommand($"SELECT TOP 1 * FROM Log_Metrica WHERE id_sala = {idSala} AND id_metrica = {idMetrica} ORDER BY id_log DESC", con);
                     cmd.CommandType = CommandType.Text;
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();

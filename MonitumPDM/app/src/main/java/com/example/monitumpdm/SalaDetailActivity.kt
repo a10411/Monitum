@@ -1,24 +1,108 @@
 package com.example.monitumpdm
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.ListView
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
 
 class SalaDetailActivity : AppCompatActivity() {
 
-    val Sala = Sala(null, null, null, null, null)
+    var metricas = arrayListOf<Metrica>()
+
+    val adapter = MetricasAdapter()
+
+    val sala = Sala(null, null, null, null, null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sala_detail)
 
-        val idSala = intent.getStringExtra("idSala")
+        val idSala = intent.getIntExtra("idSala", 0)
         val nome = intent.getStringExtra("nome")
         val idEstabelecimento = intent.getIntExtra("idEstabelecimento", 0)
         val idEstado = intent.getIntExtra("idEstado", 0)
         val estado = intent.getStringExtra("Estado")
 
         findViewById<TextView>(R.id.textViewNomeSalaSalaDetail).text = nome
+
+
+        sala.idSala = idSala
+        sala.nome = nome
+        sala.idEstabelecimento = idEstabelecimento
+        sala.idEstado = idEstado
+        sala.Estado = estado
+
+        val listViewMetricas = findViewById<ListView>(R.id.listViewInfoSalaDetail)
+        listViewMetricas.adapter = adapter
+
+        metricas.add(Metrica(0, "Estado", null, if (estado == "Ativa") 1 else 0))
+        MetricaRequests.getAllMetricas(lifecycleScope){
+            metricas += it
+            for (metrica in metricas){
+                metrica.valor = MetricaRequests.checkLastMetrica(idSala, metrica.idMetrica!!)
+            }
+            adapter.notifyDataSetChanged()
+        }
+
+
+    }
+
+    inner class MetricasAdapter: BaseAdapter(){
+        override fun getCount(): Int {
+            return metricas.size
+        }
+
+        override fun getItem(pos: Int): Any {
+            return  metricas[pos]
+        }
+
+        override fun getItemId(p0: Int): Long {
+            return 0L
+        }
+
+        override fun getView(pos: Int, view: View?, parent: ViewGroup?): View {
+            val rootView = layoutInflater.inflate(R.layout.row_sala, parent, false)
+
+            val textViewNomeSala = rootView.findViewById<TextView>(R.id.textViewNomeSala)
+            val textViewEstadoSala = rootView.findViewById<TextView>(R.id.textViewEstadoSala)
+
+            textViewNomeSala.text = metricas[pos].nome
+
+            val salaStatusColor = rootView.findViewById<SalaStatusColor>(R.id.salaStatusColor)
+
+            if (metricas[pos].nome == "Estado"){
+                if (metricas[pos].valor == 1){
+                    textViewEstadoSala.text = "Aberta"
+                    salaStatusColor.color = "#3EE723"
+                } else {
+                    textViewEstadoSala.text = "Fechada"
+                    salaStatusColor.color = "#F53333"
+                }
+            } else {
+                salaStatusColor.color = "#3EE723"
+                textViewEstadoSala.text = "${metricas[pos].valor.toString()} ${metricas[pos].medida.toString()}"
+                if (metricas[pos].valor!! > 15){
+                    salaStatusColor.color = "#E5DE2F"
+                }
+                else if (metricas[pos].valor !! > 30){
+                    salaStatusColor.color = "#F53333"
+                }
+
+            }
+
+
+
+
+
+            return rootView
+
+        }
 
     }
 }

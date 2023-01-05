@@ -16,6 +16,28 @@ namespace MonitumDAL
     public class MetricaService
     {
 
+        public static async Task<List<Metrica>> GetAllMetricas(string conString)
+        {
+            var metricasList = new List<Metrica>();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Metrica", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Metrica metrica = new Metrica(rdr);
+                    metricasList.Add(metrica);
+                }
+                rdr.Close();
+                con.Close();
+            }
+
+            return metricasList;
+        }
+
         public static async Task<Metrica> GetMetrica(string conString, int idMetrica)
         {
             Metrica metrica = new Metrica();

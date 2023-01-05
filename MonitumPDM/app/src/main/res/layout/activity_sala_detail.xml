@@ -28,4 +28,74 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewInfoSalaDetail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="16dp"
+        android:divider="#fff"
+        android:dividerHeight="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDefinirLembreteSalaDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoMonitumTopSalaDetail" />
+
+    <Button
+        android:id="@+id/buttonVerHorarioSalaDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Ver Horário"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonVerLembretesDetailSala"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Ver Lembretes"
+        android:textAlignment="viewStart"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVerHorarioSalaDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDefinirLembreteSalaDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Definir Lembrete"
+        android:textAlignment="viewStart"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVerLembretesDetailSala"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

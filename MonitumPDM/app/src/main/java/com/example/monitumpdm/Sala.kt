@@ -2,11 +2,11 @@ package com.example.monitumpdm
 import org.json.JSONObject
 
 data class Sala(
-    val idSala:Int? = null,
-    val nome:String? = null,
-    val idEstabelecimento:Int? = null,
-    val idEstado:Int? = null,
-    var Estado:String? = null
+    var idSala:Int? = null,
+    var nome:String? = null,
+    var idEstabelecimento:Int? = null,
+    var idEstado:Int? = null,
+    var Estado:String? = null // for Front end purposes
 )
 {
     fun toJSON() : JSONObject{

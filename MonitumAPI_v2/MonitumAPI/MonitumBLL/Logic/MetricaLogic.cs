@@ -20,6 +20,19 @@ namespace MonitumBLL.Logic
     {
 
 
+        public static async Task<Response> GetMetricas(string conString)
+        {
+            Response response = new Response();
+            List<Metrica> metricasList = await MetricaService.GetAllMetricas(conString);
+            if (metricasList.Count != 0)
+            {
+                response.StatusCode = StatusCodes.SUCCESS;
+                response.Message = "Sucesso na obtenção dos dados";
+                response.Data = metricasList;
+            }
+            return response;
+        }
+
         /// <summary>
         /// Trata da parte lógica relativa à inserção de uma métrica na base de dados
         /// Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (POST - Metrica (AddMetrica))

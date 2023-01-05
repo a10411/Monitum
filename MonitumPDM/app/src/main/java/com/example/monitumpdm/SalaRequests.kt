@@ -16,7 +16,6 @@ object SalaRequests {
         scope.launch(Dispatchers.IO){
             val link = UtilsAPI().connectionNgRok()
             val request = Request.Builder().url("${link}/estabelecimento/1").get().build()
-            // meter em utils o link da api
 
             client.newCall(request).execute().use{ response ->
                 if(!response.isSuccessful) throw IOException("Unexpected code $response")
