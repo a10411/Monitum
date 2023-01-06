@@ -1,1 +1,0 @@
-Scaffold-DbContext -connection "Data Source=.;Initial Catalog=MonitumDB;Integrated Security=True"
