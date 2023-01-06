@@ -84,12 +84,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2ab86c3d5f420b52390ec79dd081795"><td class="memItemLeft" align="right" valign="top">static async Task&lt; List&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#ae2ab86c3d5f420b52390ec79dd081795">GetHorariosSalaByIdSala</a> (string conString, int idSala)</td></tr>
 <tr class="memdesc:ae2ab86c3d5f420b52390ec79dd081795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter todos os horários relativos a uma sala  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#ae2ab86c3d5f420b52390ec79dd081795">More...</a><br /></td></tr>
 <tr class="separator:ae2ab86c3d5f420b52390ec79dd081795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471f4524aa68988af1c091e851c8cb4e"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#a471f4524aa68988af1c091e851c8cb4e">PutHorario</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> horarioUpdated)</td></tr>
+<tr class="memdesc:a471f4524aa68988af1c091e851c8cb4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e substituir (pedido PUT) um horário lá existente  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#a471f4524aa68988af1c091e851c8cb4e">More...</a><br /></td></tr>
+<tr class="separator:a471f4524aa68988af1c091e851c8cb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a781f8c98a85e4674b4cabc7ab7c86521"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#a781f8c98a85e4674b4cabc7ab7c86521">UpdateHorario</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> horarioUpdated)</td></tr>
-<tr class="memdesc:a781f8c98a85e4674b4cabc7ab7c86521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#a781f8c98a85e4674b4cabc7ab7c86521">More...</a><br /></td></tr>
+<tr class="memdesc:a781f8c98a85e4674b4cabc7ab7c86521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nétodo que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente, porém, apenas atualizando os campos que o gestor introduziu no request UPDATE  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#a781f8c98a85e4674b4cabc7ab7c86521">More...</a><br /></td></tr>
 <tr class="separator:a781f8c98a85e4674b4cabc7ab7c86521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71b4aa2fdb71875090287f28fb471670"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#a71b4aa2fdb71875090287f28fb471670">AddHorario</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> horarioToAdd)</td></tr>
 <tr class="memdesc:a71b4aa2fdb71875090287f28fb471670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e adicionar um horário a uma sala de um estabelecimento  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#a71b4aa2fdb71875090287f28fb471670">More...</a><br /></td></tr>
 <tr class="separator:a71b4aa2fdb71875090287f28fb471670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad570c306383cac9dc0ea40c1310bf9e3"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#ad570c306383cac9dc0ea40c1310bf9e3">CheckSobreposicaoHorarios</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a> horarioToVerify)</td></tr>
+<tr class="memdesc:ad570c306383cac9dc0ea40c1310bf9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que reutiliza métodos já criados para confirmar se há sobreposição de horários Útil para prevenir inconsistências quando um gestor pretende atualizar um horário ou adicionar um novo  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#ad570c306383cac9dc0ea40c1310bf9e3">More...</a><br /></td></tr>
+<tr class="separator:ad570c306383cac9dc0ea40c1310bf9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43d5ffa8d324b6672aa54d4fff06505f"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_horario___sala_service.html#a43d5ffa8d324b6672aa54d4fff06505f">DeleteHorario</a> (string conString, int IdHorario)</td></tr>
 <tr class="memdesc:a43d5ffa8d324b6672aa54d4fff06505f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e apagar um horário existente na mesma  <a href="class_monitum_d_a_l_1_1_horario___sala_service.html#a43d5ffa8d324b6672aa54d4fff06505f">More...</a><br /></td></tr>
 <tr class="separator:a43d5ffa8d324b6672aa54d4fff06505f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +146,52 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True se tudo tenha corrido bem (horário adicionado), algum erro caso o horário não tenha sido adicionado.</dd></dl>
+
+</div>
+</div>
+<a id="ad570c306383cac9dc0ea40c1310bf9e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad570c306383cac9dc0ea40c1310bf9e3">&#9670;&nbsp;</a></span>CheckSobreposicaoHorarios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.Horario_SalaService.CheckSobreposicaoHorarios </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a>&#160;</td>
+          <td class="paramname"><em>horarioToVerify</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que reutiliza métodos já criados para confirmar se há sobreposição de horários Útil para prevenir inconsistências quando um gestor pretende atualizar um horário ou adicionar um novo </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">horarioToVerify</td><td>Horário a verificar (o que o gestor está a inserir ou atualizar)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returna true se há sobreposição e false se não há sobreposição</dd></dl>
 
 </div>
 </div>
@@ -281,6 +333,52 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a471f4524aa68988af1c091e851c8cb4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471f4524aa68988af1c091e851c8cb4e">&#9670;&nbsp;</a></span>PutHorario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a>&gt; MonitumDAL.Horario_SalaService.PutHorario </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_horario___sala.html">Horario_Sala</a>&#160;</td>
+          <td class="paramname"><em>horarioUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e substituir (pedido PUT) um horário lá existente </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">horarioUpdated</td><td>Horário atualizado</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Horário atualizado (utilizando a função GetHorarioSala)</dd></dl>
+
+</div>
+</div>
 <a id="a781f8c98a85e4674b4cabc7ab7c86521"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a781f8c98a85e4674b4cabc7ab7c86521">&#9670;&nbsp;</a></span>UpdateHorario()</h2>
 
@@ -315,11 +413,11 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Método que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente </p>
+<p>Nétodo que visa aceder à base de dados SQL Server via query e atualizar um horário lá existente, porém, apenas atualizando os campos que o gestor introduziu no request UPDATE </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
-    <tr><td class="paramname">horarioUpdated</td><td>Horário atualizado</td></tr>
+    <tr><td class="paramname">horarioUpdated</td><td>Horário atualizado (apenas vai atualizar campos que o gestor tenha inserido no request)</td></tr>
   </table>
   </dd>
 </dl>
@@ -328,7 +426,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumDAL/Horario_SalaService.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumDAL/Horario_SalaService.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

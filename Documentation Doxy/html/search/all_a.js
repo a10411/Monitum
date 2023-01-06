@@ -1,9 +1,24 @@
 var searchData=
 [
-  ['sala_52',['Sala',['../class_monitum_b_o_l_1_1_models_1_1_sala.html',1,'MonitumBOL.Models.Sala'],['../class_monitum_b_o_l_1_1_models_1_1_sala.html#a55eb96dd4c0ad0346c6672caef54e9e0',1,'MonitumBOL.Models.Sala.Sala()']]],
-  ['salacontroller_53',['SalaController',['../class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html',1,'MonitumAPI::Controllers']]],
-  ['salalogic_54',['SalaLogic',['../class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html',1,'MonitumBLL::Logic']]],
-  ['salaservice_55',['SalaService',['../class_monitum_d_a_l_1_1_sala_service.html',1,'MonitumDAL']]],
-  ['statuscodes_56',['StatusCodes',['../namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132',1,'MonitumBLL::Utils']]],
-  ['success_57',['SUCCESS',['../namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132ad0749aaba8b833466dfcbb0428e4f89c',1,'MonitumBLL::Utils']]]
+  ['authutils_87',['AuthUtils',['../namespace_monitum_d_a_l_1_1_auth_utils.html',1,'MonitumDAL']]],
+  ['controllers_88',['Controllers',['../namespace_monitum_a_p_i_1_1_controllers.html',1,'MonitumAPI.Controllers'],['../namespace_monitum_a_p_i_1_1_tests_1_1_controllers.html',1,'MonitumAPI.Tests.Controllers']]],
+  ['logic_89',['Logic',['../namespace_monitum_b_l_l_1_1_logic.html',1,'MonitumBLL']]],
+  ['message_90',['Message',['../class_monitum_b_l_l_1_1_utils_1_1_response.html#a668b2e743d275cd33456e5eb04805ae7',1,'MonitumBLL::Utils::Response']]],
+  ['metrica_91',['Metrica',['../class_monitum_b_o_l_1_1_models_1_1_metrica.html',1,'MonitumBOL.Models.Metrica'],['../class_monitum_b_o_l_1_1_models_1_1_metrica.html#a10267fc2c4b481b763f636db5cec29db',1,'MonitumBOL.Models.Metrica.Metrica()']]],
+  ['metricacontroller_92',['MetricaController',['../class_monitum_a_p_i_1_1_controllers_1_1_metrica_controller.html',1,'MonitumAPI::Controllers']]],
+  ['metricalogic_93',['MetricaLogic',['../class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html',1,'MonitumBLL::Logic']]],
+  ['metricaservice_94',['MetricaService',['../class_monitum_d_a_l_1_1_metrica_service.html',1,'MonitumDAL']]],
+  ['models_95',['Models',['../namespace_monitum_b_o_l_1_1_models.html',1,'MonitumBOL']]],
+  ['monitum_5fsoap_5fclient_96',['Monitum_SOAP_Client',['../namespace_monitum___s_o_a_p___client.html',1,'']]],
+  ['monitum_5fsoap_5fservice_97',['Monitum_SOAP_Service',['../namespace_monitum___s_o_a_p___service.html',1,'']]],
+  ['monitumapi_98',['MonitumAPI',['../namespace_monitum_a_p_i.html',1,'']]],
+  ['monitumbll_99',['MonitumBLL',['../namespace_monitum_b_l_l.html',1,'']]],
+  ['monitumbol_100',['MonitumBOL',['../namespace_monitum_b_o_l.html',1,'']]],
+  ['monitumdal_101',['MonitumDAL',['../namespace_monitum_d_a_l.html',1,'']]],
+  ['properties_102',['Properties',['../namespace_monitum___s_o_a_p___client_1_1_properties.html',1,'Monitum_SOAP_Client']]],
+  ['servicereferenceaddgestorws_103',['ServiceReferenceAddGestorWs',['../namespace_monitum___s_o_a_p___client_1_1_service_reference_add_gestor_ws.html',1,'Monitum_SOAP_Client']]],
+  ['servicereferenceaddgestorwsasync_104',['ServiceReferenceAddGestorWsAsync',['../namespace_monitum___s_o_a_p___client_1_1_service_reference_add_gestor_ws_async.html',1,'Monitum_SOAP_Client']]],
+  ['services_105',['Services',['../namespace_monitum___s_o_a_p___service_1_1_services.html',1,'Monitum_SOAP_Service']]],
+  ['tests_106',['Tests',['../namespace_monitum_a_p_i_1_1_tests.html',1,'MonitumAPI']]],
+  ['utils_107',['Utils',['../namespace_monitum_a_p_i_1_1_utils.html',1,'MonitumAPI.Utils'],['../namespace_monitum_b_l_l_1_1_utils.html',1,'MonitumBLL.Utils'],['../namespace_monitum_d_a_l_1_1_utils.html',1,'MonitumDAL.Utils']]]
 ];

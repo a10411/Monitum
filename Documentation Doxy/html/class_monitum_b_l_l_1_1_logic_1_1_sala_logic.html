@@ -82,11 +82,23 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a607a57e205952854d61910702527bab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à criação de uma sala na base de dados (sala que diz respeito a um estabelecimento) Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (POST - Sala (AddSalaToEstabelecimento))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a607a57e205952854d61910702527bab5">More...</a><br /></td></tr>
 <tr class="separator:a607a57e205952854d61910702527bab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadebde9dd2f4eef95872df3750b6aa66"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#aadebde9dd2f4eef95872df3750b6aa66">GetSalas</a> (string conString, int idEstabelecimento)</td></tr>
-<tr class="memdesc:aadebde9dd2f4eef95872df3750b6aa66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à obtenção de todas as salas de um estabelecimento, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Salas (GetSalasByEstabelecimento))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#aadebde9dd2f4eef95872df3750b6aa66">More...</a><br /></td></tr>
+<tr class="memdesc:aadebde9dd2f4eef95872df3750b6aa66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à obtenção de todas as salas de um estabelecimento, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (GetSalasByEstabelecimento))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#aadebde9dd2f4eef95872df3750b6aa66">More...</a><br /></td></tr>
 <tr class="separator:aadebde9dd2f4eef95872df3750b6aa66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e802585e186ec875b8a13c874b93d35"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a0e802585e186ec875b8a13c874b93d35">GetLastMetricaBySala</a> (string conString, int idMetrica, int idSala)</td></tr>
-<tr class="memdesc:a0e802585e186ec875b8a13c874b93d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Salas (GetLastMetricaBySala))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a0e802585e186ec875b8a13c874b93d35">More...</a><br /></td></tr>
+<tr class="memdesc:a0e802585e186ec875b8a13c874b93d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (GetLastMetricaBySala))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a0e802585e186ec875b8a13c874b93d35">More...</a><br /></td></tr>
 <tr class="separator:a0e802585e186ec875b8a13c874b93d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80fbc6e33c203bb85e539709cd6feb5"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#ac80fbc6e33c203bb85e539709cd6feb5">UpdateEstadoSala</a> (string conString, int idSala, int idEstado)</td></tr>
+<tr class="memdesc:ac80fbc6e33c203bb85e539709cd6feb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à atualização do estado de uma sala, dados estes que residem na base dados (tanto os estados, como as salas) Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PATCH - Sala (UpdateEstadoSala))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#ac80fbc6e33c203bb85e539709cd6feb5">More...</a><br /></td></tr>
+<tr class="separator:ac80fbc6e33c203bb85e539709cd6feb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b308ff0c698d0b90af4d5e4c01d978"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a78b308ff0c698d0b90af4d5e4c01d978">CheckSalaOpen</a> (string conString, int idSala)</td></tr>
+<tr class="memdesc:a78b308ff0c698d0b90af4d5e4c01d978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica da obtenção da informação do estado da sala (aberta ou fechada), dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (CheckSalaOpen))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a78b308ff0c698d0b90af4d5e4c01d978">More...</a><br /></td></tr>
+<tr class="separator:a78b308ff0c698d0b90af4d5e4c01d978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f365f8d5ac48260c77d9d1f62b638c"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a91f365f8d5ac48260c77d9d1f62b638c">PutSala</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaToUpdate)</td></tr>
+<tr class="memdesc:a91f365f8d5ac48260c77d9d1f62b638c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à substituição de uma sala que resida na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PUT - Sala (PutSala))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#a91f365f8d5ac48260c77d9d1f62b638c">More...</a><br /></td></tr>
+<tr class="separator:a91f365f8d5ac48260c77d9d1f62b638c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef564e1b337c2ae7293a9136f37859e"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#abef564e1b337c2ae7293a9136f37859e">UpdateSala</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaToUpdate)</td></tr>
+<tr class="memdesc:abef564e1b337c2ae7293a9136f37859e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à atualização de uma sala que resida na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PATCH - Sala (UpdateSala))  <a href="class_monitum_b_l_l_1_1_logic_1_1_sala_logic.html#abef564e1b337c2ae7293a9136f37859e">More...</a><br /></td></tr>
+<tr class="separator:abef564e1b337c2ae7293a9136f37859e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Esta classe implementa todas as funções que, por sua vez, implementam a parte lógica de cada request relativo às salas Nesta classe, abstraímo-nos de rotas, autorizações, links, etc. que dizem respeito à API Porém, a API consome esta classe no sentido em que esta é responsável por transformar objetos vindos do DAL em responses. Esta classe é a última a lidar com objetos (models) e visa abstrair a API dos mesmos Gera uma response com um status code e dados </p>
@@ -137,6 +149,52 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a78b308ff0c698d0b90af4d5e4c01d978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b308ff0c698d0b90af4d5e4c01d978">&#9670;&nbsp;</a></span>CheckSalaOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.SalaLogic.CheckSalaOpen </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica da obtenção da informação do estado da sala (aberta ou fechada), dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (CheckSalaOpen)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">idSala</td><td>ID da sala para a qual o utilizador pretende a informação</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem e dados (nos dados, estará true ou false, consoante se se encontra aberta ou não)</dd></dl>
+
+</div>
+</div>
 <a id="a0e802585e186ec875b8a13c874b93d35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e802585e186ec875b8a13c874b93d35">&#9670;&nbsp;</a></span>GetLastMetricaBySala()</h2>
 
@@ -177,7 +235,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Salas (GetLastMetricaBySala)) </p>
+<p>Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (GetLastMetricaBySala)) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
@@ -224,7 +282,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Trata da parte lógica relativa à obtenção de todas as salas de um estabelecimento, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Salas (GetSalasByEstabelecimento)) </p>
+<p>Trata da parte lógica relativa à obtenção de todas as salas de um estabelecimento, dados estes que residem na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Sala (GetSalasByEstabelecimento)) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
@@ -236,8 +294,153 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a91f365f8d5ac48260c77d9d1f62b638c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f365f8d5ac48260c77d9d1f62b638c">&#9670;&nbsp;</a></span>PutSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.SalaLogic.PutSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaToUpdate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à substituição de uma sala que resida na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PUT - Sala (PutSala)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">salaToUpdate</td><td>Sala inserida pelo gestor para substituir</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem e dados (Sala nova (substituida))</dd></dl>
+
+</div>
+</div>
+<a id="ac80fbc6e33c203bb85e539709cd6feb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80fbc6e33c203bb85e539709cd6feb5">&#9670;&nbsp;</a></span>UpdateEstadoSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.SalaLogic.UpdateEstadoSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idEstado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à atualização do estado de uma sala, dados estes que residem na base dados (tanto os estados, como as salas) Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PATCH - Sala (UpdateEstadoSala)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">idSala</td><td>ID da sala que o gestor pretende atualizar o estado</td></tr>
+    <tr><td class="paramname">idEstado</td><td>ID do novo estado da sala</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem e dados (idealmente, nos dados estará a sala atualizada)</dd></dl>
+
+</div>
+</div>
+<a id="abef564e1b337c2ae7293a9136f37859e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef564e1b337c2ae7293a9136f37859e">&#9670;&nbsp;</a></span>UpdateSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.SalaLogic.UpdateSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaToUpdate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à atualização de uma sala que resida na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (PATCH - Sala (UpdateSala)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">salaToUpdate</td><td>Sala inserida pelo gestor para atualizar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem e dados (Sala ataulizada)</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumBLL/Logic/SalaLogic.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumBLL/Logic/SalaLogic.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

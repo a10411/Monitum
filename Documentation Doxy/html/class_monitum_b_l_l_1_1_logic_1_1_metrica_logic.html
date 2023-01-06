@@ -65,6 +65,9 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MonitumBLL.Logic.MetricaLogic Class Reference</div>  </div>
 </div><!--header-->
@@ -72,10 +75,200 @@ $(function() {
 
 <p>Esta classe implementa todas as funções que, por sua vez, implementam a parte lógica de cada request relativo às métricas Nesta classe, abstraímo-nos de rotas, autorizações, links, etc. que dizem respeito à API Porém, a API consome esta classe no sentido em que esta é responsável por transformar objetos vindos do DAL em responses. Esta classe é a última a lidar com objetos (models) e visa abstrair a API dos mesmos Gera uma response com um status code e dados  
  <a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a79181e85f3b8a041aac4aa9359cd1a38"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a79181e85f3b8a041aac4aa9359cd1a38">GetMetricas</a> (string conString)</td></tr>
+<tr class="memdesc:a79181e85f3b8a041aac4aa9359cd1a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à visualização de todas as métricas presentes na base de dados  <a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a79181e85f3b8a041aac4aa9359cd1a38">More...</a><br /></td></tr>
+<tr class="separator:a79181e85f3b8a041aac4aa9359cd1a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99dbe522677adef5295242ac92873cc6"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a99dbe522677adef5295242ac92873cc6">AddMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaToAdd)</td></tr>
+<tr class="memdesc:a99dbe522677adef5295242ac92873cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à inserção de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (POST - Metrica (AddMetrica))  <a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a99dbe522677adef5295242ac92873cc6">More...</a><br /></td></tr>
+<tr class="separator:a99dbe522677adef5295242ac92873cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac729fda07eb9b70347e858176546841c"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#ac729fda07eb9b70347e858176546841c">PutMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaToUpdate)</td></tr>
+<tr class="memdesc:ac729fda07eb9b70347e858176546841c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à substituição de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PUT - Metrica (PutMetrica))  <a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#ac729fda07eb9b70347e858176546841c">More...</a><br /></td></tr>
+<tr class="separator:ac729fda07eb9b70347e858176546841c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85dfc5d667f2667187ee1a8a7f0d46c8"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a85dfc5d667f2667187ee1a8a7f0d46c8">UpdateMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaToUpdate)</td></tr>
+<tr class="memdesc:a85dfc5d667f2667187ee1a8a7f0d46c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à atualização de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PATCH - Metrica (UpdateMetrica))  <a href="class_monitum_b_l_l_1_1_logic_1_1_metrica_logic.html#a85dfc5d667f2667187ee1a8a7f0d46c8">More...</a><br /></td></tr>
+<tr class="separator:a85dfc5d667f2667187ee1a8a7f0d46c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Esta classe implementa todas as funções que, por sua vez, implementam a parte lógica de cada request relativo às métricas Nesta classe, abstraímo-nos de rotas, autorizações, links, etc. que dizem respeito à API Porém, a API consome esta classe no sentido em que esta é responsável por transformar objetos vindos do DAL em responses. Esta classe é a última a lidar com objetos (models) e visa abstrair a API dos mesmos Gera uma response com um status code e dados </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumBLL/Logic/MetricaLogic.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a99dbe522677adef5295242ac92873cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99dbe522677adef5295242ac92873cc6">&#9670;&nbsp;</a></span>AddMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.MetricaLogic.AddMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaToAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à inserção de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (POST - Metrica (AddMetrica)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">metricaToAdd</td><td>Métrica inserida pelo gestor para adicionar à base de dados</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code e mensagem (indicando que a métrica foi adicionada)</dd></dl>
+
+</div>
+</div>
+<a id="a79181e85f3b8a041aac4aa9359cd1a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79181e85f3b8a041aac4aa9359cd1a38">&#9670;&nbsp;</a></span>GetMetricas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.MetricaLogic.GetMetricas </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à visualização de todas as métricas presentes na base de dados </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem e dados (lista de métricas)</dd></dl>
+
+</div>
+</div>
+<a id="ac729fda07eb9b70347e858176546841c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac729fda07eb9b70347e858176546841c">&#9670;&nbsp;</a></span>PutMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.MetricaLogic.PutMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaToUpdate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à substituição de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PUT - Metrica (PutMetrica)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">metricaToUpdate</td><td>Métrica inserida pelo gestor para substituir na base de dados</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem (indicando que a métrica foi substituída) e dados (métrica atualizada (nova))</dd></dl>
+
+</div>
+</div>
+<a id="a85dfc5d667f2667187ee1a8a7f0d46c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85dfc5d667f2667187ee1a8a7f0d46c8">&#9670;&nbsp;</a></span>UpdateMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.MetricaLogic.UpdateMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaToUpdate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa à atualização de uma métrica na base de dados Gera uma resposta que será utilizada pela MomitumAPI para responder ao request do utilizador (PATCH - Metrica (UpdateMetrica)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">metricaToUpdate</td><td>Métrica inserida pelo gestor para atualizar na base de dados</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code, mensagem (indicando que a métrica foi atualizada) e dados (métrica atualizada)</dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumBLL/Logic/MetricaLogic.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

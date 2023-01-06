@@ -73,27 +73,172 @@ $(function() {
 <div class="title">MonitumBLL.Utils.Response Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model (Comunicado, Estabelecimento, etc.) é convertido num <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> com um status code, mensagem e dados Para que a API se abstraia de detalhes relacionados com os models (objetos)  
+ <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9f2845f02a2b699d986e2d4d406a2221"><td class="memItemLeft" align="right" valign="top"><a id="a9f2845f02a2b699d986e2d4d406a2221"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Response</b> (<a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a> statusCode, string message, object data)</td></tr>
+<tr class="memitem:a9f2845f02a2b699d986e2d4d406a2221"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a9f2845f02a2b699d986e2d4d406a2221">Response</a> (<a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a> statusCode, string message, object data)</td></tr>
+<tr class="memdesc:a9f2845f02a2b699d986e2d4d406a2221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> com dados  <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a9f2845f02a2b699d986e2d4d406a2221">More...</a><br /></td></tr>
 <tr class="separator:a9f2845f02a2b699d986e2d4d406a2221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7370da98e2c92c60f3b61ea2adc8f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a3a7370da98e2c92c60f3b61ea2adc8f9">Response</a> ()</td></tr>
+<tr class="memdesc:a3a7370da98e2c92c60f3b61ea2adc8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> sem dados Quando não são encontrados dados, é gerada uma response com status code "No Content", e uma mensagem a informar da não existência de dados.  <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a3a7370da98e2c92c60f3b61ea2adc8f9">More...</a><br /></td></tr>
+<tr class="separator:a3a7370da98e2c92c60f3b61ea2adc8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a536fb007ae3c55f72d793d8b60a814d9"><td class="memItemLeft" align="right" valign="top"><a id="a536fb007ae3c55f72d793d8b60a814d9"></a>
-<a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StatusCode</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a536fb007ae3c55f72d793d8b60a814d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a536fb007ae3c55f72d793d8b60a814d9">StatusCode</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a536fb007ae3c55f72d793d8b60a814d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status Code do pedido (200 sucesso, 401 unauthorized, etc.)  <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a536fb007ae3c55f72d793d8b60a814d9">More...</a><br /></td></tr>
 <tr class="separator:a536fb007ae3c55f72d793d8b60a814d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a668b2e743d275cd33456e5eb04805ae7"><td class="memItemLeft" align="right" valign="top"><a id="a668b2e743d275cd33456e5eb04805ae7"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>Message</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a668b2e743d275cd33456e5eb04805ae7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a668b2e743d275cd33456e5eb04805ae7">Message</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a668b2e743d275cd33456e5eb04805ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mensagem do pedido, ex: "Sucesso na obtenção dos dados"  <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a668b2e743d275cd33456e5eb04805ae7">More...</a><br /></td></tr>
 <tr class="separator:a668b2e743d275cd33456e5eb04805ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a008d0b81266b3ae4a27307fea2455ed2"><td class="memItemLeft" align="right" valign="top"><a id="a008d0b81266b3ae4a27307fea2455ed2"></a>
-object&#160;</td><td class="memItemRight" valign="bottom"><b>Data</b><code> [get, set]</code></td></tr>
+<tr class="memitem:a008d0b81266b3ae4a27307fea2455ed2"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a008d0b81266b3ae4a27307fea2455ed2">Data</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a008d0b81266b3ae4a27307fea2455ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dados retornados para o utilizador aquando a realização de um request Por exemplo, num get aos comunicados, os comunicados presentes na base de dados estarão em "Data"  <a href="class_monitum_b_l_l_1_1_utils_1_1_response.html#a008d0b81266b3ae4a27307fea2455ed2">More...</a><br /></td></tr>
 <tr class="separator:a008d0b81266b3ae4a27307fea2455ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model (Comunicado, Estabelecimento, etc.) é convertido num <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> com um status code, mensagem e dados Para que a API se abstraia de detalhes relacionados com os models (objetos) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9f2845f02a2b699d986e2d4d406a2221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f2845f02a2b699d986e2d4d406a2221">&#9670;&nbsp;</a></span>Response() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MonitumBLL.Utils.Response.Response </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a>&#160;</td>
+          <td class="paramname"><em>statusCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> com dados </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">statusCode</td><td>Status Code da response</td></tr>
+    <tr><td class="paramname">message</td><td>Mensagem da response</td></tr>
+    <tr><td class="paramname">data</td><td>Dados da response</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3a7370da98e2c92c60f3b61ea2adc8f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7370da98e2c92c60f3b61ea2adc8f9">&#9670;&nbsp;</a></span>Response() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MonitumBLL.Utils.Response.Response </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html" title="Response será o objeto a retornar, em JSON, para o utilizador, quando o mesmo faz um request O Model ...">Response</a> sem dados Quando não são encontrados dados, é gerada uma response com status code "No Content", e uma mensagem a informar da não existência de dados. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a008d0b81266b3ae4a27307fea2455ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a008d0b81266b3ae4a27307fea2455ed2">&#9670;&nbsp;</a></span>Data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">object MonitumBLL.Utils.Response.Data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dados retornados para o utilizador aquando a realização de um request Por exemplo, num get aos comunicados, os comunicados presentes na base de dados estarão em "Data" </p>
+
+</div>
+</div>
+<a id="a668b2e743d275cd33456e5eb04805ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a668b2e743d275cd33456e5eb04805ae7">&#9670;&nbsp;</a></span>Message</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string MonitumBLL.Utils.Response.Message</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mensagem do pedido, ex: "Sucesso na obtenção dos dados" </p>
+
+</div>
+</div>
+<a id="a536fb007ae3c55f72d793d8b60a814d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536fb007ae3c55f72d793d8b60a814d9">&#9670;&nbsp;</a></span>StatusCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_monitum_b_l_l_1_1_utils.html#ada7bc313263efbb1f2413281c5316132">StatusCodes</a> MonitumBLL.Utils.Response.StatusCode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Status Code do pedido (200 sucesso, 401 unauthorized, etc.) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumBLL/Utils/Response.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumBLL/Utils/Response.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

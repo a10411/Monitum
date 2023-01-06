@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_5fmetrica_121',['Log_Metrica',['../class_monitum_b_o_l_1_1_models_1_1_log___metrica.html#a7aca673a936f4e803bfbf314f73ab857',1,'MonitumBOL::Models::Log_Metrica']]]
+  ['initconfiguration_272',['InitConfiguration',['../class_monitum_a_p_i_1_1_tests_1_1_controllers_1_1_comunicado_controller_tests.html#a9bfb8bdcbe83c4712f27fafc17def0a9',1,'MonitumAPI::Tests::Controllers::ComunicadoControllerTests']]]
 ];

@@ -65,6 +65,9 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="class_monitum_d_a_l_1_1_metrica_service-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MonitumDAL.MetricaService Class Reference</div>  </div>
 </div><!--header-->
@@ -72,10 +75,249 @@ $(function() {
 
 <p>Class que visa implementar todos os métodos de Data Access Layer referentes à Métrica Isto é, todos os acessos à base de dados relativos à métrica estarão implementados em funções implementadas dentro desta classe  
  <a href="class_monitum_d_a_l_1_1_metrica_service.html#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a67051f0970fc448ec1e22ba227c97ebb"><td class="memItemLeft" align="right" valign="top">static async Task&lt; List&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_metrica_service.html#a67051f0970fc448ec1e22ba227c97ebb">GetAllMetricas</a> (string conString)</td></tr>
+<tr class="memdesc:a67051f0970fc448ec1e22ba227c97ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL via query e obter todas as métricas lá presentes  <a href="class_monitum_d_a_l_1_1_metrica_service.html#a67051f0970fc448ec1e22ba227c97ebb">More...</a><br /></td></tr>
+<tr class="separator:a67051f0970fc448ec1e22ba227c97ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58fcbffbaad23937c9258389d245359"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_metrica_service.html#ac58fcbffbaad23937c9258389d245359">GetMetrica</a> (string conString, int idMetrica)</td></tr>
+<tr class="memdesc:ac58fcbffbaad23937c9258389d245359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter uma métrica específica  <a href="class_monitum_d_a_l_1_1_metrica_service.html#ac58fcbffbaad23937c9258389d245359">More...</a><br /></td></tr>
+<tr class="separator:ac58fcbffbaad23937c9258389d245359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cadd1e38fd9f8236cf0b9159995265"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_metrica_service.html#a27cadd1e38fd9f8236cf0b9159995265">AddMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaToAdd)</td></tr>
+<tr class="memdesc:a27cadd1e38fd9f8236cf0b9159995265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e adicionar uma Metrica  <a href="class_monitum_d_a_l_1_1_metrica_service.html#a27cadd1e38fd9f8236cf0b9159995265">More...</a><br /></td></tr>
+<tr class="separator:a27cadd1e38fd9f8236cf0b9159995265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb03243c69150bdf3882e959429d4981"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_metrica_service.html#abb03243c69150bdf3882e959429d4981">PutMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaToUpdated)</td></tr>
+<tr class="memdesc:abb03243c69150bdf3882e959429d4981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e substituir uma Métrica lá existente  <a href="class_monitum_d_a_l_1_1_metrica_service.html#abb03243c69150bdf3882e959429d4981">More...</a><br /></td></tr>
+<tr class="separator:abb03243c69150bdf3882e959429d4981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5684213156beb09d213f3b5bf052c529"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_metrica_service.html#a5684213156beb09d213f3b5bf052c529">UpdateMetrica</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a> metricaUpdated)</td></tr>
+<tr class="memdesc:a5684213156beb09d213f3b5bf052c529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e atualizar uma Métrica lá existente  <a href="class_monitum_d_a_l_1_1_metrica_service.html#a5684213156beb09d213f3b5bf052c529">More...</a><br /></td></tr>
+<tr class="separator:a5684213156beb09d213f3b5bf052c529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class que visa implementar todos os métodos de Data Access Layer referentes à Métrica Isto é, todos os acessos à base de dados relativos à métrica estarão implementados em funções implementadas dentro desta classe </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumDAL/MetricaService.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a27cadd1e38fd9f8236cf0b9159995265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27cadd1e38fd9f8236cf0b9159995265">&#9670;&nbsp;</a></span>AddMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.MetricaService.AddMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaToAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e adicionar uma Metrica </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">metricaToAdd</td><td>Métrica a adicionar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True caso tenha adicionado, erro caso algum erro tenha existido</dd></dl>
+
+</div>
+</div>
+<a id="a67051f0970fc448ec1e22ba227c97ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67051f0970fc448ec1e22ba227c97ebb">&#9670;&nbsp;</a></span>GetAllMetricas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;List&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&gt; &gt; MonitumDAL.MetricaService.GetAllMetricas </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL via query e obter todas as métricas lá presentes </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Lista de métricas presentes na base de dados</dd></dl>
+
+</div>
+</div>
+<a id="ac58fcbffbaad23937c9258389d245359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58fcbffbaad23937c9258389d245359">&#9670;&nbsp;</a></span>GetMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&gt; MonitumDAL.MetricaService.GetMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idMetrica</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e obter uma métrica específica </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">idMetrica</td><td>ID métrica que queremos obter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Métrica obtida</dd></dl>
+
+</div>
+</div>
+<a id="abb03243c69150bdf3882e959429d4981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb03243c69150bdf3882e959429d4981">&#9670;&nbsp;</a></span>PutMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&gt; MonitumDAL.MetricaService.PutMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaToUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e substituir uma Métrica lá existente </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">metricaToUpdated</td><td>Métrica a substituir</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Métrica nova (substituída)</dd></dl>
+
+</div>
+</div>
+<a id="a5684213156beb09d213f3b5bf052c529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5684213156beb09d213f3b5bf052c529">&#9670;&nbsp;</a></span>UpdateMetrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&gt; MonitumDAL.MetricaService.UpdateMetrica </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_metrica.html">Metrica</a>&#160;</td>
+          <td class="paramname"><em>metricaUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e atualizar uma Métrica lá existente </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">metricaUpdated</td><td>Métrica a atualizar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Métrica atualizada</dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumDAL/MetricaService.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

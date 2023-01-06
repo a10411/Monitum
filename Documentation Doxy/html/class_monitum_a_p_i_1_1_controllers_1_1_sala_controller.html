@@ -93,6 +93,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3127db58c52957477236aa71a588772c"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#a3127db58c52957477236aa71a588772c">GetLastMetricaBySala</a> (int idSala, int idMetrica)</td></tr>
 <tr class="memdesc:a3127db58c52957477236aa71a588772c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request GET relativo à obtenção da última log de uma determinada métrica de uma sala Será útil para expor o ruído/ocupação "atual" na aplicação ("atual" dado que o objetivo é que o Arduino envie logs de 5 em 5 minutos, por isso, a última será a "atual")  <a href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#a3127db58c52957477236aa71a588772c">More...</a><br /></td></tr>
 <tr class="separator:a3127db58c52957477236aa71a588772c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1183065ff653c725bf9418c501f6ae21"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#a1183065ff653c725bf9418c501f6ae21">UpdateEstadoSala</a> (int idSala, int idEstado)</td></tr>
+<tr class="memdesc:a1183065ff653c725bf9418c501f6ae21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request PATCH relativo à atualização do estado de uma sala Útil para quando o gestor pretender arquivar uma sala ou voltar a colocar uma sala ativa Apenas pode ser feito pelo Gestor  <a href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#a1183065ff653c725bf9418c501f6ae21">More...</a><br /></td></tr>
+<tr class="separator:a1183065ff653c725bf9418c501f6ae21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc645f1721c1c43696fd0f7ff00f9a93"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#abc645f1721c1c43696fd0f7ff00f9a93">PutSala</a> (<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaToUpdate)</td></tr>
+<tr class="memdesc:abc645f1721c1c43696fd0f7ff00f9a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request PUT relativo a uma sala, que o gestor pretenda substituir  <a href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#abc645f1721c1c43696fd0f7ff00f9a93">More...</a><br /></td></tr>
+<tr class="separator:abc645f1721c1c43696fd0f7ff00f9a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa199b6604469ddfb0c6804627a59ac5d"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#aa199b6604469ddfb0c6804627a59ac5d">UpdateSala</a> (<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaToUpdate)</td></tr>
+<tr class="memdesc:aa199b6604469ddfb0c6804627a59ac5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request PATCH relativo a uma sala, que o gestor pretenda atualizar  <a href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#aa199b6604469ddfb0c6804627a59ac5d">More...</a><br /></td></tr>
+<tr class="separator:aa199b6604469ddfb0c6804627a59ac5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8392ddc4125b670fad1006c707a6118"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#af8392ddc4125b670fad1006c707a6118">CheckSalaOpen</a> (int idSala)</td></tr>
+<tr class="memdesc:af8392ddc4125b670fad1006c707a6118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request GET relativo à obtenção de informação do estado de uma sala (aberta ou fechada)  <a href="class_monitum_a_p_i_1_1_controllers_1_1_sala_controller.html#af8392ddc4125b670fad1006c707a6118">More...</a><br /></td></tr>
+<tr class="separator:af8392ddc4125b670fad1006c707a6118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4daf561cca283b700bd54245b89e1325"></a>
@@ -113,6 +125,33 @@ Public Member Functions</h2></td></tr>
 
 <p>Request POST relativo às Salas (adicionar uma sala a um estabelecimento) </p>
 <dl class="section return"><dt>Returns</dt><dd>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará uma resposta com status code 200 (sucesso)</dd></dl>
+
+</div>
+</div>
+<a id="af8392ddc4125b670fad1006c707a6118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8392ddc4125b670fad1006c707a6118">&#9670;&nbsp;</a></span>CheckSalaOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.SalaController.CheckSalaOpen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request GET relativo à obtenção de informação do estado de uma sala (aberta ou fechada) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idSala</td><td>ID sala a obter informação de aberta ou fechada</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a resposta obtida pelo BLL para o utilizador. Idealmente, retornará uma resposta com True, caso se encontre aberta, ou False caso fechada, com status code 200 (sucesso).</dd></dl>
 
 </div>
 </div>
@@ -181,8 +220,100 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="abc645f1721c1c43696fd0f7ff00f9a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc645f1721c1c43696fd0f7ff00f9a93">&#9670;&nbsp;</a></span>PutSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.SalaController.PutSala </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaToUpdate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request PUT relativo a uma sala, que o gestor pretenda substituir </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salaToUpdate</td><td>Sala que o gestor pretende substituir na BD</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala substituida, com um status code 200 (sucesso).</dd></dl>
+
+</div>
+</div>
+<a id="a1183065ff653c725bf9418c501f6ae21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1183065ff653c725bf9418c501f6ae21">&#9670;&nbsp;</a></span>UpdateEstadoSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.SalaController.UpdateEstadoSala </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idEstado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request PATCH relativo à atualização do estado de uma sala Útil para quando o gestor pretender arquivar uma sala ou voltar a colocar uma sala ativa Apenas pode ser feito pelo Gestor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idSala</td><td>ID sala a atualizar</td></tr>
+    <tr><td class="paramname">idEstado</td><td>ID estado para o qual pretendemos atualizar a sala</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala atualizada, com um status code 200 (sucesso).</dd></dl>
+
+</div>
+</div>
+<a id="aa199b6604469ddfb0c6804627a59ac5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa199b6604469ddfb0c6804627a59ac5d">&#9670;&nbsp;</a></span>UpdateSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.SalaController.UpdateSala </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaToUpdate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request PATCH relativo a uma sala, que o gestor pretenda atualizar </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salaToUpdate</td><td>Sala que o gestor pretende atualizar na BD</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a resposta obtida pelo BLL para o gestor. Idealmente, retornará a sala atualizada, com um status code 200 (sucesso).</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumAPI/Controllers/SalaController.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumAPI/Controllers/SalaController.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

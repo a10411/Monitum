@@ -88,8 +88,14 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>GestorController</b> (IConfiguration configuration)</td></tr>
 <tr class="separator:a1904b10cf2cfa017573ac5c977fd6834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f4174fea1d9792f4e0ec419521051e3"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#a0f4174fea1d9792f4e0ec419521051e3">GetAllGestores</a> ()</td></tr>
-<tr class="memdesc:a0f4174fea1d9792f4e0ec419521051e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request GET relativo aos Gestores  <a href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#a0f4174fea1d9792f4e0ec419521051e3">More...</a><br /></td></tr>
+<tr class="memdesc:a0f4174fea1d9792f4e0ec419521051e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request GET relativo aos Gestores Apenas um admin consegue fazer este request com sucesso (Authorize(Roles="Admin"))  <a href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#a0f4174fea1d9792f4e0ec419521051e3">More...</a><br /></td></tr>
 <tr class="separator:a0f4174fea1d9792f4e0ec419521051e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea258a55bdb79f79e4ac3aafe298145"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#a7ea258a55bdb79f79e4ac3aafe298145">LoginGestor</a> (string email, string password)</td></tr>
+<tr class="memdesc:a7ea258a55bdb79f79e4ac3aafe298145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request POST relativo ao Login de Gestor  <a href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#a7ea258a55bdb79f79e4ac3aafe298145">More...</a><br /></td></tr>
+<tr class="separator:a7ea258a55bdb79f79e4ac3aafe298145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c2a9d3677a28ad77a1879da0cb2192"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#ac5c2a9d3677a28ad77a1879da0cb2192">RegistoGestor</a> (string email, string password)</td></tr>
+<tr class="memdesc:ac5c2a9d3677a28ad77a1879da0cb2192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request POST relativo ao Registo de Gestor  <a href="class_monitum_a_p_i_1_1_controllers_1_1_gestor_controller.html#ac5c2a9d3677a28ad77a1879da0cb2192">More...</a><br /></td></tr>
+<tr class="separator:ac5c2a9d3677a28ad77a1879da0cb2192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Controller para a definição de rotas da API para o CRUD relativo ao Gestor Rota base = api/Gestor (api é localhost ou é um link, se estiver publicada) </p>
@@ -109,13 +115,89 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Request GET relativo aos Gestores </p>
+<p>Request GET relativo aos Gestores Apenas um admin consegue fazer este request com sucesso (Authorize(Roles="Admin")) </p>
 <dl class="section return"><dt>Returns</dt><dd>Retorna a response obtida pelo BLL para o utilizador. Idealmente, retornará a lista de Gestores</dd></dl>
 
 </div>
 </div>
+<a id="a7ea258a55bdb79f79e4ac3aafe298145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ea258a55bdb79f79e4ac3aafe298145">&#9670;&nbsp;</a></span>LoginGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.GestorController.LoginGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request POST relativo ao Login de Gestor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Email do gestor</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor, para posteriormente, no DAL, fazer a confirmação do hash e salt</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a response obtida pelo BLL para o utilizador. Idealmente (caso o gestor tenha introduzido as credenciais corretas), retorna uma resposta de sucesso (gestor autenticado)</dd></dl>
+
+</div>
+</div>
+<a id="ac5c2a9d3677a28ad77a1879da0cb2192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c2a9d3677a28ad77a1879da0cb2192">&#9670;&nbsp;</a></span>RegistoGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;IActionResult&gt; MonitumAPI.Controllers.GestorController.RegistoGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request POST relativo ao Registo de Gestor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Email do gestor para registar</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor para registar, posteriomente, no DAL, fará a conversão para hash e salt</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a response obtida pelo DLL para o utilizador. Idealmente (caso o gestor tenha introduzido dados válidos para registo), retornará uma resposta de sucesso (gestor registado).</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumAPI/Controllers/GestorController.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumAPI/Controllers/GestorController.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -81,6 +81,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa78152d78a8dd3f21e2883b7efc68b8d"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#aa78152d78a8dd3f21e2883b7efc68b8d">GetGestores</a> (string conString)</td></tr>
 <tr class="memdesc:aa78152d78a8dd3f21e2883b7efc68b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa à obtenção de todos os Gestores presentes na base de dados Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para responder ao request do utilizador (GET - Gestor)  <a href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#aa78152d78a8dd3f21e2883b7efc68b8d">More...</a><br /></td></tr>
 <tr class="separator:aa78152d78a8dd3f21e2883b7efc68b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89dda1ac29449010e133277ef4432ca1"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#a89dda1ac29449010e133277ef4432ca1">LoginGestor</a> (string conString, string email, string password)</td></tr>
+<tr class="memdesc:a89dda1ac29449010e133277ef4432ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa ao Login do Gestor Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para resopnder ao request do utilizador (POST - Gestor (LoginGestor))  <a href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#a89dda1ac29449010e133277ef4432ca1">More...</a><br /></td></tr>
+<tr class="separator:a89dda1ac29449010e133277ef4432ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe631b4d0bb5139b41aa973af74483d"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#a1fe631b4d0bb5139b41aa973af74483d">RegisterGestor</a> (string conString, string email, string password)</td></tr>
+<tr class="memdesc:a1fe631b4d0bb5139b41aa973af74483d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trata da parte lógica relativa ao Registo do Gestor  <a href="class_monitum_b_l_l_1_1_logic_1_1_gestor_logic.html#a1fe631b4d0bb5139b41aa973af74483d">More...</a><br /></td></tr>
+<tr class="separator:a1fe631b4d0bb5139b41aa973af74483d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Esta classe implementa todas as funções que, por sua vez, implementam a parte lógica de cada request relativo aos gestores Nesta classe, abstraímo-nos de rotas, autorizações, links, etc. que dizem respeito à API Porém, a API consome esta classe no sentido em que esta é responsável por transformar objetos vindos do DAL em responses. Esta classe é a última a lidar com objetos (models) e visa abstrair a API dos mesmos Gera uma response com um status code e dados </p>
@@ -120,8 +126,114 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a89dda1ac29449010e133277ef4432ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89dda1ac29449010e133277ef4432ca1">&#9670;&nbsp;</a></span>LoginGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.GestorLogic.LoginGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa ao Login do Gestor Gera uma resposta que será utilizada pela <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a> para resopnder ao request do utilizador (POST - Gestor (LoginGestor)) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor que pretende fazer login (passado por parâmetro no <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a>, ao chamar esta função)</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor que pretende fazer login (passado por parâmetro no <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a>, ao chamar esta função)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code e mensagem (Status Code de sucesso, not found caso não exista um gestor na BD com estes dados ou erro interno)</dd></dl>
+
+</div>
+</div>
+<a id="a1fe631b4d0bb5139b41aa973af74483d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe631b4d0bb5139b41aa973af74483d">&#9670;&nbsp;</a></span>RegisterGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_l_l_1_1_utils_1_1_response.html">Response</a>&gt; MonitumBLL.Logic.GestorLogic.RegisterGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trata da parte lógica relativa ao Registo do Gestor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>Connection String da base de dados, que reside no appsettings.json do projeto <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a></td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor que pretende fazer registo (passado por parâmetro no <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a>, ao chamar esta função)</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor que pretende fazer registo (passado por parâmetro no <a class="el" href="namespace_monitum_a_p_i.html">MonitumAPI</a>, ao chamar esta função)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Response com Status Code e mensagem (Status Code de sucesso ou erro interno)</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumBLL/Logic/GestorLogic.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumBLL/Logic/GestorLogic.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

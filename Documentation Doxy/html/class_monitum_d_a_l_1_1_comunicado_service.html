@@ -81,9 +81,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aaa03c5186026ec63de346eba8fffdc3c"><td class="memItemLeft" align="right" valign="top">static async Task&lt; List&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_comunicado_service.html#aaa03c5186026ec63de346eba8fffdc3c">GetAllComunicados</a> (string conString)</td></tr>
 <tr class="memdesc:aaa03c5186026ec63de346eba8fffdc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter todos os registos de comunicados lá criados (tabela Comunicados)  <a href="class_monitum_d_a_l_1_1_comunicado_service.html#aaa03c5186026ec63de346eba8fffdc3c">More...</a><br /></td></tr>
 <tr class="separator:aaa03c5186026ec63de346eba8fffdc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ff61efa1a5b3ac00042df76913a86b"><td class="memItemLeft" align="right" valign="top"><a id="a94ff61efa1a5b3ac00042df76913a86b"></a>
+static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetComunicado</b> (string conString, int idComunicado)</td></tr>
+<tr class="separator:a94ff61efa1a5b3ac00042df76913a86b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cd0612eef76c198f460bf864315373b"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_comunicado_service.html#a3cd0612eef76c198f460bf864315373b">AddComunicado</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a> comunicadoToAdd)</td></tr>
 <tr class="memdesc:a3cd0612eef76c198f460bf864315373b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e adicionar um registo de um comunicado  <a href="class_monitum_d_a_l_1_1_comunicado_service.html#a3cd0612eef76c198f460bf864315373b">More...</a><br /></td></tr>
 <tr class="separator:a3cd0612eef76c198f460bf864315373b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb093494c644b5258e4bbc33a1724433"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_comunicado_service.html#adb093494c644b5258e4bbc33a1724433">UpdateComunicado</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a> comunicadoUpdated)</td></tr>
+<tr class="memdesc:adb093494c644b5258e4bbc33a1724433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e atualizar o registo de um comunicado (atualizar um comunicado relativo a uma sala)  <a href="class_monitum_d_a_l_1_1_comunicado_service.html#adb093494c644b5258e4bbc33a1724433">More...</a><br /></td></tr>
+<tr class="separator:adb093494c644b5258e4bbc33a1724433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a827fad47742705d2f217164041144693"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_comunicado_service.html#a827fad47742705d2f217164041144693">DeleteComunicado</a> (string conString, int idComunicado)</td></tr>
+<tr class="memdesc:a827fad47742705d2f217164041144693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e apagar um comunicado existente na mesma  <a href="class_monitum_d_a_l_1_1_comunicado_service.html#a827fad47742705d2f217164041144693">More...</a><br /></td></tr>
+<tr class="separator:a827fad47742705d2f217164041144693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class que visa implementar todos os métodos de Data Access Layer referentes aos Comunicados Isto é, todos os acessos à base de dados relativos aos comunicados estarão implementados em funções implementadas dentro desta classe </p>
@@ -133,6 +142,52 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a827fad47742705d2f217164041144693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a827fad47742705d2f217164041144693">&#9670;&nbsp;</a></span>DeleteComunicado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.ComunicadoService.DeleteComunicado </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idComunicado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e apagar um comunicado existente na mesma </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">idComunicado</td><td>ID do comunicado a apagar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True caso tudo tenha corrido bem (comunicado removido), algum erro caso o comunicado não tenha sido removido.</dd></dl>
+
+</div>
+</div>
 <a id="aaa03c5186026ec63de346eba8fffdc3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa03c5186026ec63de346eba8fffdc3c">&#9670;&nbsp;</a></span>GetAllComunicados()</h2>
 
@@ -168,8 +223,54 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="adb093494c644b5258e4bbc33a1724433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb093494c644b5258e4bbc33a1724433">&#9670;&nbsp;</a></span>UpdateComunicado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a>&gt; MonitumDAL.ComunicadoService.UpdateComunicado </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_comunicado.html">Comunicado</a>&#160;</td>
+          <td class="paramname"><em>comunicadoUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e atualizar o registo de um comunicado (atualizar um comunicado relativo a uma sala) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">comunicadoUpdated</td><td>Comunicado a atualizar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Comunicado atualizado ou erro</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumDAL/ComunicadoService.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumDAL/ComunicadoService.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

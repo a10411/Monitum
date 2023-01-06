@@ -87,6 +87,21 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abc4495657dab5d0d094cb85678f1462b"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_log___metrica.html">Log_Metrica</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#abc4495657dab5d0d094cb85678f1462b">GetLastMetricaBySala</a> (string conString, int idMetrica, int idSala)</td></tr>
 <tr class="memdesc:abc4495657dab5d0d094cb85678f1462b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter a última métrica relativa a uma sala (métrica "atual")  <a href="class_monitum_d_a_l_1_1_sala_service.html#abc4495657dab5d0d094cb85678f1462b">More...</a><br /></td></tr>
 <tr class="separator:abc4495657dab5d0d094cb85678f1462b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a00e9f44259cf3292362c5ade2d89b"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#a00a00e9f44259cf3292362c5ade2d89b">GetSala</a> (string conString, int idSala)</td></tr>
+<tr class="memdesc:a00a00e9f44259cf3292362c5ade2d89b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter uma sala com um determinado ID  <a href="class_monitum_d_a_l_1_1_sala_service.html#a00a00e9f44259cf3292362c5ade2d89b">More...</a><br /></td></tr>
+<tr class="separator:a00a00e9f44259cf3292362c5ade2d89b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae022f6832b962b642c9b7bffd60e7689"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#ae022f6832b962b642c9b7bffd60e7689">UpdateEstadoSala</a> (string conString, int idSala, int idEstado)</td></tr>
+<tr class="memdesc:ae022f6832b962b642c9b7bffd60e7689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e atualizar o estado de uma sala  <a href="class_monitum_d_a_l_1_1_sala_service.html#ae022f6832b962b642c9b7bffd60e7689">More...</a><br /></td></tr>
+<tr class="separator:ae022f6832b962b642c9b7bffd60e7689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeed2bf62f323042a987ea4d4e7100b11"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#aeed2bf62f323042a987ea4d4e7100b11">CheckSalaOpen</a> (string conString, int idSala)</td></tr>
+<tr class="memdesc:aeed2bf62f323042a987ea4d4e7100b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa chamar métodos já existentes (reutiliza métodos) e indica se uma sala está aberta ou fechada atualmente  <a href="class_monitum_d_a_l_1_1_sala_service.html#aeed2bf62f323042a987ea4d4e7100b11">More...</a><br /></td></tr>
+<tr class="separator:aeed2bf62f323042a987ea4d4e7100b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4843e10be87949cda55944605c173590"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#a4843e10be87949cda55944605c173590">PutSala</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaToUpdate)</td></tr>
+<tr class="memdesc:a4843e10be87949cda55944605c173590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e substituir um registo de uma sala (substituir uma sala relativa a um estabelecimento)  <a href="class_monitum_d_a_l_1_1_sala_service.html#a4843e10be87949cda55944605c173590">More...</a><br /></td></tr>
+<tr class="separator:a4843e10be87949cda55944605c173590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c11bb4d31ee4073e84cda8d84b8e5a1"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_sala_service.html#a5c11bb4d31ee4073e84cda8d84b8e5a1">UpdateSala</a> (string conString, <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a> salaUpdated)</td></tr>
+<tr class="memdesc:a5c11bb4d31ee4073e84cda8d84b8e5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e atualizar o registo de uma sala (atualizar uma sala relativa a um estabelecimento)  <a href="class_monitum_d_a_l_1_1_sala_service.html#a5c11bb4d31ee4073e84cda8d84b8e5a1">More...</a><br /></td></tr>
+<tr class="separator:a5c11bb4d31ee4073e84cda8d84b8e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class que visa implementar todos os métodos de Data Access Layer referentes à Sala Isto é, todos os acessos à base de dados relativos à sala estarão implementados em funções implementadas dentro desta classe </p>
@@ -133,6 +148,52 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True caso tenha adicionado ou retorna a exceção para a camada lógica caso tenha havido algum erro</dd></dl>
+
+</div>
+</div>
+<a id="aeed2bf62f323042a987ea4d4e7100b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed2bf62f323042a987ea4d4e7100b11">&#9670;&nbsp;</a></span>CheckSalaOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.SalaService.CheckSalaOpen </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa chamar métodos já existentes (reutiliza métodos) e indica se uma sala está aberta ou fechada atualmente </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">idSala</td><td>ID da sala que pretendemos obter esta informação</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se está aberta, false se está fechada</dd></dl>
 
 </div>
 </div>
@@ -189,6 +250,52 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a00a00e9f44259cf3292362c5ade2d89b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a00e9f44259cf3292362c5ade2d89b">&#9670;&nbsp;</a></span>GetSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&gt; MonitumDAL.SalaService.GetSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e obter uma sala com um determinado ID </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">idSala</td><td>ID da sala que pretendemos obter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sala pretendida, ou sala com id = 0 caso nenhuma tenha sido encontrada</dd></dl>
+
+</div>
+</div>
 <a id="a79085d61b9480b105c79fafbf9beedf2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79085d61b9480b105c79fafbf9beedf2">&#9670;&nbsp;</a></span>GetSalasByEstabelecimento()</h2>
 
@@ -235,8 +342,153 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4843e10be87949cda55944605c173590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4843e10be87949cda55944605c173590">&#9670;&nbsp;</a></span>PutSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&gt; MonitumDAL.SalaService.PutSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaToUpdate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e substituir um registo de uma sala (substituir uma sala relativa a um estabelecimento) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">salaToUpdate</td><td>Sala a substituir</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sala nova (substituida) ou erro</dd></dl>
+
+</div>
+</div>
+<a id="ae022f6832b962b642c9b7bffd60e7689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae022f6832b962b642c9b7bffd60e7689">&#9670;&nbsp;</a></span>UpdateEstadoSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&gt; MonitumDAL.SalaService.UpdateEstadoSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idSala</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idEstado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e atualizar o estado de uma sala </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">idSala</td><td>ID da sala que pretendemos atualizar</td></tr>
+    <tr><td class="paramname">idEstado</td><td>ID do estado para o qual queremos atualizar a sala</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sala atualizada</dd></dl>
+
+</div>
+</div>
+<a id="a5c11bb4d31ee4073e84cda8d84b8e5a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c11bb4d31ee4073e84cda8d84b8e5a1">&#9670;&nbsp;</a></span>UpdateSala()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&gt; MonitumDAL.SalaService.UpdateSala </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_monitum_b_o_l_1_1_models_1_1_sala.html">Sala</a>&#160;</td>
+          <td class="paramname"><em>salaUpdated</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e atualizar o registo de uma sala (atualizar uma sala relativa a um estabelecimento) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">salaUpdated</td><td>Sala a atualizar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sala atualizada ou erro</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumDAL/SalaService.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumDAL/SalaService.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

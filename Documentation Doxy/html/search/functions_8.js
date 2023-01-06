@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sala_123',['Sala',['../class_monitum_b_o_l_1_1_models_1_1_sala.html#a55eb96dd4c0ad0346c6672caef54e9e0',1,'MonitumBOL::Models::Sala']]]
+  ['metrica_276',['Metrica',['../class_monitum_b_o_l_1_1_models_1_1_metrica.html#a10267fc2c4b481b763f636db5cec29db',1,'MonitumBOL::Models::Metrica']]]
 ];

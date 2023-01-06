@@ -81,6 +81,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8909b931373c248aa03cb15b7c62ba2c"><td class="memItemLeft" align="right" valign="top">static async Task&lt; List&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_gestor.html">Gestor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_gestor_service.html#a8909b931373c248aa03cb15b7c62ba2c">GetAllGestores</a> (string conString)</td></tr>
 <tr class="memdesc:a8909b931373c248aa03cb15b7c62ba2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter todos os registos de gestores lá criados (tabela Gestor)  <a href="class_monitum_d_a_l_1_1_gestor_service.html#a8909b931373c248aa03cb15b7c62ba2c">More...</a><br /></td></tr>
 <tr class="separator:a8909b931373c248aa03cb15b7c62ba2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67da657619296b5efe064bc987bad9c2"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_gestor_service.html#a67da657619296b5efe064bc987bad9c2">LoginGestor</a> (string conString, string email, string password)</td></tr>
+<tr class="memdesc:a67da657619296b5efe064bc987bad9c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL via query e confirmar se os dados de email e password são válidos e pertencem a um gestor existente na BD (efetuar Login)  <a href="class_monitum_d_a_l_1_1_gestor_service.html#a67da657619296b5efe064bc987bad9c2">More...</a><br /></td></tr>
+<tr class="separator:a67da657619296b5efe064bc987bad9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338a206d1f72580a4780d6c89bead155"><td class="memItemLeft" align="right" valign="top">static async Task&lt; <a class="el" href="class_monitum_b_o_l_1_1_models_1_1_gestor.html">Gestor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_gestor_service.html#a338a206d1f72580a4780d6c89bead155">GetGestorByEmail</a> (string conString, string email)</td></tr>
+<tr class="memdesc:a338a206d1f72580a4780d6c89bead155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL Server via query e obter o registo de um gestor, caso exista, através do email (tabela Gestor)  <a href="class_monitum_d_a_l_1_1_gestor_service.html#a338a206d1f72580a4780d6c89bead155">More...</a><br /></td></tr>
+<tr class="separator:a338a206d1f72580a4780d6c89bead155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5febf7c2772efd799a15877a7563dbaa"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_gestor_service.html#a5febf7c2772efd799a15877a7563dbaa">RegisterGestor</a> (string conString, string email, string password)</td></tr>
+<tr class="memdesc:a5febf7c2772efd799a15877a7563dbaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados SQL via query e adicionar um novo gestor, encriptando a sua password (registo)  <a href="class_monitum_d_a_l_1_1_gestor_service.html#a5febf7c2772efd799a15877a7563dbaa">More...</a><br /></td></tr>
+<tr class="separator:a5febf7c2772efd799a15877a7563dbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3f607f9992b8d9859fbf721ddde231"><td class="memItemLeft" align="right" valign="top">static async Task&lt; Boolean &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monitum_d_a_l_1_1_gestor_service.html#aec3f607f9992b8d9859fbf721ddde231">SetGestorToEstabelecimento</a> (string conString, string email)</td></tr>
+<tr class="memdesc:aec3f607f9992b8d9859fbf721ddde231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que visa aceder à base de dados via SQL Query e adicionar um novo registo na tabela Estabelecimento_Gestor consoante o email de um Gestor (no único estabelecimento existente com ID 1)  <a href="class_monitum_d_a_l_1_1_gestor_service.html#aec3f607f9992b8d9859fbf721ddde231">More...</a><br /></td></tr>
+<tr class="separator:aec3f607f9992b8d9859fbf721ddde231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class que visa implementar todos os métodos de Data Access Layer referentes ao Gestor Isto é, todos os acessos à base de dados relativos ao gestor estarão implementados em funções implementadas dentro desta classe </p>
@@ -120,8 +132,206 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a338a206d1f72580a4780d6c89bead155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338a206d1f72580a4780d6c89bead155">&#9670;&nbsp;</a></span>GetGestorByEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;<a class="el" href="class_monitum_b_o_l_1_1_models_1_1_gestor.html">Gestor</a>&gt; MonitumDAL.GestorService.GetGestorByEmail </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL Server via query e obter o registo de um gestor, caso exista, através do email (tabela Gestor) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor que se pretende autenticar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a67da657619296b5efe064bc987bad9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67da657619296b5efe064bc987bad9c2">&#9670;&nbsp;</a></span>LoginGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.GestorService.LoginGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL via query e confirmar se os dados de email e password são válidos e pertencem a um gestor existente na BD (efetuar Login) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor que se pretende autenticar</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor que se pretende autenticar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True caso dados estejam corretos (autenticação realizada), false caso dados incorretos ou erro interno</dd></dl>
+
+</div>
+</div>
+<a id="a5febf7c2772efd799a15877a7563dbaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5febf7c2772efd799a15877a7563dbaa">&#9670;&nbsp;</a></span>RegisterGestor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.GestorService.RegisterGestor </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados SQL via query e adicionar um novo gestor, encriptando a sua password (registo) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor que se pretende registar</td></tr>
+    <tr><td class="paramname">password</td><td>Password do gestor que se pretende registar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True caso gestor tenha sido introduzido, erro interno caso tenha existido algum erro</dd></dl>
+
+</div>
+</div>
+<a id="aec3f607f9992b8d9859fbf721ddde231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec3f607f9992b8d9859fbf721ddde231">&#9670;&nbsp;</a></span>SetGestorToEstabelecimento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static async Task&lt;Boolean&gt; MonitumDAL.GestorService.SetGestorToEstabelecimento </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>conString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método que visa aceder à base de dados via SQL Query e adicionar um novo registo na tabela Estabelecimento_Gestor consoante o email de um Gestor (no único estabelecimento existente com ID 1) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conString</td><td>String de conexão à base de dados, presente no projeto "MonitumAPI", no ficheiro appsettings.json</td></tr>
+    <tr><td class="paramname">email</td><td>Email do gestor a adicionar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se adicionar, False se não adicionar</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/toxic/Documents/GitHub/Monitum/v2/MonitumAPI/MonitumDAL/GestorService.cs</li>
+<li>C:/Users/toxic/Documents/GitHub/Monitum/MonitumAPI_v2/MonitumAPI/MonitumDAL/GestorService.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
