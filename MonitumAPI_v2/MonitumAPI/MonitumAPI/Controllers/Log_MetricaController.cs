@@ -37,6 +37,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
         [HttpGet]
+        [Route("/GetAllLogMetrica/sala/{idSala}")]
         public async Task<IActionResult> GetAllLogMetricas(int idSala)
         {
             string CS = _configuration.GetConnectionString("WebApiDatabase");
