@@ -41,12 +41,12 @@ class SalaDetailActivity : AppCompatActivity() {
         val listViewMetricas = findViewById<ListView>(R.id.listViewInfoSalaDetail)
         listViewMetricas.adapter = adapter
 
-        metricas.add(Metrica(0, "Estado", null, if (estado == "Ativa") 1 else 0))
+        metricas.add(Metrica(0, "Estado", null, if (estado == "Aberta") 1 else 0))
         MetricaRequests.getAllMetricas(lifecycleScope){
-            metricas += it
-            for (metrica in metricas){
+            for (metrica in it){
                 metrica.valor = MetricaRequests.checkLastMetrica(idSala, metrica.idMetrica!!)
             }
+            metricas += it
             adapter.notifyDataSetChanged()
         }
 
@@ -95,10 +95,6 @@ class SalaDetailActivity : AppCompatActivity() {
                 }
 
             }
-
-
-
-
 
             return rootView
 
