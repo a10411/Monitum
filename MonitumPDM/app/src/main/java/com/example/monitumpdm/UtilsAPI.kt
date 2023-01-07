@@ -2,6 +2,6 @@ package com.example.monitumpdm
 
 class UtilsAPI {
     fun connectionNgRok(): String {
-        return "https://a8a2-2001-8a0-fe0e-4b00-74c6-6752-6360-52ae.eu.ngrok.io"
+        return "https://f68e-2001-8a0-fe0e-4b00-b5d6-6e4c-65a4-3c1c.eu.ngrok.io"
     }
 }
