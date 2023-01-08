@@ -9,10 +9,14 @@ void setup() {
 
 void loop() {
 
-  
-  if (analogRead(PINO_SENSOR) < 500){
-    Serial.println(analogRead(PINO_SENSOR)); // Le as informacoes obtidas do sensor
+  //Serial.println(analogRead(PINO_SENSOR)); // Le as informacoes obtidas do sensor
+  if (analogRead(PINO_SENSOR) < 900){
+    //Serial.println(analogRead(PINO_SENSOR)); // Le as informacoes obtidas do sensor
+    Serial.println("Algum ruido!");
     delay(500); // Tempo de atualizacao de informacoes
+  } else if (analogRead(PINO_SENSOR) < 700){
+    Serial.println("Muito ruido!");
+    delay(500);
   }
   
   
