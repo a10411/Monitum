@@ -68,7 +68,7 @@ namespace MonitumAPI.Controllers
         [SwaggerResponse(StatusCodes.Status403Forbidden, Description = "You do not have permissions to perform the operation.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, Description = "The requested resource was not found.")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, Description = "An unexpected API error has occurred.")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")] apenas para efeitos de teste!
         [HttpPost]
         [Route("/RegisterAdmin")]
         public async Task<IActionResult> RegistoAdministrador(string email, string password)
