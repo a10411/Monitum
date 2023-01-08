@@ -27,7 +27,16 @@ object GestorRequests {
                 .build()
 
             client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                if (!response.isSuccessful){
+                    if (response.code == 404){
+                        scope.launch(Dispatchers.Main) {
+                            callback("User not found")
+                        }
+                    }
+                } else {
+                    throw IOException("Unexpected code $response")
+                }
+
 
                 val statusCode = response.code
 
@@ -35,11 +44,10 @@ object GestorRequests {
                     val result = response.body!!.string()
 
                     val jsonObject = JSONObject(result)
-                    val JsonData = jsonObject.getJSONObject("data")
-                    val JsonValue = JsonData.getString("value")
+                    val JsonData = jsonObject.getString("data")
 
                     scope.launch(Dispatchers.Main){
-                        callback(JsonValue)
+                        callback(JsonData)
                     }
                 }
                 else {

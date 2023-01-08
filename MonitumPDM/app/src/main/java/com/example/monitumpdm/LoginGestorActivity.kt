@@ -1,7 +1,5 @@
 package com.example.monitumpdm
 
-import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,7 +8,7 @@ import android.widget.Toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
-class LoginGerenteActivity : AppCompatActivity() {
+class LoginGestorActivity : AppCompatActivity() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -18,7 +16,7 @@ class LoginGerenteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_gerente)
+        setContentView(R.layout.activity_login_gestor)
 
 
         emailEditText = findViewById<EditText>(R.id.editTextEmail)
