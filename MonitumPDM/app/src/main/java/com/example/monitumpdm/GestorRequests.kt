@@ -8,21 +8,21 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
-import UtilsAPI
+import okhttp3.OkHttpClient
 
 object GestorRequests {
-
-    fun loginFuncionario(scope: CoroutineScope, email : String?, pass: String?, callback: (String) -> Unit){
+    private val client = OkHttpClient()
+    fun loginGestor(scope: CoroutineScope, email : String?, password: String?, callback: (String) -> Unit){
         scope.launch(Dispatchers.IO) {
             val jsonBody = """
                 {
-                    "codigo": "$email",
-                    "password": "$pass"
+                    "email": "$email",
+                    "password": "$password"
                 }
             """
             val link = UtilsAPI().connectionNgRok()
             val request = Request.Builder()
-                .url("${link}/api/Gestor/login")
+                .url("${link}/LoginGestor")
                 .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
                 .build()
 
