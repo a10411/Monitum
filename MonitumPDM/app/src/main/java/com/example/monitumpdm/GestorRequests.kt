@@ -19,10 +19,10 @@ object GestorRequests {
                     "email": "$email",
                     "password": "$password"
                 }
-            """
+                """
             val link = UtilsAPI().connectionNgRok()
             val request = Request.Builder()
-                .url("${link}/LoginGestor")
+                .url("${link}/LoginGestor?email=${email}&password=${password}")
                 .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
                 .build()
 
@@ -42,10 +42,11 @@ object GestorRequests {
                         callback(JsonValue)
                     }
                 }
-                else
-                    scope.launch(Dispatchers.Main){
+                else {
+                    scope.launch(Dispatchers.Main) {
                         callback("User not found")
                     }
+                }
             }
         }
     }
