@@ -1,8 +1,9 @@
-#define TRIGGER_PIN_1 4  // Trigger pin for ultrasonic sensor 1
-#define ECHO_PIN_1 5     // Echo pin for ultrasonic sensor 1
-#define TRIGGER_PIN_2 2  // Trigger pin for ultrasonic sensor 2
-#define ECHO_PIN_2 3     // Echo pin for ultrasonic sensor 2
+#define TRIGGER_PIN_1 5  // Trigger pin for ultrasonic sensor 1
+#define ECHO_PIN_1 6     // Echo pin for ultrasonic sensor 1
+#define TRIGGER_PIN_2 3  // Trigger pin for ultrasonic sensor 2
+#define ECHO_PIN_2 4     // Echo pin for ultrasonic sensor 2
 #define THRESHOLD_DISTANCE 5 // Threshold distance for determining occupancy
+#define BUTTON_PIN 2 
 
 const int PINO_SENSOR_RUIDO = A0;
 
@@ -16,6 +17,8 @@ unsigned long sensor1Millis;
 unsigned long sensor2Millis;
 unsigned long apiMillis;
 
+
+
 void setup() {
   
   // Initialize the trigger and echo pins as output and input, respectively
@@ -23,16 +26,18 @@ void setup() {
   pinMode(ECHO_PIN_1, INPUT);
   pinMode(TRIGGER_PIN_2, OUTPUT);
   pinMode(ECHO_PIN_2, INPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
 
   pinMode(PINO_SENSOR_RUIDO, INPUT);
 
   // Inicializar comunicação serial
   Serial.begin(9600);
+
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), myISR, FALLING); // trigger when button pressed, but not when released.
 }
 
 void loop() {
   apiMillis = millis();
-
   // OCUPACAO
   
   // Continuously measure the distance from the sensors
@@ -46,21 +51,20 @@ void loop() {
   // Update the counter based on the distance measurements and sensor order
   if (distance1 < THRESHOLD_DISTANCE) {
     if (sensor2Triggered == true){
-      if (sensor2Millis >= millis() - 500 && count > 0 && sensor2Triggered == true){
+      if (sensor2Millis >= millis() - 1000 && count > 0 && sensor2Triggered == true){
         count--;
         Serial.println("Saiu");
         Serial.println(count);
       }
     } else {
       sensor1Triggered = true;
-
       sensor1Millis = millis();
     }
     sensor2Triggered = false;
   } 
   if (distance2 < THRESHOLD_DISTANCE){
     if (sensor1Triggered == true){
-      if (sensor1Millis >= millis() - 500 && sensor1Triggered == true){
+      if (sensor1Millis >= millis() - 1000 && sensor1Triggered == true){
         count++;
         Serial.println("Entrou");
         Serial.println(count);
@@ -75,11 +79,11 @@ void loop() {
   // SOM
 
   //Serial.println(analogRead(PINO_SENSOR_RUIDO)); // Le as informacoes obtidas do sensor
-  delay(100);
+  //delay(100);
   
   if (analogRead(PINO_SENSOR_RUIDO) < 900){
-    countRuido++;
     //Serial.println("Algum ruido!");
+    countRuido++;
   } else if (analogRead(PINO_SENSOR_RUIDO) < 700){
     //Serial.println("Muito ruido!");
     countRuido+=5;
@@ -87,10 +91,7 @@ void loop() {
 
   if (apiMillis/1000 >= 300 * apiRequestCounter){ // 300 = 5 minutos
     // API STUFF
-    Serial.println("API");
-    Serial.println(count);
-    Serial.println(countRuido);
-    apiRequestCounter++;
+    sendStuffToAPI();
   }
 
   // +50 algum ruido
@@ -120,3 +121,30 @@ int measureDistance(int triggerPin, int echoPin) {
 
   return distance;
 }
+
+
+void myISR() {
+  sendStuffToAPI();
+}
+
+void sendStuffToAPI(){
+  // API STUFF
+  Serial.println("Informacao enviada para a API (simulacao):");
+  Serial.print("Numero de pessoas na sala: ");
+  Serial.println(count);
+  Serial.print("Classificacao ruido na sala: ");
+  if (countRuido > 500){  
+    Serial.println("Muito Ruidosa");
+  }
+    
+  else if (countRuido > 200){
+    Serial.println("Ruidosa");
+  }
+  else {
+    Serial.println("Pouco ruidosa");
+  }
+    
+  apiRequestCounter++;
+  countRuido = 0;
+}
+
