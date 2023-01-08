@@ -15,6 +15,13 @@
         android:theme="@style/Theme.MonitumPDM"
         tools:targetApi="31">
         <activity
+            android:name=".HorarioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".GestorVerComunicadosActivity"
             android:exported="false">
             <meta-data

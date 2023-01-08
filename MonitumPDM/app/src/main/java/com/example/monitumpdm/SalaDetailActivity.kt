@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
@@ -51,6 +52,12 @@ class SalaDetailActivity : AppCompatActivity() {
         }
 
 
+        val buttonVerHorario: Button = findViewById(R.id.buttonVerHorarioSalaDetail)
+        buttonVerHorario.setOnClickListener{
+            val intent = Intent(this, HorarioActivity::class.java)
+            intent.putExtra("idSala", sala.idSala)
+            startActivity(intent)
+        }
     }
 
     inner class MetricasAdapter: BaseAdapter(){
