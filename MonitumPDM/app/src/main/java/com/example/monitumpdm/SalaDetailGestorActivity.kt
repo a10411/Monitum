@@ -56,6 +56,12 @@ class SalaDetailGestorActivity : AppCompatActivity() {
             intent.putExtra("idSala", sala.idSala)
             startActivity(intent)
         }
+
+        val buttonEditarSala: Button = findViewById(R.id.buttonEditarSala)
+        buttonEditarSala.setOnClickListener{
+            val intent = Intent(this, GestorEditarSalaActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     inner class MetricasAdapter: BaseAdapter(){

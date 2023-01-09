@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
@@ -67,6 +68,14 @@ class MenuPrincipalGestorActivity : AppCompatActivity() {
                 intent.putExtra("Estado", salas[pos].Estado)
                 startActivity(intent)
             }
+
+            val buttonAddSala: Button = findViewById<Button>(R.id.buttonAddSala)
+                buttonAddSala.setOnClickListener{
+                    val intent = Intent(this@MenuPrincipalGestorActivity, GestorAdicionarSalaActivity::class.java)
+                    startActivity(intent)
+                }
+
+
 
             return rootView
         }
