@@ -49,8 +49,7 @@ object GestorRequests {
                     scope.launch(Dispatchers.Main){
                         callback(JsonData)
                     }
-                }
-                else {
+                } else {
                     scope.launch(Dispatchers.Main) {
                         callback("User not found")
                     }

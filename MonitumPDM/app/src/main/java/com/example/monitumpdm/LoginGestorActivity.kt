@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -30,10 +31,11 @@ class LoginGestorActivity : AppCompatActivity() {
             val scope = CoroutineScope(Dispatchers.Main)
             GestorRequests.loginGestor(scope,email,password){result ->
                 if(result == "User not found"){
-                    Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java))
                 }else{
                     Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show()
-                    //startActivity(Intent(this, MenuPrincipalGestorActicity::class.java))
+                    //startActivity(Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java))
                 }
             }
         }
