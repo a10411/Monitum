@@ -20,7 +20,7 @@ class MenuPrincipalGestorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal_gestor)
 
-        val listViewSalas = findViewById<ListView>(R.id.listViewSalas)
+        val listViewSalas = findViewById<ListView>(R.id.listViewSalasGestor)
         listViewSalas.adapter = adapter
 
         SalaRequests.getAllSalas(lifecycleScope){
@@ -59,7 +59,7 @@ class MenuPrincipalGestorActivity : AppCompatActivity() {
             }
 
             rootView.setOnClickListener{
-                val intent = Intent(this@MenuPrincipalGestorActivity, SalaDetailActivity::class.java)
+                val intent = Intent(this@MenuPrincipalGestorActivity, SalaDetailGestorActivity::class.java)
                 intent.putExtra("idSala", salas[pos].idSala)
                 intent.putExtra("nome", salas[pos].nome)
                 intent.putExtra("idEstabelecimento", salas[pos].idEstabelecimento)

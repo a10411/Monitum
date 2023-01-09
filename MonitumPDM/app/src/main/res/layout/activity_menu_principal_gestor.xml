@@ -8,16 +8,16 @@
 
 
     <ListView
-        android:id="@+id/listViewSalas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/listViewSalasGestor"
+        android:layout_width="363dp"
+        android:layout_height="374dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="25dp"
         android:divider="#fff"
         android:dividerHeight="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewLogoMonitum" />
 
@@ -43,6 +43,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ipca_pt" />
 
+    <Button
+        android:id="@+id/buttonAddSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#EBEBEB"
+        android:text="Adicionar sala"
+        android:textAlignment="viewStart"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewSalasGestor" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

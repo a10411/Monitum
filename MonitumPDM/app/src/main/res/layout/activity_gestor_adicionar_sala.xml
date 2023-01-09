@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/EditTextAddSala"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="30dp"
+    android:padding="10dp"
+    tools:context=".GestorAdicionarSalaActivity">
+
+    <EditText
+        android:id="@+id/editTextNomeAddSala"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="132dp" />
+
+    <TextView
+        android:id="@+id/textViewNameAddSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNomeAddSala"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewEstadoAddSala"
+        android:layout_width="388dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEstadoAddSala"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textViewEstadoAddSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Estado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAddSala" />
+
+    <TextView
+        android:id="@+id/textViewHorarioAddSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Horário"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewEstadoAddSala" />
+
+    <ListView
+        android:id="@+id/listViewDiaSemanaAddSala"
+        android:layout_width="388dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="356dp" />
+
+    <Button
+        android:id="@+id/buttonAddHorarioAddSala"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#EBEBEB"
+        android:text="+ Adicionar Horário"
+        android:textColor="#373737"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewDiaSemanaAddSala" />
+
+    <ListView
+        android:id="@+id/listViewListaHorariosAddSala"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddHorarioAddSala" />
+
+    <Button
+        android:id="@+id/buttonCriarSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#EBEBEB"
+        android:text="Criar"
+        android:textColor="#373737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewListaHorariosAddSala" />
+
+    <Button
+        android:id="@+id/buttonCancelarSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#EBEBEB"
+        android:text="Cancelar"
+        android:textColor="#373737"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewListaHorariosAddSala" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

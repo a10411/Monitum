@@ -15,6 +15,27 @@
         android:theme="@style/Theme.MonitumPDM"
         tools:targetApi="31">
         <activity
+            android:name=".GestorEditarSalaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GestorAdicionarSalaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SalaDetailGestorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MenuPrincipalGestorActivity"
             android:exported="false">
             <meta-data

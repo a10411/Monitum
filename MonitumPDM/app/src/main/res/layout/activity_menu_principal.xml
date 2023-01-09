@@ -7,7 +7,7 @@
     tools:context=".MenuPrincipalActivity">
 
     <ListView
-        android:id="@+id/listViewSalas"
+        android:id="@+id/listViewSalasGestor"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="25dp"

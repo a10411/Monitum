@@ -20,7 +20,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
-        val listViewSalas = findViewById<ListView>(R.id.listViewSalas)
+        val listViewSalas = findViewById<ListView>(R.id.listViewSalasGestor)
         listViewSalas.adapter = adapter
 
         SalaRequests.getAllSalas(lifecycleScope){

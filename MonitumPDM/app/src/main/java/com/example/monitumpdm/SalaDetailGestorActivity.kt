@@ -11,8 +11,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 
-class SalaDetailActivity : AppCompatActivity() {
-
+class SalaDetailGestorActivity : AppCompatActivity() {
     var metricas = arrayListOf<Metrica>()
 
     val adapter = MetricasAdapter()
@@ -21,7 +20,7 @@ class SalaDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sala_detail)
+        setContentView(R.layout.activity_sala_detail_gestor)
 
         val idSala = intent.getIntExtra("idSala", 0)
         val nome = intent.getStringExtra("nome")
@@ -29,7 +28,7 @@ class SalaDetailActivity : AppCompatActivity() {
         val idEstado = intent.getIntExtra("idEstado", 0)
         val estado = intent.getStringExtra("Estado")
 
-        findViewById<TextView>(R.id.textViewNomeSalaSalaDetail).text = nome
+        findViewById<TextView>(R.id.textViewNomeSalaSalaDetailGestor).text = nome
 
 
         sala.idSala = idSala
@@ -51,7 +50,7 @@ class SalaDetailActivity : AppCompatActivity() {
         }
 
 
-        val buttonVerHorario: Button = findViewById(R.id.buttonVerHorarioSalaDetail)
+        val buttonVerHorario: Button = findViewById(R.id.buttonVerHorarioSalaDetailGestor)
         buttonVerHorario.setOnClickListener{
             val intent = Intent(this, HorarioActivity::class.java)
             intent.putExtra("idSala", sala.idSala)
