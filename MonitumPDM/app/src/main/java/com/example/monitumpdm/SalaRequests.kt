@@ -131,4 +131,36 @@ object SalaRequests {
 
     }
 
+    fun addSala(scope:CoroutineScope, sala: Sala, callback: (String) -> Unit){
+        scope.launch(Dispatchers.IO){
+            val link = UtilsAPI().connectionNgRok()
+            val jsonBody = """
+               {    
+                    "nome": "${sala.nome}",
+                    "idEstabelecimento": 1,
+                    "idEstado": "${sala.idEstado}"
+               } 
+            """
+            val request = Request.Builder().url("${link}/Sala")
+                .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                if(!response.isSuccessful){
+                    scope.launch(Dispatchers.Main){
+                        callback("Error adding sala")
+                    }
+                }
+                else if (response.code == 200){
+                    scope.launch(Dispatchers.Main){
+                        callback("Sucesso")
+                    }
+                }
+                else{
+                    throw IOException("Unexpected code $response")
+                }
+            }
+        }
+    }
+
 }

@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.lifecycle.lifecycleScope
 
 class MenuPrincipalGestorActivity : AppCompatActivity() {
@@ -72,7 +69,7 @@ class MenuPrincipalGestorActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            val buttonAddSala: Button = findViewById<Button>(R.id.buttonAddSala)
+            val buttonAddSala: Button = findViewById(R.id.buttonAddSala)
                 buttonAddSala.setOnClickListener{
                     val intent = Intent(this@MenuPrincipalGestorActivity, GestorAdicionarSalaActivity::class.java)
                     startActivity(intent)
