@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.lifecycle.lifecycleScope
+import org.json.JSONObject
 
 class GestorAdicionarSalaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,13 +51,23 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
                 sala.idEstado == 2
             }
 
-            SalaRequests.addSala(lifecycleScope, sala){result ->
-                if(result == "Error adding sala"){
+            SalaRequests.addSala(lifecycleScope, sala){response ->
+                if(response == "Error adding sala"){
                     Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
                 }else{
-                    Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
+                    //val result = response.body!!.toString()
 
-                    startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
+                    //val idSalaToAdd = JSONObject(result)
+                    //val id = idSalaToAdd.getInt("idSala")
+                    SalaRequests.addLogMetrica(lifecycleScope, sala.idSala){result->
+                        if (result == "Error adding log"){
+                            Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
+                        }else{
+                            Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
+                            startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
+                        }
+                    }
+
                 }
             }
         }
