@@ -22,8 +22,11 @@ class HorarioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_horario)
 
         val idSala = intent.getIntExtra("idSala", 0)
+        val nome = intent.getStringExtra("nome")
         val listViewHorarios = findViewById<ListView>(R.id.listViewHorario)
         listViewHorarios.adapter = adapter
+
+        findViewById<TextView>(R.id.textViewNomeSalaHorario).text = nome
 
         HorarioRequests.getHorarios(idSala,lifecycleScope){
             horarios = it
