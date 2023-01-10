@@ -55,6 +55,7 @@ class SalaDetailActivity : AppCompatActivity() {
         buttonVerHorario.setOnClickListener{
             val intent = Intent(this, HorarioActivity::class.java)
             intent.putExtra("idSala", sala.idSala)
+            intent.putExtra("nome", sala.nome)
             startActivity(intent)
         }
     }

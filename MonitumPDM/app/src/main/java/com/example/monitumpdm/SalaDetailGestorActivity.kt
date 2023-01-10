@@ -62,6 +62,10 @@ class SalaDetailGestorActivity : AppCompatActivity() {
         val buttonEditarSala: Button = findViewById(R.id.buttonEditarSala)
         buttonEditarSala.setOnClickListener{
             val intent = Intent(this, GestorEditarSalaActivity::class.java)
+            intent.putExtra("idSala", sala.idSala)
+            intent.putExtra("idEstabelecimento", sala.idEstabelecimento)
+            intent.putExtra("nome", sala.nome)
+            intent.putExtra("Estado", sala.idEstado)
             startActivity(intent)
         }
 

@@ -38,9 +38,27 @@ data class Horario(
             val outputEntrada = outputFormat.format(horaEntrada)
             val outputSaida = outputFormat.format(horaSaida)
 
+            var outputDia:String? = null
+
+            if (jsonObject.getString("diaSemana") == "seg"){
+                outputDia = "Segunda-feira"
+            }else if (jsonObject.getString("diaSemana") == "ter") {
+                outputDia = "Terça-feira"
+            }else if (jsonObject.getString("diaSemana") == "qua"){
+                outputDia = "Quarta-feira"
+            }else if (jsonObject.getString("diaSemana") == "qui"){
+                outputDia = "Quinta-feira"
+            }else if (jsonObject.getString("diaSemana") == "sex"){
+                outputDia = "Sexta-feira"
+            }else if (jsonObject.getString("diaSemana") == "sab"){
+                outputDia = "Sábado-feira"
+            }else if (jsonObject.getString("diaSemana") == "dom"){
+                outputDia = "Domingo-feira"
+            }
+
             return Horario(
                 jsonObject.getInt("idSala"),
-                jsonObject.getString("diaSemana"),
+                outputDia,
                 outputEntrada,
                 outputSaida
             )
