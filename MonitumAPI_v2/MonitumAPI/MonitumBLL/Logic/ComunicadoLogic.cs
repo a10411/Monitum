@@ -38,6 +38,19 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        public static async Task<Response> GetComunicadosByIdSala(string conString, int idSala)
+        {
+            Response response = new Response();
+            List<Comunicado> comunicadosList = await ComunicadoService.GetComunicadosByIdSala(conString, idSala);
+            if (comunicadosList.Count != 0)
+            {
+                response.StatusCode = StatusCodes.SUCCESS;
+                response.Message = "Sucesso na obtenção dos dados";
+                response.Data = comunicadosList;
+            }
+            return response;
+        }
+
         /// <summary>
         /// Trata da parte lógica relativa à criação de um comunicado na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (POST - Comunicado)

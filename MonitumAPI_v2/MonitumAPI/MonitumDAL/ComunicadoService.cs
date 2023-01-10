@@ -42,6 +42,30 @@ namespace MonitumDAL
             return comunicadosList;
         }
 
+        public static async Task<List<Comunicado>> GetComunicadosByIdSala(string conString, int idSala)
+        {
+            var comunicadosList = new List<Comunicado>();
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM Comunicado where id_sala = {idSala}", con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Comunicado comunicado = new Comunicado(rdr);
+                    comunicadosList.Add(comunicado);
+                }
+                rdr.Close();
+                con.Close();
+            }
+
+            return comunicadosList;
+        }
+
+
+
         public static async Task<Comunicado> GetComunicado(string conString, int idComunicado)
         {
             Comunicado comunicado = new Comunicado();

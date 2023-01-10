@@ -52,6 +52,19 @@ namespace MonitumAPI.Controllers
 
         }
 
+        [HttpGet]
+        [Route("/ComunicadosByIdSala/sala/{idSala}")]
+        public async Task<IActionResult> GetComunicadosByIdSala(int idSala)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await ComunicadoLogic.GetComunicadosByIdSala(CS, idSala);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
         /// <summary>
         /// Request POST relativo aos Comunicados
         /// Apenas um gestor consegue fazer este request com sucesso (Authorize)

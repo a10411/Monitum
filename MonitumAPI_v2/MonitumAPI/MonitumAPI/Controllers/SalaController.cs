@@ -73,6 +73,19 @@ namespace MonitumAPI.Controllers
             return new JsonResult(response);
         }
 
+        [HttpGet]
+        [Route("/GetSalaByIdSala/{idSala}")]
+        public async Task<IActionResult> GetSalaByIdSala(int idSala)
+        {
+            string CS = _configuration.GetConnectionString("WebApiDatabase");
+            Response response = await SalaLogic.GetSalaByIdSala(CS, idSala);
+            if (response.StatusCode != MonitumBLL.Utils.StatusCodes.SUCCESS)
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+            return new JsonResult(response);
+        }
+
         /// <summary>
         /// Request GET relativo à obtenção da última log de uma determinada métrica de uma sala
         /// Será útil para expor o ruído/ocupação "atual" na aplicação ("atual" dado que o objetivo é que o Arduino envie logs de 5 em 5 minutos, por isso, a última será a "atual")

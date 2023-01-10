@@ -49,6 +49,8 @@ class SalaDetailGestorActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+        val token = intent.getStringExtra("token")
+
 
         val buttonVerHorario: Button = findViewById(R.id.buttonVerHorarioSalaDetailGestor)
         buttonVerHorario.setOnClickListener{
@@ -60,6 +62,14 @@ class SalaDetailGestorActivity : AppCompatActivity() {
         val buttonEditarSala: Button = findViewById(R.id.buttonEditarSala)
         buttonEditarSala.setOnClickListener{
             val intent = Intent(this, GestorEditarSalaActivity::class.java)
+            startActivity(intent)
+        }
+
+        val buttonComunicados: Button = findViewById(R.id.buttonComunicados)
+        buttonComunicados.setOnClickListener{
+            val intent = Intent(this, GestorVerComunicadosActivity::class.java)
+            intent.putExtra("idSala", sala.idSala)
+            intent.putExtra("token", token)
             startActivity(intent)
         }
     }

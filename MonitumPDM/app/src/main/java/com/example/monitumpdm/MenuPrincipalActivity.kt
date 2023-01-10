@@ -28,6 +28,13 @@ class MenuPrincipalActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+        findViewById<Button>(R.id.buttonGestor).setOnClickListener{
+            val intent = Intent(this@MenuPrincipalActivity, LoginGestorActivity::class.java)
+
+            startActivity(intent)
+        }
+
+
 
     }
 
@@ -70,11 +77,6 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            findViewById<Button>(R.id.buttonGestor).setOnClickListener{
-                val intent = Intent(this@MenuPrincipalActivity, LoginGestorActivity::class.java)
-
-                startActivity(intent)
-            }
 
             return rootView
 

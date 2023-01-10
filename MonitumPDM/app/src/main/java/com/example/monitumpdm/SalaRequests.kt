@@ -67,6 +67,34 @@ object SalaRequests {
 
         }
     }
+
+
+    fun getSalaByIdSala(scope: CoroutineScope, idSala: Int, callback: (Sala)->Unit){
+        scope.launch(Dispatchers.IO){
+            val link = UtilsAPI().connectionNgRok()
+            val request = Request.Builder().url("${link}/GetSalaByIdSala/${idSala}").get().build()
+
+            client.newCall(request).execute().use{ response ->
+                if(!response.isSuccessful) throw IOException("Unexpected code $response")
+
+                val result = response.body!!.string()
+
+                val jsonObject = JSONObject(result)
+                if (jsonObject.getString("statusCode") == "200"){
+                    var sala = Sala()
+                    val salaJSONData = jsonObject.getJSONObject("data")
+                    sala.idSala = salaJSONData.getInt("idSala")
+                    sala.nome = salaJSONData.getString("nome")
+                    sala.idEstabelecimento = salaJSONData.getInt("idEstabelecimento")
+                    sala.idEstado = salaJSONData.getInt("idEstado")
+                    scope.launch(Dispatchers.Main){
+                        callback(sala)
+                    }
+                }
+
+            }
+        }
+    }
     
 
 }

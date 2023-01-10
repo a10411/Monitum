@@ -80,6 +80,32 @@ namespace MonitumDAL
             }
         }
 
+        public static async Task<Sala> GetSalaByIdSala(string conString, int idSala)
+        {
+            try
+            {
+                var sala = new Sala();
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    SqlCommand cmd = new SqlCommand($"SELECT * FROM Sala WHERE id_sala = {idSala}", con);
+                    cmd.CommandType = CommandType.Text;
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        sala = new Sala(rdr);
+                    }
+                    rdr.Close();
+                    con.Close();
+                }
+                return sala;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// Método que visa aceder à base de dados SQL Server via query e obter a última métrica relativa a uma sala (métrica "atual")
         /// </summary>

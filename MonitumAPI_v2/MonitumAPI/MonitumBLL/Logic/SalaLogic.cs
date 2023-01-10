@@ -65,6 +65,19 @@ namespace MonitumBLL.Logic
             return response;
         }
 
+        public static async Task<Response> GetSalaByIdSala(string conString, int idSala)
+        {
+            Response response = new Response();
+            Sala sala = await MonitumDAL.SalaService.GetSalaByIdSala(conString, idSala);
+            if (sala.IdSala != 0)
+            {
+                response.StatusCode = StatusCodes.SUCCESS;
+                response.Message = "Sucesso na obtenção dos dados";
+                response.Data = sala;
+            }
+            return response;
+        }
+
         /// <summary>
         /// Trata da parte lógica relativa à obtenção do último log de uma métrica de uma sala, dados estes que residem na base de dados
         /// Gera uma resposta que será utilizada pela MonitumAPI para responder ao request do utilizador (GET - Sala (GetLastMetricaBySala))

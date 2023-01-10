@@ -33,8 +33,10 @@ class LoginGestorActivity : AppCompatActivity() {
                 if(result == "User not found"){
                     Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
                 }else{
-                    //Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java))
+
+                    val intent = Intent(this, MenuPrincipalGestorActivity::class.java)
+                    intent.putExtra("token", result)
+                    startActivity(intent)
                 }
             } }
     }

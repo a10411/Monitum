@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import org.w3c.dom.Text
 
 class GestorVerComunicadosActivity : AppCompatActivity() {
     // SO ENTRA NESTA ACTIVITY CASO SEJA GESTOR!
@@ -25,12 +28,36 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
         val listViewComunicados = findViewById<ListView>(R.id.listViewComunicadosGestorVerComunicados)
         listViewComunicados.adapter = adapter
 
-        // request
-        comunicados.add(Comunicado(0, 0, "Sou um comunicado", "Corpo comunicado", null))
-        comunicados.add(Comunicado(0, 0, "Sou um comunicado", "Corpo comunicado", null))
-        comunicados.add(Comunicado(0, 0, "Sou um comunicado", "Corpo comunicado", null))
-        comunicados.add(Comunicado(0, 0, "Sou um comunicado", "Corpo comunicado", null))
-        adapter.notifyDataSetChanged()
+        val idSala = intent.getIntExtra("idSala", 0)
+        var nomeSala = ""
+        val token = intent.getStringExtra("token")
+
+        SalaRequests.getSalaByIdSala(lifecycleScope, idSala){
+            nomeSala = it.nome!!
+            for (comunicado in comunicados){
+                comunicado.nomeSala = nomeSala
+            }
+        }
+
+
+        ComunicadoRequests.getComunicadosByIdSala(lifecycleScope, idSala){
+            for (comunicado in it){
+                comunicado.nomeSala = nomeSala
+            }
+            var comunicadosUnsorted = it
+            comunicados = it
+            comunicados.sortByDescending { Comunicado -> Comunicado.dataHora }
+            adapter.notifyDataSetChanged()
+        }
+
+        findViewById<Button>(R.id.buttonAdicionarComunicado).setOnClickListener{
+            val intent = Intent(this@GestorVerComunicadosActivity, GestorAdicionarComunicadoActivity::class.java)
+            intent.putExtra("idSala", idSala)
+            intent.putExtra("token", token)
+            startActivity(intent)
+        }
+
+
     }
 
     inner class ComunicadosAdapter: BaseAdapter(){
@@ -50,13 +77,15 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
             val rootView = layoutInflater.inflate(R.layout.row_comunicado, parent, false)
 
             // textViews
-            //val textViewNomeSala = rootView.findViewById<TextView>(R.id.textViewNomeSala)
-            //val textViewEstadoSala = rootView.findViewById<TextView>(R.id.textViewEstadoSala)
+            val textViewSalaComunicado = rootView.findViewById<TextView>(R.id.textViewSalaComunicado)
+            val textViewDataComunicado = rootView.findViewById<TextView>(R.id.textViewDataComunicado)
+            val textViewTituloComunicado = rootView.findViewById<TextView>(R.id.textViewTituloComunicado)
+            val textViewCorpoComunicado = rootView.findViewById<TextView>(R.id.textViewCorpoComunicado)
 
-            //textViewNomeSala.text = salas[pos].nome
-            //textViewEstadoSala.text = salas[pos].Estado
-
-
+            textViewSalaComunicado.text = comunicados[pos].nomeSala // passar para nome
+            textViewDataComunicado.text = comunicados[pos].dataHora.toString()
+            textViewTituloComunicado.text = comunicados[pos].titulo
+            textViewCorpoComunicado.text = comunicados[pos].corpo
 
             return rootView
 
