@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,7 +31,6 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
 
         val idSala = intent.getIntExtra("idSala", 0)
         var nomeSala = ""
-        val token = intent.getStringExtra("token")
 
         SalaRequests.getSalaByIdSala(lifecycleScope, idSala){
             nomeSala = it.nome!!
@@ -44,7 +44,6 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
             for (comunicado in it){
                 comunicado.nomeSala = nomeSala
             }
-            var comunicadosUnsorted = it
             comunicados = it
             comunicados.sortByDescending { Comunicado -> Comunicado.dataHora }
             adapter.notifyDataSetChanged()
@@ -53,7 +52,6 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonAdicionarComunicado).setOnClickListener{
             val intent = Intent(this@GestorVerComunicadosActivity, GestorAdicionarComunicadoActivity::class.java)
             intent.putExtra("idSala", idSala)
-            intent.putExtra("token", token)
             startActivity(intent)
         }
 

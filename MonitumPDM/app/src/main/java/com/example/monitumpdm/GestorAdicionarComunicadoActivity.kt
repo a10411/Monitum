@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +14,8 @@ class GestorAdicionarComunicadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gestor_adicionar_comunicado)
 
-        val token = intent.getStringExtra("token")
+        val preferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val sessionToken = preferences.getString("session_token", null)
         val idSala = intent.getIntExtra("idSala", 0)
         findViewById<Button>(R.id.buttonCancelarComunicado).setOnClickListener{
             val intent = Intent(this@GestorAdicionarComunicadoActivity, GestorVerComunicadosActivity::class.java)
@@ -25,7 +27,7 @@ class GestorAdicionarComunicadoActivity : AppCompatActivity() {
             comunicado.idSala = idSala
             comunicado.titulo = findViewById<EditText>(R.id.editTextTituloComunicado).text.toString()
             comunicado.corpo = findViewById<EditText>(R.id.editTextCorpoComunicado).text.toString()
-            ComunicadoRequests.addComunicado(lifecycleScope, comunicado, token!!){ result ->
+            ComunicadoRequests.addComunicado(lifecycleScope, comunicado, sessionToken!!){ result ->
                 if(result == "Error adding comunicado"){
                     Toast.makeText(this,"Erro ao adicionar comunicado", Toast.LENGTH_LONG).show()
                 }else{

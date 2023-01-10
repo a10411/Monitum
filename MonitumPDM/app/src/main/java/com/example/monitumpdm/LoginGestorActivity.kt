@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,10 +38,13 @@ class LoginGestorActivity : AppCompatActivity() {
                     Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
                 }else{
                     //Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java)
+                    val preferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+                    val editor = preferences.edit()
+                    editor.putString("session_token", result)
+                    editor.apply()
 
-                    intent.putExtra("token", result)
-                    Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
+                    val intent = Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java)
+                    Toast.makeText(this, result, Toast.LENGTH_LONG).show()
                     startActivity(intent)
                 }
             } }

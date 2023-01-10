@@ -65,7 +65,6 @@ class MenuPrincipalGestorActivity : AppCompatActivity() {
                 intent.putExtra("idEstabelecimento", salas[pos].idEstabelecimento)
                 intent.putExtra("idEstado", salas[pos].idEstado)
                 intent.putExtra("Estado", salas[pos].Estado)
-                intent.putExtra("token", intent.getStringExtra("token"))
                 startActivity(intent)
             }
 
