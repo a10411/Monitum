@@ -162,10 +162,41 @@ object SalaRequests {
                     }
                 }
 
+        }
+
+    }
+
+    fun addLogMetrica (scope: CoroutineScope, idSala: Int?, callback: (String) -> Unit){
+        scope.launch(Dispatchers.IO) {
+            val link = UtilsAPI().connectionNgRok()
+            val jsonBody = """
+               {
+                    "idSala": "$idSala",
+                    "idMetrica": "1",
+                    "valorMetrica": "1",
+               } 
+            """
+            val request = Request.Builder().url("${link}/Log_Metrica")
+                .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
+                .build()
+
+            client.newCall(request).execute().use { response ->
+
+                if(!response.isSuccessful){
+                    scope.launch(Dispatchers.Main){
+                        callback("Error adding log")
+                    }
+                }
+                else if (response.code == 200){
+                    scope.launch(Dispatchers.Main){
+                        callback("Sucesso")
+                    }
+                }
+                else{
+                    throw IOException("Unexpected code $response")
+                }
             }
-
-
-
+        }
     }
 
 }
