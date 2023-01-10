@@ -33,14 +33,8 @@ object GestorRequests {
                             callback("User not found")
                         }
                     }
-                } else {
-                    throw IOException("Unexpected code $response")
                 }
-
-
-                val statusCode = response.code
-
-                if(statusCode == 200) {
+                else if (response.code == 200){
                     val result = response.body!!.string()
 
                     val jsonObject = JSONObject(result)
@@ -49,11 +43,13 @@ object GestorRequests {
                     scope.launch(Dispatchers.Main){
                         callback(JsonData)
                     }
-                } else {
-                    scope.launch(Dispatchers.Main) {
-                        callback("User not found")
-                    }
                 }
+                else {
+                    throw IOException("Unexpected code $response")
+                }
+
+
+
             }
         }
     }
