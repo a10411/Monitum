@@ -103,7 +103,6 @@ object SalaRequests {
         val link = UtilsAPI().connectionNgRok()
         val jsonBody = """
             {
-                "idSala": 0,
                 "nome": "${sala.nome}",
                 "idEstabelecimento": 0,
                 "idEstado": "${sala.Estado}"
@@ -145,22 +144,28 @@ object SalaRequests {
                 .post(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
                 .build()
 
-            client.newCall(request).execute().use { response ->
-                if(!response.isSuccessful){
-                    scope.launch(Dispatchers.Main){
-                        callback("Error adding sala")
+
+                client.newCall(request).execute().use { response ->
+
+                    if(!response.isSuccessful){
+                        scope.launch(Dispatchers.Main){
+                            callback("Error adding sala")
+                        }
+                    }
+                    else if (response.code == 200){
+                        scope.launch(Dispatchers.Main){
+                            callback("Sucesso")
+                        }
+                    }
+                    else{
+                        throw IOException("Unexpected code $response")
                     }
                 }
-                else if (response.code == 200){
-                    scope.launch(Dispatchers.Main){
-                        callback("Sucesso")
-                    }
-                }
-                else{
-                    throw IOException("Unexpected code $response")
-                }
+
             }
-        }
+
+
+
     }
 
 }

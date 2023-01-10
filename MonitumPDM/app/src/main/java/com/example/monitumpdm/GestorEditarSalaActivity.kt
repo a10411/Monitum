@@ -16,6 +16,6 @@ class GestorEditarSalaActivity : AppCompatActivity() {
         val nome = intent.getStringExtra("nome")
         val estado = intent.getIntExtra("Estado", 0)
 
-        
+
     }
 }
