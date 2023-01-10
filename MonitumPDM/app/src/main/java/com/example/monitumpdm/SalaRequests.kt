@@ -1,11 +1,14 @@
 package com.example.monitumpdm
 
 import android.util.Log
+import android.widget.Toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
 
@@ -67,6 +70,37 @@ object SalaRequests {
 
         }
     }
-    
+
+    fun editSala(sala: Sala): String{
+        val link = UtilsAPI().connectionNgRok()
+        val jsonBody = """
+            {
+                "idSala": 0,
+                "nome": "${sala.nome}",
+                "idEstabelecimento": 0,
+                "idEstado": "${sala.Estado}"
+            }
+        """
+
+        val request = Request.Builder()
+            .url("${link}/Sala")
+            .patch(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if(!response.isSuccessful) throw    IOException("Unexpected code $response")
+
+            val result = response.body!!.string()
+
+            val jsonObject = JSONObject(result)
+            if(jsonObject.getString("statusCode") == "200"){
+                return "Sala editada com sucesso"
+
+            }else{
+                return "Erro na edição"
+            }
+        }
+
+    }
 
 }

@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import org.json.JSONObject
 
 class LoginGestorActivity : AppCompatActivity() {
 
@@ -24,6 +25,8 @@ class LoginGestorActivity : AppCompatActivity() {
         passwordEditText = findViewById<EditText>(R.id.editTextPassword)
         loginButton = findViewById<Button>(R.id.buttonLogin)
 
+
+
         loginButton.setOnClickListener{
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -34,7 +37,11 @@ class LoginGestorActivity : AppCompatActivity() {
                     Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
                 }else{
                     //Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java))
+                    val intent = Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java)
+
+                    intent.putExtra("token", result)
+                    Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
+                    startActivity(intent)
                 }
             } }
     }
