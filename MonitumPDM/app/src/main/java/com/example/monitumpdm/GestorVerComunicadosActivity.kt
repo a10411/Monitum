@@ -85,6 +85,16 @@ class GestorVerComunicadosActivity : AppCompatActivity() {
             textViewTituloComunicado.text = comunicados[pos].titulo
             textViewCorpoComunicado.text = comunicados[pos].corpo
 
+            val buttonEdit = rootView.findViewById<Button>(R.id.buttonEditarComunicado)
+            buttonEdit.setOnClickListener{
+                val intent = Intent(this@GestorVerComunicadosActivity, GestorEditarComunicadoActivity::class.java)
+                // passar comunicado
+                intent.putExtra("idComunicado", comunicados[pos].idComunicado)
+                intent.putExtra("titulo", comunicados[pos].titulo)
+                intent.putExtra("corpo", comunicados[pos].corpo)
+                startActivity(intent)
+            }
+
             return rootView
 
         }

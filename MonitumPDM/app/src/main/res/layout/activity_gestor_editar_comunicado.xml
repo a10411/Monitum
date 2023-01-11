@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GestorEditarComunicadoActivity">
+
+    <EditText
+        android:id="@+id/editTextCorpoComunicadoEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="start|top"
+        android:hint="Corpo"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEditarComunicadoDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTituloComunicadoEdit" />
+
+    <Button
+        android:id="@+id/buttonEditarComunicadoDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#3C60FF"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Editar Comunicado"
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonApagarComunicado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCancelarEditComunicado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Cancelar"
+        android:textAlignment="viewStart"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonApagarComunicado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#F53333"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Apagar Comunicado"
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelarEditComunicado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTituloComunicadoEdit"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Título"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEditarComunicado" />
+
+    <TextView
+        android:id="@+id/textViewEditarComunicado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Editar\nComunicado"
+        android:textColor="#3C60FF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewLogoMonitumTopGestorVerComunicados4"
+        android:layout_width="72dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/monitumvert_72" />
+</androidx.constraintlayout.widget.ConstraintLayout>
