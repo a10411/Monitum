@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
+import kotlin.coroutines.coroutineContext
 
 class GestorEditarComunicadoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,9 @@ class GestorEditarComunicadoActivity : AppCompatActivity() {
         editTextTitulo.setText(comunicado.titulo)
         editTextCorpo.setText(comunicado.corpo)
 
+        val preferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val sessionToken = preferences.getString("session_token", null)
+
         findViewById<Button>(R.id.buttonCancelarEditComunicado).setOnClickListener{
             val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
             startActivity(intent)
@@ -33,8 +39,17 @@ class GestorEditarComunicadoActivity : AppCompatActivity() {
             builder.setMessage("Tem a certeza que quer apagar?")
                 .setCancelable(false)
                 .setPositiveButton("Sim") { dialog, id ->
-                    // Request apagar TODO
-
+                    ComunicadoRequests.deleteComunicado(lifecycleScope, comunicado.idComunicado!!,
+                        sessionToken!!
+                    ){ result ->
+                        if (result == "Sucesso"){
+                            Toast.makeText(this,"Comunicado apagado!", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
+                        }
+                        val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
                 .setNegativeButton("Não") { dialog, id ->
                     // Dismiss the dialog

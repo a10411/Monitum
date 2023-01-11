@@ -42,6 +42,31 @@ object ComunicadoRequests {
         }
     }
 
+    fun deleteComunicado(scope: CoroutineScope, idComunicado: Int, token: String,  callback: (String)->Unit){
+        scope.launch(Dispatchers.IO){
+            val link = UtilsAPI().connectionNgRok()
+            val request = Request.Builder().url("${link}/Comunicado?idComunicado=${idComunicado}")
+                .delete()
+                .addHeader("Authorization", " Bearer " + token)
+                .build()
+
+            client.newCall(request).execute().use{ response ->
+                if(!response.isSuccessful) throw IOException("Unexpected code $response")
+
+                else if (response.code == 200){
+
+                    scope.launch(Dispatchers.Main){
+                        callback("Sucesso")
+                    }
+                }
+                else {
+                    throw IOException("Unexpected code $response")
+                }
+
+            }
+        }
+    }
+
     fun addComunicado(scope: CoroutineScope, comunicado: Comunicado, token: String, callback: (String)->Unit){
         scope.launch(Dispatchers.IO){
             val link = UtilsAPI().connectionNgRok()
