@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MonitumBLL.Utils;
+using MonitumBOL.Models;
+using MonitumDAL;
 
 namespace MonitumBLL.Logic
 {
@@ -15,5 +18,22 @@ namespace MonitumBLL.Logic
     /// </summary>
     public class EstadoLogic
     {
+        
+
+
+        public static async Task <Response> GetAllEstados(string conString)
+        {
+            Response response= new Response();
+            List<Estado> estadosList = await EstadoService.GetAllEstados(conString);
+            if(estadosList.Count != 0) 
+            {
+                response.StatusCode = StatusCodes.SUCCESS;
+                response.Message = "Sucesso na obtenção dos dados";
+                response.Data = estadosList;
+            }
+            return response;
+        }
+
+
     }
 }
