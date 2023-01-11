@@ -67,6 +67,39 @@ object ComunicadoRequests {
         }
     }
 
+    fun updateComunicado(scope: CoroutineScope, comunicado: Comunicado, token: String, callback: (String)->Unit){
+        scope.launch(Dispatchers.IO){
+            val link = UtilsAPI().connectionNgRok()
+            val jsonBody = """
+                {
+                    "idComunicado": "${comunicado.idComunicado}",
+                    "titulo": "${comunicado.titulo}",
+                    "corpo": "${comunicado.corpo}"
+                }
+                """
+            val request = Request.Builder().url("${link}/Comunicado")
+                .patch(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
+                .addHeader("Authorization", " Bearer " + token)
+                .build()
+
+            client.newCall(request).execute().use{ response ->
+                if(!response.isSuccessful) throw IOException("Unexpected code $response")
+
+                else if (response.code == 200){
+
+                    scope.launch(Dispatchers.Main){
+                        callback("Sucesso")
+                    }
+                }
+                else {
+                    throw IOException("Unexpected code $response")
+                }
+
+            }
+        }
+    }
+
+
     fun addComunicado(scope: CoroutineScope, comunicado: Comunicado, token: String, callback: (String)->Unit){
         scope.launch(Dispatchers.IO){
             val link = UtilsAPI().connectionNgRok()

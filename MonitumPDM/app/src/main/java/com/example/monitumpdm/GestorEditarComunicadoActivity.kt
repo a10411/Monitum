@@ -59,15 +59,24 @@ class GestorEditarComunicadoActivity : AppCompatActivity() {
             alert.show()
         }
         findViewById<Button>(R.id.buttonEditarComunicadoDetail).setOnClickListener {
+            var comunicado2 = comunicado
+            comunicado2.titulo = editTextTitulo.text.toString()
+            comunicado2.corpo = editTextCorpo.text.toString()
             val builder = AlertDialog.Builder(this@GestorEditarComunicadoActivity)
             builder.setMessage("Tem a certeza que quer editar?")
                 .setCancelable(false)
                 .setPositiveButton("Sim") { dialog, id ->
-                    // Request editar TODO
-
-                    // voltar
-                    val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
-                    startActivity(intent)
+                    ComunicadoRequests.updateComunicado(lifecycleScope, comunicado2,
+                        sessionToken!!
+                    ){ result ->
+                        if (result == "Sucesso"){
+                            Toast.makeText(this,"Comunicado atualizado!", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
+                        }
+                        val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
                 .setNegativeButton("Não") { dialog, id ->
                     // Dismiss the dialog
