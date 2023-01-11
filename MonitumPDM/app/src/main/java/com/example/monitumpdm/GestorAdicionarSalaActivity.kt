@@ -16,6 +16,12 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gestor_adicionar_sala)
 
+        var estados = arrayListOf<Estado>()
+
+        EstadoRequests.getAllEstados(lifecycleScope){
+           estados = it
+        }
+
         val spinner: Spinner = findViewById(R.id.spinnerEstadoAdicionarSala)
 
         val adapter = ArrayAdapter.createFromResource(this,
@@ -40,15 +46,20 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
         findViewById<Button>(R.id.buttonCriarSala).setOnClickListener{
             val sala = Sala()
             sala.nome = findViewById<EditText>(R.id.editTextNomeEditarSala).text.toString()
             sala.Estado = findViewById<Spinner>(R.id.spinnerEstadoAdicionarSala).selectedItem.toString()
-            if (sala.Estado == "Ativa")
+
+            if (sala.Estado == estados[1].estado)
             {
-                sala.idEstado = 1
-            }else if(sala.Estado == "Inativa"){
-                sala.idEstado == 2
+                sala.idEstado = estados[1].idEstado
+
+            }else if(sala.Estado == estados[2].estado){
+
+                sala.idEstado == estados[2].idEstado
             }
 
             SalaRequests.addSala(lifecycleScope, sala){response ->
