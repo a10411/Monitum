@@ -1,13 +1,13 @@
 package com.example.monitumpdm
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import org.json.JSONObject
+
 
 class GestorAdicionarSalaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,22 +17,26 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_gestor_adicionar_sala)
 
         var estados = arrayListOf<Estado>()
+        var estadosNomes = arrayListOf<String>()
 
         EstadoRequests.getAllEstados(lifecycleScope){
-           estados = it
+            estados = it
+            for (estado in estados){
+                estadosNomes.add(estado.estado!!)
+            }
         }
 
         val spinner: Spinner = findViewById(R.id.spinnerEstadoAdicionarSala)
 
-        val adapter = ArrayAdapter.createFromResource(this,
-            R.array.estados_array, android.R.layout.simple_spinner_item)
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, estadosNomes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
         spinner.adapter = adapter
         
         spinner.onItemSelectedListener = object :
         AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val selectedItem = parent.getItemAtPosition(position)
+                val selectedItem = estadosNomes[position]
                 Log.d("Spinner", "Selected:$selectedItem")
             }
 
@@ -53,14 +57,12 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
             sala.nome = findViewById<EditText>(R.id.editTextNomeEditarSala).text.toString()
             sala.Estado = findViewById<Spinner>(R.id.spinnerEstadoAdicionarSala).selectedItem.toString()
 
-            if (sala.Estado == estados[1].estado)
-            {
-                sala.idEstado = estados[1].idEstado
-
-            }else if(sala.Estado == estados[2].estado){
-
-                sala.idEstado == estados[2].idEstado
+            for (estado in estados){
+                if (sala.Estado == estado.estado){
+                    sala.idEstado = estado.idEstado
+                }
             }
+
 
             SalaRequests.addSala(lifecycleScope, sala){response ->
                 if(response == "Error adding sala"){

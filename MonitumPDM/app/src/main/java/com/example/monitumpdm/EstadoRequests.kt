@@ -8,7 +8,7 @@ import okhttp3.Request
 import org.json.JSONObject
 import java.io.IOException
 
-object EstadoRequests {
+object  EstadoRequests {
     private val client = OkHttpClient()
     fun getAllEstados(scope:CoroutineScope, callback:(ArrayList<Estado>)->Unit){
         scope.launch(Dispatchers.IO){

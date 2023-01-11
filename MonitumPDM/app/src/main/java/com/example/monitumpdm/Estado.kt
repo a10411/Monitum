@@ -10,7 +10,7 @@ data class Estado (
     fun toJSON() : JSONObject{
         val jsonObj = JSONObject()
         jsonObj.put("idEstado", idEstado)
-        jsonObj.put("estado", estado)
+        jsonObj.put("nome_Estado", estado)
 
         return jsonObj
     }
@@ -20,7 +20,7 @@ data class Estado (
         fun fromJSON(jsonObject: JSONObject): Estado{
             return Estado(
                 jsonObject.getInt("idEstado"),
-                jsonObject.getString("estado")
+                jsonObject.getString("nome_Estado")
             )
         }
     }
