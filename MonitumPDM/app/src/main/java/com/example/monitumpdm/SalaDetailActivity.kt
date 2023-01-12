@@ -3,13 +3,13 @@ package com.example.monitumpdm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.lifecycle.lifecycleScope
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class SalaDetailActivity : AppCompatActivity() {
 
@@ -18,6 +18,8 @@ class SalaDetailActivity : AppCompatActivity() {
     val adapter = MetricasAdapter()
 
     val sala = Sala(null, null, null, null, null)
+
+    val comunicados = arrayListOf<Comunicado>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,18 @@ class SalaDetailActivity : AppCompatActivity() {
             }
             metricas += it
             adapter.notifyDataSetChanged()
+        }
+
+        ComunicadoRequests.getComunicadosByIdSala(lifecycleScope, sala.idSala!!){
+            for (comunicado in it){
+                var formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+                var date2 = comunicado.dataHora
+                var dttime = LocalDateTime.parse(date2, formatter2)
+                if (dttime >= LocalDateTime.now().minusDays(2)){
+                    Toast.makeText(this,comunicado.titulo + "\n" + comunicado.corpo, Toast.LENGTH_SHORT).show()
+                    Log.d("TAG", comunicado.titulo!!)
+                }
+            }
         }
 
 

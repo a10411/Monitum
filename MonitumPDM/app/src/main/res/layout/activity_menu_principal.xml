@@ -46,11 +46,15 @@
         android:id="@+id/buttonGestor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#3C60FF"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/inter_bold"
+        android:stateListAnimator="@null"
         android:text="Gestor"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
