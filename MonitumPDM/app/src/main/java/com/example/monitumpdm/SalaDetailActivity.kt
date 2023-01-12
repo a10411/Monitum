@@ -73,6 +73,22 @@ class SalaDetailActivity : AppCompatActivity() {
             intent.putExtra("nome", sala.nome)
             startActivity(intent)
         }
+
+        val buttonVerLembreteActivity: Button = findViewById(R.id.buttonVerLembretesDetailSala)
+        buttonVerLembreteActivity.setOnClickListener{
+            val intent = Intent(this, VerLembreteActivity::class.java)
+            intent.putExtra("idSala", sala.idSala)
+            intent.putExtra("nome", sala.nome)
+            startActivity(intent)
+        }
+
+        val buttonCriarLembreteActivity: Button = findViewById(R.id.buttonDefinirLembreteSalaDetail)
+        buttonCriarLembreteActivity.setOnClickListener{
+            val intent = Intent(this, CriarLembreteActivity::class.java)
+            intent.putExtra("idSala", sala.idSala)
+            intent.putExtra("nome", sala.nome)
+            startActivity(intent)
+        }
     }
 
     inner class MetricasAdapter: BaseAdapter(){
