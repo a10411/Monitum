@@ -69,29 +69,32 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
                     //Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
                 }else{
                     Toast(this).showCustomToast("Sala adicionada!", this)
+                    var salas2 = arrayListOf<Sala>()
+                    SalaRequests.getAllSalas(lifecycleScope){
+                        salas2 = it
+                        val lastSala = salas2.last().idSala!!
+                        SalaRequests.addLogMetrica(lifecycleScope ,lastSala, sessionToken){ response2->
+
+                            if(response2 == "Error adding sala"){
+                                Toast(this).showCustomToast("Erro ao adicionar log", this)
+                                //Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
+                            }else{
+                                Toast(this).showCustomToast("Log adicionada!", this)
+                                //Toast.makeText(this, "Log adicionada!", Toast.LENGTH_LONG).show()
+                                startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
+
+                            }
+                        }
+                    }
+
+
                     //Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
 
                 }
             }
 
-            var salas2 = arrayListOf<Sala>()
-            SalaRequests.getAllSalas(lifecycleScope){
-                salas2 = it
-                val lastSala = salas2.last().idSala!!
-                SalaRequests.addLogMetrica(lifecycleScope ,lastSala, sessionToken){ response->
 
-                    if(response == "Error adding sala"){
-                        Toast(this).showCustomToast("Erro ao adicionar log", this)
-                        //Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
-                    }else{
-                        Toast(this).showCustomToast("Log adicionada!", this)
-                        //Toast.makeText(this, "Log adicionada!", Toast.LENGTH_LONG).show()
-                        startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
-
-                    }
-                }
-            }
 
 
 
