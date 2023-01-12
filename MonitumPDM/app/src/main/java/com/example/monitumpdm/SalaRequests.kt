@@ -173,7 +173,7 @@ object SalaRequests {
                {
                     "idSala": "$idSala",
                     "idMetrica": 1,
-                    "valorMetrica": 0
+                    "valorMetrica": 0 
                } 
             """
             val request = Request.Builder().url("${link}/Log_Metrica")

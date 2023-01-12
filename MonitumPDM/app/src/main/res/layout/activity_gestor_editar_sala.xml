@@ -10,25 +10,19 @@
         android:id="@+id/editTextNomeEditarSala"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:hint="Nome"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameEditarSala" />
 
     <TextView
         android:id="@+id/textViewNameEditarSala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNomeEditarSala"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ListView
-        android:id="@+id/listViewEstadoEditarSala"
-        android:layout_width="388dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEstadoEditarSala"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="90dp" />
 
     <TextView
         android:id="@+id/textViewEstadoEditarSala"
@@ -43,30 +37,21 @@
         android:id="@+id/textViewHorarioEditarSala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Horário"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewEstadoEditarSala" />
-
-    <ListView
-        android:id="@+id/listViewDiaSemanaEditarSala"
-        android:layout_width="388dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="356dp" />
+        tools:layout_editor_absoluteY="309dp" />
 
     <Button
         android:id="@+id/buttonAddHorarioEditarSala"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:backgroundTint="#EBEBEB"
         android:text="+ Adicionar Horário"
         android:textColor="#373737"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewDiaSemanaEditarSala" />
+        tools:layout_editor_absoluteY="388dp" />
 
     <ListView
         android:id="@+id/listViewListaHorariosEditarSala"
@@ -83,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#EBEBEB"
-        android:text="Criar"
+        android:text="Confirmar"
         android:textColor="#373737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewListaHorariosEditarSala" />
@@ -98,5 +83,21 @@
         android:textColor="#373737"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewListaHorariosEditarSala" />
+
+    <Spinner
+        android:id="@+id/spinnerHorario"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHorarioEditarSala" />
+
+    <Spinner
+        android:id="@+id/spinnerEstado"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEstadoEditarSala" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
