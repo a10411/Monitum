@@ -1,5 +1,6 @@
 package com.example.monitumpdm
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,8 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
 
         var estados = arrayListOf<Estado>()
         var estadosNomes = arrayListOf<String>()
+        val preferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
+        val sessionToken = preferences.getString("session_token", null)
 
         EstadoRequests.getAllEstados(lifecycleScope){
             estados = it
@@ -64,12 +67,32 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
                 if(response == "Error adding sala"){
                     Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
                 }else{
-                    
+
                     Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
 
                 }
             }
+
+            var salas2 = arrayListOf<Sala>()
+            SalaRequests.getAllSalas(lifecycleScope){
+                salas2 = it
+                val lastSala = salas2.last().idSala!!
+                SalaRequests.addLogMetrica(lifecycleScope ,lastSala, sessionToken){ response->
+
+                    if(response == "Error adding sala"){
+                        Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
+                    }else{
+
+                        Toast.makeText(this, "Log adicionada!", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
+
+                    }
+                }
+            }
+
+
+
         }
     }
 }
