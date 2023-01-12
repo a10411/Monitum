@@ -17,6 +17,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class VerLembreteActivity : AppCompatActivity() {
+
+
     val lembretesType = object : TypeToken<ArrayList<Lembrete>>() {}.type
     var lembretes = ArrayList<Lembrete>()
     val adapter = LembreteAdapter()
@@ -28,11 +30,18 @@ class VerLembreteActivity : AppCompatActivity() {
         val idSala = intent.getIntExtra("idSala", 0)
         val nome = intent.getStringExtra("nome")
 
+
+
         val sharedPref = getSharedPreferences("lembrete", Context.MODE_PRIVATE)
         val gson = Gson()
         val json = sharedPref.getString("array_list", null)
         if (json != null) {
             lembretes = gson.fromJson(json, lembretesType)
+            //for (lembrete in lembretes){
+            //    if (lembrete.idSala != idSala){
+            //        lembretes.remove(lembrete)
+            //    }
+            //}
         }
 
         findViewById<TextView>(R.id.textViewNomeSalaVerLembrete).text = nome

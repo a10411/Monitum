@@ -9,13 +9,18 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 
 class CriarLembreteActivity : AppCompatActivity() {
 
+
+
     val lembrete = Lembrete(null, null, null)
 
-    var lembreteList = arrayListOf<Lembrete>()
+
+    var lembreteList = ArrayList<Lembrete>()
+    val lembreteListType = object : TypeToken<ArrayList<Lembrete>>() {}.type
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +42,14 @@ class CriarLembreteActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textViewNomeSalaCriarLembrete).text = nome
 
         val editTextValor = findViewById<EditText>(R.id.editTextValorMetricaCriarLembrete)
+
+        val sharedPref = getSharedPreferences("lembrete", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = sharedPref.getString("array_list", null)
+        if (json != null) {
+            lembreteList = gson.fromJson(json, lembreteListType) // todos! de todas as salas
+        }
+
 
         editTextValor.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -78,10 +91,18 @@ class CriarLembreteActivity : AppCompatActivity() {
             val sharedPref = getSharedPreferences("lembrete",Context.MODE_PRIVATE)
             val editor = sharedPref.edit()
             val gson = Gson()
+            //lembreteList.add(Lembrete(idSala, lembrete.nomeMetrica,lembrete.maiorMenor,lembrete.valorNecessario))
             lembreteList.add(Lembrete(lembrete.nomeMetrica,lembrete.maiorMenor,lembrete.valorNecessario))
             val json = gson.toJson(lembreteList)
             editor.putString("array_list", json)
+            // editor.remove("array_list") // APENAS USAR PARA APAGAR TODOS
             editor.apply()
+            Toast(this).showCustomToast("Lembrete criado!", this)
+            val intent = Intent(this@CriarLembreteActivity, VerLembreteActivity::class.java)
+            intent.putExtra("idSala", idSala)
+            intent.putExtra("nome", nome)
+            startActivity(intent)
+
         }
 
         val buttonCancelarDefinirLembreteActivity: Button = findViewById(R.id.buttonCancelarDefinirLembrete)

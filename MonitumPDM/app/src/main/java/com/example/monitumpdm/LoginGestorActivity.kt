@@ -45,7 +45,7 @@ class LoginGestorActivity : AppCompatActivity() {
                     editor.apply()
 
                     val intent = Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java)
-                    Toast.makeText(this, result, Toast.LENGTH_LONG).show() // Comentar
+                    // Toast.makeText(this, result, Toast.LENGTH_LONG).show() // Comentar
                     startActivity(intent)
                 }
             } }
