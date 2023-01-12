@@ -19,24 +19,35 @@ object ComunicadoRequests {
             val request = Request.Builder().url("${link}/ComunicadosByIdSala/sala/${idSala}").get().build()
 
             client.newCall(request).execute().use{ response ->
-                if(!response.isSuccessful) throw IOException("Unexpected code $response")
+                if (response.code == 200){
+                    val result = response.body!!.string()
 
-                val result = response.body!!.string()
+                    val jsonObject = JSONObject(result)
+                    if (jsonObject.getString("statusCode") == "200"){
+                        var comunicados = arrayListOf<Comunicado>()
+                        val comunicadoJSONData = jsonObject.getJSONArray("data")
+                        for (i in 0 until comunicadoJSONData.length()){
+                            val item = comunicadoJSONData.getJSONObject(i)
+                            val comunicado = Comunicado.fromJSON(item)
+                            comunicados.add(comunicado)
+                        }
+                        scope.launch(Dispatchers.Main){
+                            callback(comunicados)
+                        }
 
-                val jsonObject = JSONObject(result)
-                if (jsonObject.getString("statusCode") == "200"){
-                    var comunicados = arrayListOf<Comunicado>()
-                    val comunicadoJSONData = jsonObject.getJSONArray("data")
-                    for (i in 0 until comunicadoJSONData.length()){
-                        val item = comunicadoJSONData.getJSONObject(i)
-                        val comunicado = Comunicado.fromJSON(item)
-                        comunicados.add(comunicado)
                     }
+                }
+                else if (response.code == 204){
+                    var comunicados = arrayListOf<Comunicado>()
                     scope.launch(Dispatchers.Main){
                         callback(comunicados)
                     }
-
+                } else {
+                    throw IOException("Unexpected code $response")
                 }
+
+
+
 
             }
         }
