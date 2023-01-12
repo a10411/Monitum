@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerLembreteActivity">
+
+    <Button
+        android:id="@+id/buttonDefinirLembreteVerLembrete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Definir Lembrete"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewVerLembrete" />
+
+    <Button
+        android:id="@+id/buttonVerHorarioVerLembrete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:backgroundTint="#EBEBEB"
+        android:fontFamily="@font/inter_semibold"
+        android:stateListAnimator="@null"
+        android:text="Ver Horário"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#373737"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDefinirLembreteVerLembrete" />
+
+    <ImageView
+        android:id="@+id/imageViewLogoMonitumTopGestorVerLembrete"
+        android:layout_width="72dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/monitumvert_72" />
+
+    <TextView
+        android:id="@+id/textViewNomeSalaVerLembrete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="TextView"
+        android:textColor="#3C60FF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewVerLembrete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoMonitumTopGestorVerLembrete" />
+</androidx.constraintlayout.widget.ConstraintLayout>
