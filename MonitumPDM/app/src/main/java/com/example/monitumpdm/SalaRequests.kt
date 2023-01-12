@@ -99,9 +99,10 @@ object SalaRequests {
         }
     }
     
-    fun editSala(sala: Sala): String{
-        val link = UtilsAPI().connectionNgRok()
-        val jsonBody = """
+    fun editSala(scope: CoroutineScope, sala: Sala, token: String, callback: (String) -> Unit){
+        scope.launch(Dispatchers.IO){
+            val link = UtilsAPI().connectionNgRok()
+            val jsonBody = """
             {
                 "nome": "${sala.nome}",
                 "idEstabelecimento": 0,
@@ -109,23 +110,24 @@ object SalaRequests {
             }
         """
 
-        val request = Request.Builder()
-            .url("${link}/Sala")
-            .patch(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
-            .build()
+            val request = Request.Builder()
+                .url("${link}/Sala")
+                .patch(jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType()))
+                .addHeader("Authorization", " Bearer " + token)
+                .build()
+            client.newCall(request).execute().use{response ->
+                if(!response.isSuccessful) throw IOException("Unexpected code $response")
 
-        client.newCall(request).execute().use { response ->
-            if(!response.isSuccessful) throw    IOException("Unexpected code $response")
-
-            val result = response.body!!.string()
-
-            val jsonObject = JSONObject(result)
-            if(jsonObject.getString("statusCode") == "200"){
-                return "Sala editada com sucesso"
-
-            }else{
-                return "Erro na edição"
+                else if (response.code ==200){
+                    scope.launch(Dispatchers.Main){
+                        callback("Sucesso")
+                    }
+                }
+                else {
+                    throw IOException("Unexpected code $response")
+                }
             }
+
         }
 
     }

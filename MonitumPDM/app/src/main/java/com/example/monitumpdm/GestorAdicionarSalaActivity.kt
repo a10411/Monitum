@@ -51,7 +51,7 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
 
 
 
-        findViewById<Button>(R.id.buttonCriarSala).setOnClickListener{
+        findViewById<Button>(R.id.buttonConfirmarAdicionarSala).setOnClickListener{
             val sala = Sala()
             sala.nome = findViewById<EditText>(R.id.editTextNomeEditarSala).text.toString()
             sala.Estado = findViewById<Spinner>(R.id.spinnerEstadoAdicionarSala).selectedItem.toString()
