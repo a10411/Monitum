@@ -24,24 +24,20 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
             for (estado in estados){
                 estadosNomes.add(estado.estado!!)
             }
-        }
+            val spinner: Spinner = findViewById(R.id.spinnerEstadoAdicionarSala)
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, estadosNomes)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
+            spinner.adapter = adapter
 
-        val spinner: Spinner = findViewById(R.id.spinnerEstadoAdicionarSala)
 
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                    val selectedItem = estadosNomes[position]
+                    Log.d("Spinner", "Selected:$selectedItem")
+                }
+                override fun onNothingSelected(position: AdapterView<*>?) {
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, estadosNomes)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
-        spinner.adapter = adapter
-        
-        spinner.onItemSelectedListener = object :
-        AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val selectedItem = estadosNomes[position]
-                Log.d("Spinner", "Selected:$selectedItem")
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
+                }
             }
         }
 
@@ -68,18 +64,9 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
                 if(response == "Error adding sala"){
                     Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
                 }else{
-                    //val result = response.body!!.toString()
-
-                    //val idSalaToAdd = JSONObject(result)
-                    //val id = idSalaToAdd.getInt("idSala")
-                    SalaRequests.addLogMetrica(lifecycleScope, sala.idSala){result->
-                        if (result == "Error adding log"){
-                            Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
-                        }else{
-                            Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
-                            startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
-                        }
-                    }
+                    
+                    Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
 
                 }
             }
