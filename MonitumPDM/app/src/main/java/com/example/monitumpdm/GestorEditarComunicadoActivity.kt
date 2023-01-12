@@ -43,9 +43,11 @@ class GestorEditarComunicadoActivity : AppCompatActivity() {
                         sessionToken!!
                     ){ result ->
                         if (result == "Sucesso"){
-                            Toast.makeText(this,"Comunicado apagado!", Toast.LENGTH_LONG).show()
+                            Toast(this).showCustomToast("Comunicado apagado!", this)
+                            //Toast.makeText(this,"Comunicado apagado!", Toast.LENGTH_LONG).show()
                         } else {
-                            Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
+                            Toast(this).showCustomToast("Erro ao apagar comunicado", this)
+                            //Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
                         }
                         val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
                         startActivity(intent)
@@ -70,9 +72,11 @@ class GestorEditarComunicadoActivity : AppCompatActivity() {
                         sessionToken!!
                     ){ result ->
                         if (result == "Sucesso"){
-                            Toast.makeText(this,"Comunicado atualizado!", Toast.LENGTH_LONG).show()
+                            Toast(this).showCustomToast("Comunicado atualizado!", this)
+                            //Toast.makeText(this,"Comunicado atualizado!", Toast.LENGTH_LONG).show()
                         } else {
-                            Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
+                            Toast(this).showCustomToast("Erro ao atualizar comunicado", this)
+                            //Toast.makeText(this,"Erro!", Toast.LENGTH_LONG).show()
                         }
                         val intent = Intent(this@GestorEditarComunicadoActivity, GestorVerComunicadosActivity::class.java)
                         startActivity(intent)

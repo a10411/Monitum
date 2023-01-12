@@ -65,10 +65,11 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
 
             SalaRequests.addSala(lifecycleScope, sala){response ->
                 if(response == "Error adding sala"){
-                    Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
+                    Toast(this).showCustomToast("Erro ao adicionar sala", this)
+                    //Toast.makeText(this, "Erro ao adicionar sala", Toast.LENGTH_LONG).show()
                 }else{
-
-                    Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
+                    Toast(this).showCustomToast("Sala adicionada!", this)
+                    //Toast.makeText(this, "Sala adicionada!", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
 
                 }
@@ -81,10 +82,11 @@ class GestorAdicionarSalaActivity : AppCompatActivity() {
                 SalaRequests.addLogMetrica(lifecycleScope ,lastSala, sessionToken){ response->
 
                     if(response == "Error adding sala"){
-                        Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
+                        Toast(this).showCustomToast("Erro ao adicionar log", this)
+                        //Toast.makeText(this, "Erro ao adicionar log", Toast.LENGTH_LONG).show()
                     }else{
-
-                        Toast.makeText(this, "Log adicionada!", Toast.LENGTH_LONG).show()
+                        Toast(this).showCustomToast("Log adicionada!", this)
+                        //Toast.makeText(this, "Log adicionada!", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this@GestorAdicionarSalaActivity, MenuPrincipalGestorActivity::class.java))
 
                     }

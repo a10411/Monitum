@@ -35,7 +35,8 @@ class LoginGestorActivity : AppCompatActivity() {
             val scope = CoroutineScope(Dispatchers.Main)
             GestorRequests.loginGestor(scope,email,password){result ->
                 if(result == "User not found"){
-                    Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
+                    Toast(this).showCustomToast("Credenciais erradas!", this)
+                    //Toast.makeText(this,"User not found", Toast.LENGTH_LONG).show()
                 }else{
                     //Toast.makeText(this, "Success!!", Toast.LENGTH_LONG).show()
                     val preferences = getSharedPreferences("my_preferences", Context.MODE_PRIVATE)
@@ -44,7 +45,7 @@ class LoginGestorActivity : AppCompatActivity() {
                     editor.apply()
 
                     val intent = Intent(this@LoginGestorActivity, MenuPrincipalGestorActivity::class.java)
-                    Toast.makeText(this, result, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, result, Toast.LENGTH_LONG).show() // Comentar
                     startActivity(intent)
                 }
             } }

@@ -58,8 +58,9 @@ class SalaDetailActivity : AppCompatActivity() {
                 var date2 = comunicado.dataHora
                 var dttime = LocalDateTime.parse(date2, formatter2)
                 if (dttime >= LocalDateTime.now().minusDays(2)){
-                    Toast.makeText(this,comunicado.titulo + "\n" + comunicado.corpo, Toast.LENGTH_SHORT).show()
-                    Log.d("TAG", comunicado.titulo!!)
+                    Toast(this).showCustomToast("Título: ${comunicado.titulo}\nCorpo: ${comunicado.corpo}", this)
+                    //Toast.makeText(this,comunicado.titulo + "\n" + comunicado.corpo, Toast.LENGTH_SHORT).show()
+                    //Log.d("TAG", comunicado.titulo!!)
                 }
             }
         }

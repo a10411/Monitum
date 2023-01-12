@@ -29,9 +29,11 @@ class GestorAdicionarComunicadoActivity : AppCompatActivity() {
             comunicado.corpo = findViewById<EditText>(R.id.editTextCorpoComunicado).text.toString()
             ComunicadoRequests.addComunicado(lifecycleScope, comunicado, sessionToken!!){ result ->
                 if(result == "Error adding comunicado"){
-                    Toast.makeText(this,"Erro ao adicionar comunicado", Toast.LENGTH_LONG).show()
+                    Toast(this).showCustomToast("Erro ao adicionar comunicado", this)
+                    //Toast.makeText(this,"Erro ao adicionar comunicado", Toast.LENGTH_LONG).show()
                 }else{
-                    Toast.makeText(this, "Comunicado adicionado!", Toast.LENGTH_LONG).show()
+                    Toast(this).showCustomToast("Comunicado adicionado!", this)
+                    //Toast.makeText(this, "Comunicado adicionado!", Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@GestorAdicionarComunicadoActivity, GestorVerComunicadosActivity::class.java))
                 }
 
